@@ -1,0 +1,29 @@
+{
+  "hybrid": {
+    "avg_mrr": 0.017857142857142856,
+    "avg_ndcg@5": 0.0,
+    "avg_ndcg@10": 0.041666666666666664,
+    "avg_precision@5": 0.0,
+    "avg_precision@10": 0.0125,
+    "avg_search_time_ms": 3808.5925579071045,
+    "num_queries": 8
+  },
+  "dense": {
+    "avg_mrr": 0.017857142857142856,
+    "avg_ndcg@5": 0.0,
+    "avg_ndcg@10": 0.041666666666666664,
+    "avg_precision@5": 0.0,
+    "avg_precision@10": 0.0125,
+    "avg_search_time_ms": 814.9217367172241,
+    "num_queries": 8
+  },
+  "sparse": {
+    "avg_mrr": 0.0,
+    "avg_ndcg@5": 0.0,
+    "avg_ndcg@10": 0.0,
+    "avg_precision@5": 0.0,
+    "avg_precision@10": 0.0,
+    "avg_search_time_ms": 1523.8526165485382,
+    "num_queries": 8
+  }
+}

@@ -1,0 +1,152 @@
+[
+  {
+    "arxiv_id": "2501.19215v3",
+    "title": "Strassen Attention, Split VC Dimension and Compositionality in Transformers",
+    "abstract": "We propose the first method to show theoretical limitations for one-layer softmax transformers with arbitrarily many precision bits (even infinite). We establish those limitations for three tasks that require advanced reasoning. The first task, Match 3 (Sanford et al., 2023), requires looking at all possible token triplets in an input sequence. The second and third tasks address compositionality-based reasoning: function composition (Peng et al., 2024) and binary relations composition, respectiv...",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-31",
+    "is_llm_relevant": true,
+    "relevance_reason": "LLM의 핵심 구조인 트랜스포머 아키텍처의 이론적 한계를 분석하고 새로운 어텐션 메커니즘을 제안하여 추론 능력을 개선하는 연구이기 때문입니다."
+  },
+  {
+    "arxiv_id": "2501.17805v1",
+    "title": "International AI Safety Report",
+    "abstract": "The first International AI Safety Report comprehensively synthesizes the current evidence on the capabilities, risks, and safety of advanced AI systems. The report was mandated by the nations attending the AI Safety Summit in Bletchley, UK. Thirty nations, the UN, the OECD, and the EU each nominated a representative to the report's Expert Advisory Panel. A total of 100 AI experts contributed, representing diverse perspectives and disciplines. Led by the report's Chair, these independent experts ...",
+    "categories": [
+      "cs.CY",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-29",
+    "is_llm_relevant": true,
+    "relevance_reason": "보고서가 다루는 '첨단 AI 시스템(advanced AI systems)'은 현대 AI 연구의 핵심인 LLM 및 파운데이션 모델의 역량 평가와 안전성을 주요 논의 대상으로 합니다."
+  },
+  {
+    "arxiv_id": "2501.17507v1",
+    "title": "Reflections on \"Can AI Understand Our Universe?\"",
+    "abstract": "This article briefly discusses the philosophical and technical aspects of AI. It focuses on two concepts of understanding: intuition and causality, and highlights three AI technologies: Transformers, chain-of-thought reasoning, and multimodal processing. We anticipate that in principle AI could form understanding, with these technologies representing promising advancements.",
+    "categories": [
+      "cs.AI",
+      "astro-ph.HE",
+      "astro-ph.IM"
+    ],
+    "published_date": "2025-01-29",
+    "is_llm_relevant": true,
+    "relevance_reason": "LLM의 핵심 아키텍처인 Transformer와 주요 추론 기법인 Chain-of-thought를 중심으로 AI의 이해 능력을 논하고 있기 때문입니다."
+  },
+  {
+    "arxiv_id": "2501.17348v2",
+    "title": "Better Slow than Sorry: Introducing Positive Friction for Reliable Dialogue Systems",
+    "abstract": "While theories of discourse and cognitive science have long recognized the value of unhurried pacing, recent dialogue research tends to minimize friction in conversational systems. Yet, frictionless dialogue risks fostering uncritical reliance on AI outputs, which can obscure implicit assumptions and lead to unintended consequences. To meet this challenge, we propose integrating positive friction into conversational AI, which promotes user reflection on goals, critical thinking on system respons...",
+    "categories": [
+      "cs.CL",
+      "cs.HC"
+    ],
+    "published_date": "2025-01-28",
+    "is_llm_relevant": true,
+    "relevance_reason": "대화형 AI 시스템의 상호작용 설계를 통해 LLM의 목표 정렬(Goal Alignment)과 작업 성공률을 개선하는 응용 및 평가에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.15740v1",
+    "title": "Propositional Interpretability in Artificial Intelligence",
+    "abstract": "Mechanistic interpretability is the program of explaining what AI systems are doing in terms of their internal mechanisms. I analyze some aspects of the program, along with setting out some concrete challenges and assessing progress to date. I argue for the importance of propositional interpretability, which involves interpreting a system's mechanisms and behavior in terms of propositional attitudes: attitudes (such as belief, desire, or subjective probability) to propositions (e.g. the proposit...",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2025-01-27",
+    "is_llm_relevant": true,
+    "relevance_reason": "이 논문은 sparse auto-encoders와 chain of thought 등 LLM의 내부 작동 방식을 해석하고 평가하는 방법론을 핵심 주제로 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.15446v2",
+    "title": "NP-Hard Lower Bound Complexity for Semantic Self-Verification",
+    "abstract": "We model Semantic Self-Verification (SSV) as the problem of determining whether a statement accurately characterizes its own semantic properties within a given interpretive framework that formalizes a challenge in AI safety and fairness: can an AI system verify that it has correctly interpreted rules intended to govern its behavior? We prove that SSV, in this specification, is NP-complete by constructing a polynomial-time reduction from 3-Satisfiability (3-SAT). Our reduction maps a 3-SAT formul...",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-26",
+    "is_llm_relevant": true,
+    "relevance_reason": "이 논문은 LLM의 핵심 요소인 지시어 이행(instruction-following), 자연어를 통한 정렬(alignment), 그리고 Constitutional AI의 이론적 토대와 한계를 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.13826v1",
+    "title": "Video-MMMU: Evaluating Knowledge Acquisition from Multi-Discipline Professional Videos",
+    "abstract": "Humans acquire knowledge through three cognitive stages: perceiving information, comprehending knowledge, and adapting knowledge to solve novel problems. Videos serve as an effective medium for this learning process, facilitating a progression through these cognitive stages. However, existing video benchmarks fail to systematically evaluate the knowledge acquisition capabilities in Large Multimodal Models (LMMs). To address this gap, we introduce Video-MMMU, a multi-modal, multi-disciplinary ben...",
+    "categories": [
+      "cs.CV",
+      "cs.CL"
+    ],
+    "published_date": "2025-01-23",
+    "is_llm_relevant": true,
+    "relevance_reason": "Large Multimodal Models(LMMs)의 지식 습득 및 활용 능력을 평가하기 위한 새로운 벤치마크와 지표를 제안하고 모델의 성능을 분석하는 연구이기 때문입니다."
+  },
+  {
+    "arxiv_id": "2501.13484v3",
+    "title": "MambaQuant: Quantizing the Mamba Family with Variance Aligned Rotation Methods",
+    "abstract": "Mamba is an efficient sequence model that rivals Transformers and demonstrates significant potential as a foundational architecture for various tasks. Quantization is commonly used in neural networks to reduce model size and computational latency. However, applying quantization to Mamba remains underexplored, and existing quantization methods, which have been effective for CNN and Transformer models, appear inadequate for Mamba models (e.g., Quarot suffers a 21% accuracy drop on Vim-T$^\\dagger$ ...",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published_date": "2025-01-23",
+    "is_llm_relevant": true,
+    "relevance_reason": "Mamba는 Transformer를 대체할 수 있는 언어 모델 아키텍처 중 하나이며, 본 논문은 해당 모델의 아키텍처 최적화 및 양자화 기법을 주요 주제로 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.12391v1",
+    "title": "Physics of Skill Learning",
+    "abstract": "We aim to understand physics of skill learning, i.e., how skills are learned in neural networks during training. We start by observing the Domino effect, i.e., skills are learned sequentially, and notably, some skills kick off learning right after others complete learning, similar to the sequential fall of domino cards. To understand the Domino effect and relevant behaviors of skill learning, we take physicists' approach of abstraction and simplification. We propose three models with varying com...",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "physics.data-an",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-21",
+    "is_llm_relevant": true,
+    "relevance_reason": "신경망의 기술 학습 메커니즘을 분석하며 LLM의 핵심 이론인 Chinchilla 스케일링 법칙과 학습 역학을 주요하게 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.07670v1",
+    "title": "A Survey of Early Exit Deep Neural Networks in NLP",
+    "abstract": "Deep Neural Networks (DNNs) have grown increasingly large in size to achieve state of the art performance across a wide range of tasks. However, their high computational requirements make them less suitable for resource-constrained applications. Also, real-world datasets often consist of a mixture of easy and complex samples, necessitating adaptive inference mechanisms that account for sample difficulty. Early exit strategies offer a promising solution by enabling adaptive inference, where simpl...",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "published_date": "2025-01-13",
+    "is_llm_relevant": true,
+    "relevance_reason": "NLP 분야에서 대규모 모델의 추론 효율성을 높이는 early exit 기법을 다루고 있으며, 이는 LLM의 아키텍처 및 최적화와 직결되는 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.04952v1",
+    "title": "Open Problems in Machine Unlearning for AI Safety",
+    "abstract": "As AI systems become more capable, widely deployed, and increasingly autonomous in critical areas such as cybersecurity, biological research, and healthcare, ensuring their safety and alignment with human values is paramount. Machine unlearning -- the ability to selectively forget or suppress specific types of knowledge -- has shown promise for privacy and data removal tasks, which has been the primary focus of existing research. More recently, its potential application to AI safety has gained a...",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CY"
+    ],
+    "published_date": "2025-01-09",
+    "is_llm_relevant": true,
+    "relevance_reason": "이 논문은 LLM의 안전성과 정렬을 위해 위험 지식(CBRN, 사이버 보안 등)을 선택적으로 제거하는 머신 언러닝(Machine Unlearning) 기술과 그 한계를 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.01123v1",
+    "title": "TED: Turn Emphasis with Dialogue Feature Attention for Emotion Recognition in Conversation",
+    "abstract": "Emotion recognition in conversation (ERC) has been attracting attention by methods for modeling multi-turn contexts. The multi-turn input to a pretraining model implicitly assumes that the current turn and other turns are distinguished during the training process by inserting special tokens into the input sequence. This paper proposes a priority-based attention method to distinguish each turn explicitly by adding dialogue features into the attention mechanism, called Turn Emphasis with Dialogue ...",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-02",
+    "is_llm_relevant": true,
+    "relevance_reason": "사전 학습된 언어 모델의 어텐션 아키텍처를 개선하여 대화 내 맥락과 감정을 파악하는 모델의 구조 및 응용을 다루고 있습니다."
+  }
+]

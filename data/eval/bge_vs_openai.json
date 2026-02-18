@@ -1,0 +1,38 @@
+{
+  "hybrid": {
+    "avg_mrr": 0.16785714285714287,
+    "avg_ndcg@5": 0.09946316237906443,
+    "avg_ndcg@10": 0.20120668038314418,
+    "avg_precision@5": 0.07500000000000001,
+    "avg_precision@10": 0.08750000000000001,
+    "avg_search_time_ms": 4812.6643896102905,
+    "num_queries": 8
+  },
+  "dense": {
+    "avg_mrr": 0.16785714285714287,
+    "avg_ndcg@5": 0.09946316237906443,
+    "avg_ndcg@10": 0.20120668038314418,
+    "avg_precision@5": 0.07500000000000001,
+    "avg_precision@10": 0.08750000000000001,
+    "avg_search_time_ms": 1145.9378004074097,
+    "num_queries": 8
+  },
+  "sparse": {
+    "avg_mrr": 0.1875,
+    "avg_ndcg@5": 0.20636511622589157,
+    "avg_ndcg@10": 0.20636511622589157,
+    "avg_precision@5": 0.1,
+    "avg_precision@10": 0.05,
+    "avg_search_time_ms": 1538.870632648468,
+    "num_queries": 8
+  },
+  "openai": {
+    "avg_mrr": 0.3,
+    "avg_ndcg@5": 0.3561219167759143,
+    "avg_ndcg@10": 0.4001951332218086,
+    "avg_precision@5": 0.325,
+    "avg_precision@10": 0.23750000000000002,
+    "avg_search_time_ms": 958.7114453315735,
+    "num_queries": 8
+  }
+}

@@ -1,0 +1,2515 @@
+[
+  {
+    "arxiv_id": "2504.13842v1",
+    "title": "The Model Counting Competitions 2021-2023",
+    "abstract": "Modern society is full of computational challenges that rely on probabilistic reasoning, statistics, and combinatorics. Interestingly, many of these questions can be formulated by encoding them into propositional formulas and then asking for its number of models. With a growing interest in practical problem-solving for tasks that involve model counting, the community established the Model Counting (MC) Competition in fall of 2019 with its first iteration in 2020. The competition aims at advancin...",
+    "categories": [
+      "cs.AI",
+      "cs.DS",
+      "cs.LO"
+    ],
+    "published_date": "2025-01-31",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM과 관계없이 명제 논리식의 모델 카운팅(Model Counting) 문제 해결을 위한 알고리즘과 경진대회에 관한 내용을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2502.00108v1",
+    "title": "Tracking Most Significant Shifts in Infinite-Armed Bandits",
+    "abstract": "We study an infinite-armed bandit problem where actions' mean rewards are initially sampled from a reservoir distribution. Most prior works in this setting focused on stationary rewards (Berry et al., 1997; Wang et al., 2008; Bonald and Proutiere, 2013; Carpentier and Valko, 2015) with the more challenging adversarial/non-stationary variant only recently studied in the context of rotting/decreasing rewards (Kim et al., 2022; 2024). Furthermore, optimal regret upper bounds were only achieved usin...",
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-31",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 멀티 암드 밴딧(Multi-Armed Bandit)의 이론적 성능 분석과 알고리즘 설계를 다루는 강화학습 이론 연구이며, LLM과는 직접적인 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.19285v1",
+    "title": "OneBatchPAM: A Fast and Frugal K-Medoids Algorithm",
+    "abstract": "This paper proposes a novel k-medoids approximation algorithm to handle large-scale datasets with reasonable computational time and memory complexity. We develop a local-search algorithm that iteratively improves the medoid selection based on the estimation of the k-medoids objective. A single batch of size m << n provides the estimation, which reduces the required memory size and the number of pairwise dissimilarities computations to O(mn), instead of O(n^2) compared to most k-medoids baselines...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-31",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 대규모 데이터셋을 위한 k-medoids 군집화(clustering) 알고리즘의 효율성을 개선하는 연구로, LLM과는 직접적인 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.19271v1",
+    "title": "Concept-Based Explainable Artificial Intelligence: Metrics and Benchmarks",
+    "abstract": "Concept-based explanation methods, such as concept bottleneck models (CBMs), aim to improve the interpretability of machine learning models by linking their decisions to human-understandable concepts, under the critical assumption that such concepts can be accurately attributed to the network's feature space. However, this foundational assumption has not been rigorously validated, mainly because the field lacks standardised metrics and benchmarks to assess the existence and spatial alignment of ...",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-31",
+    "is_llm_relevant": false,
+    "relevance_reason": "이미지 분류 모델의 설명 가능성(XAI)을 위한 Concept Bottleneck 모델에 관한 연구로, LLM의 학습이나 아키텍처와는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.19155v2",
+    "title": "SWAT: Sliding Window Adversarial Training for Gradual Domain Adaptation",
+    "abstract": "Domain shifts are critical issues that harm the performance of machine learning. Unsupervised Domain Adaptation (UDA) mitigates this issue but suffers when the domain shifts are steep and drastic. Gradual Domain Adaptation (GDA) alleviates this problem in a mild way by gradually adapting from the source to the target domain using multiple intermediate domains. In this paper, we propose Sliding Window Adversarial Training (SWAT) for GDA. SWAT first formulates adversarial streams to connect the fe...",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-31",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 이미지 분류 데이터셋(MNIST, CIFAR)을 활용한 점진적 도메인 적응(Gradual Domain Adaptation)에 관한 연구로, LLM과는 직접적인 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.19111v2",
+    "title": "A Benchmark for Incremental Micro-expression Recognition",
+    "abstract": "Micro-expression recognition plays a pivotal role in understanding hidden emotions and has applications across various fields. Traditional recognition methods assume access to all training data at once, but real-world scenarios involve continuously evolving data streams. To respond to the requirement of adapting to new data while retaining previously learned knowledge, we introduce the first benchmark specifically designed for incremental micro-expression recognition. Our contributions include: ...",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-31",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 미세 표정 인식(Micro-expression recognition)을 위한 점진적 학습(Incremental Learning) 벤치마크에 관한 것이며 LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.19102v2",
+    "title": "Reinforcement Learning on Reconfigurable Hardware: Overcoming Material Variability in Laser Material Processing",
+    "abstract": "Ensuring consistent processing quality is challenging in laser processes due to varying material properties and surface conditions. Although some approaches have shown promise in solving this problem via automation, they often rely on predetermined targets or are limited to simulated environments. To address these shortcomings, we propose a novel real-time reinforcement learning approach for laser process control, implemented on a Field Programmable Gate Array to achieve real-time execution. Our...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-31",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 레이저 용접 공정 제어를 위한 실시간 강화학습 알고리즘과 FPGA 구현에 관한 내용을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.18859v1",
+    "title": "A Deep Spatio-Temporal Architecture for Dynamic Effective Connectivity Network Analysis Based on Dynamic Causal Discovery",
+    "abstract": "Dynamic effective connectivity networks (dECNs) reveal the changing directed brain activity and the dynamic causal influences among brain regions, which facilitate the identification of individual differences and enhance the understanding of human brain. Although the existing causal discovery methods have shown promising results in effective connectivity network analysis, they often overlook the dynamics of causality, in addition to the incorporation of spatio-temporal information in brain activ...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-31",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 뇌 활동 데이터를 활용한 동적 유효 연결망(dECN) 분석 및 신경과학 연구에 관한 것이며, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2502.01655v1",
+    "title": "A binary PSO based ensemble under-sampling model for rebalancing imbalanced training data",
+    "abstract": "Ensemble technique and under-sampling technique are both effective tools used for imbalanced dataset classification problems. In this paper, a novel ensemble method combining the advantages of both ensemble learning for biasing classifiers and a new under-sampling method is proposed. The under-sampling method is named Binary PSO instance selection; it gathers with ensemble classifiers to find the most suitable length and combination of the majority class samples to build a new dataset with minor...",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.NE"
+    ],
+    "published_date": "2025-01-31",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 불균형 데이터 분류를 위한 앙상블 및 PSO 기반 언더샘플링 기법을 다루는 일반적인 머신러닝 연구이며 LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.18734v1",
+    "title": "STaleX: A Spatiotemporal-Aware Adaptive Auto-scaling Framework for Microservices",
+    "abstract": "While cloud environments and auto-scaling solutions have been widely applied to traditional monolithic applications, they face significant limitations when it comes to microservices-based architectures. Microservices introduce additional challenges due to their dynamic and spatiotemporal characteristics, which require more efficient and specialized auto-scaling strategies. Centralized auto-scaling for the entire microservice application is insufficient, as each service within a chain has distinc...",
+    "categories": [
+      "cs.SE",
+      "cs.DC",
+      "cs.LG",
+      "eess.SY"
+    ],
+    "published_date": "2025-01-30",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 마이크로서비스 아키텍처의 리소스 오토스케일링 및 제어 이론에 관한 것이며 LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.18582v3",
+    "title": "A Control Perspective on Training PINNs",
+    "abstract": "We investigate the training of Physics-Informed Neural Networks (PINNs) from a control-theoretic perspective. Using gradient descent with resampling, we interpret the training dynamics as asymptotically equivalent to a stochastic control-affine system, where sampling effects act as process disturbances and measurement noise. Within this framework, we introduce two controllers for dynamically adapting the physics weight: an integral controller and a leaky integral controller. We theoretically ana...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-30",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 물리 법칙을 신경망 학습에 통합하는 Physics-Informed Neural Networks(PINNs)의 제어 이론적 최적화에 관한 것이며, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.18560v1",
+    "title": "Bandits with Anytime Knapsacks",
+    "abstract": "We consider bandits with anytime knapsacks (BwAK), a novel version of the BwK problem where there is an \\textit{anytime} cost constraint instead of a total cost budget. This problem setting introduces additional complexities as it mandates adherence to the constraint throughout the decision-making process. We propose SUAK, an algorithm that utilizes upper confidence bounds to identify the optimal mixture of arms while maintaining a balance between exploration and exploitation. SUAK is an adaptiv...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-30",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아니라 강화학습의 일종인 다중 팔 강도(Multi-armed Bandit) 문제의 알고리즘과 이론적 분석을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.18501v1",
+    "title": "Beyond Prior Limits: Addressing Distribution Misalignment in Particle Filtering",
+    "abstract": "Particle filtering is a Bayesian inference method and a fundamental tool in state estimation for dynamic systems, but its effectiveness is often limited by the constraints of the initial prior distribution, a phenomenon we define as the Prior Boundary Phenomenon. This challenge arises when target states lie outside the prior's support, rendering traditional particle filtering methods inadequate for accurate estimation. Although techniques like unbounded priors and larger particle sets have been ...",
+    "categories": [
+      "stat.ML",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-30",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 베이지안 추론 기반의 입자 필터링(Particle Filtering) 알고리즘 개선에 관한 것이며, LLM의 구조나 응용과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.18494v1",
+    "title": "Runway vs. Taxiway: Challenges in Automated Line Identification and Notation Approaches",
+    "abstract": "The increasing complexity of autonomous systems has amplified the need for accurate and reliable labeling of runway and taxiway markings to ensure operational safety. Precise detection and labeling of these markings are critical for tasks such as navigation, landing assistance, and ground control automation. Existing labeling algorithms, like the Automated Line Identification and Notation Algorithm (ALINA), have demonstrated success in identifying taxiway markings but encounter significant chall...",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-30",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 이미지 처리를 위한 CNN(Convolutional Neural Network) 기반의 활주로 표식 인식 및 분류 기술을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.18331v1",
+    "title": "Stream-Based Monitoring of Algorithmic Fairness",
+    "abstract": "Automatic decision and prediction systems are increasingly deployed in applications where they significantly impact the livelihood of people, such as for predicting the creditworthiness of loan applicants or the recidivism risk of defendants. These applications have given rise to a new class of algorithmic-fairness specifications that require the systems to decide and predict without bias against social groups. Verifying these specifications statically is often out of reach for realistic systems...",
+    "categories": [
+      "cs.LG",
+      "cs.LO",
+      "cs.SE"
+    ],
+    "published_date": "2025-01-30",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 일반적인 의사결정 및 예측 시스템의 알고리즘 공정성을 실시간으로 모니터링하는 기법에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.18202v1",
+    "title": "On Scaling Neurosymbolic Programming through Guided Logical Inference",
+    "abstract": "Probabilistic neurosymbolic learning seeks to integrate neural networks with symbolic programming. Many state-of-the-art systems rely on a reduction to the Probabilistic Weighted Model Counting Problem (PWMC), which requires computing a Boolean formula called the logical provenance.However, PWMC is \\\\#P-hard, and the number of clauses in the logical provenance formula can grow exponentially, creating a major bottleneck that significantly limits the applicability of PNL solutions in practice.We p...",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2025-01-30",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 신경망과 기호 논리를 결합하는 확률적 뉴로심볼릭 학습(PNL)의 논리적 추론 효율성을 개선하는 알고리즘에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.18093v1",
+    "title": "Reward Prediction Error Prioritisation in Experience Replay: The RPE-PER Method",
+    "abstract": "Reinforcement Learning algorithms aim to learn optimal control strategies through iterative interactions with an environment. A critical element in this process is the experience replay buffer, which stores past experiences, allowing the algorithm to learn from a diverse range of interactions rather than just the most recent ones. This buffer is especially essential in dynamic environments with limited experiences. However, efficiently selecting high-value experiences to accelerate training rema...",
+    "categories": [
+      "cs.LG",
+      "cs.RO"
+    ],
+    "published_date": "2025-01-30",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 강화학습의 경험 재현 버퍼 최적화 및 연속 제어 작업(continuous control tasks)에서의 효율성 향상을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.18650v1",
+    "title": "Constructing Cell-type Taxonomy by Optimal Transport with Relaxed Marginal Constraints",
+    "abstract": "The rapid emergence of single-cell data has facilitated the study of many different biological conditions at the cellular level. Cluster analysis has been widely applied to identify cell types, capturing the essential patterns of the original data in a much more concise form. One challenge in the cluster analysis of cells is matching clusters extracted from datasets of different origins or conditions. Many existing algorithms cannot recognize new cell types present in only one of the two samples...",
+    "categories": [
+      "q-bio.GN",
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-29",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 단일 세포(single-cell) 데이터 분석 및 세포 유형 분류를 위한 최적 운송(Optimal Transport) 기법에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.17859v2",
+    "title": "rEGGression: an Interactive and Agnostic Tool for the Exploration of Symbolic Regression Models",
+    "abstract": "Regression analysis is used for prediction and to understand the effect of independent variables on dependent variables. Symbolic regression (SR) automates the search for non-linear regression models, delivering a set of hypotheses that balances accuracy with the possibility to understand the phenomena. Many SR implementations return a Pareto front allowing the choice of the best trade-off. However, this hides alternatives that are close to non-domination, limiting these choices. Equality graphs...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-29",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 상징적 회귀(Symbolic Regression)와 이특성 그래프(e-graphs)를 이용한 수식 탐색 및 분석에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.17848v2",
+    "title": "Improving Genetic Programming for Symbolic Regression with Equality Graphs",
+    "abstract": "The search for symbolic regression models with genetic programming (GP) has a tendency of revisiting expressions in their original or equivalent forms. Repeatedly evaluating equivalent expressions is inefficient, as it does not immediately lead to better solutions. However, evolutionary algorithms require diversity and should allow the accumulation of inactive building blocks that can play an important role at a later point. The equality graph is a data structure capable of compactly storing exp...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-29",
+    "is_llm_relevant": false,
+    "relevance_reason": "유전 프로그래밍(Genetic Programming)과 기호 회귀(Symbolic Regression) 모델의 효율성을 개선하기 위해 e-graph라는 데이터 구조를 사용하는 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.17688v3",
+    "title": "ContourFormer: Real-Time Contour-Based End-to-End Instance Segmentation Transformer",
+    "abstract": "This paper presents Contourformer, a real-time contour-based instance segmentation algorithm. The method is fully based on the DETR paradigm and achieves end-to-end inference through iterative and progressive mechanisms to optimize contours. To improve efficiency and accuracy, we develop two novel techniques: sub-contour decoupling mechanisms and contour fine-grained distribution refinement. In the sub-contour decoupling mechanism, we propose a deformable attention-based module that adaptively s...",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-29",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 컴퓨터 비전 분야의 인스턴스 분할(instance segmentation) 기술에 관한 것이며 LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.17904v1",
+    "title": "A Robust Support Vector Machine Approach for Raman COVID-19 Data Classification",
+    "abstract": "Recent advances in healthcare technologies have led to the availability of large amounts of biological samples across several techniques and applications. In particular, in the last few years, Raman spectroscopy analysis of biological samples has been successfully applied for early-stage diagnosis. However, spectra' inherent complexity and variability make the manual analysis challenging, even for domain experts. For the same reason, the use of traditional Statistical and Machine Learning (ML) t...",
+    "categories": [
+      "q-bio.QM",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-29",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 Raman 분광 데이터 분류를 위해 Support Vector Machine(SVM)과 강건 최적화 기법을 제안하며, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.17604v1",
+    "title": "nabqr: Python package for improving probabilistic forecasts",
+    "abstract": "We introduce the open-source Python package NABQR: Neural Adaptive Basis for (time-adaptive) Quantile Regression that provides reliable probabilistic forecasts. NABQR corrects ensembles (scenarios) with LSTM networks and then applies time-adaptive quantile regression to the corrected ensembles to obtain improved and more reliable forecasts. With the suggested package, accuracy improvements of up to 40% in mean absolute terms can be achieved in day-ahead forecasting of onshore and offshore wind p...",
+    "categories": [
+      "cs.LG",
+      "stat.AP",
+      "stat.CO"
+    ],
+    "published_date": "2025-01-29",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 풍력 발전량 예측을 위해 LSTM과 분위 회귀법을 사용하는 시계열 예측 연구이며, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.17493v1",
+    "title": "Certifying Pareto-Optimality in Multi-Objective Maximum Satisfiability",
+    "abstract": "Due to the wide employment of automated reasoning in the analysis and construction of correct systems, the results reported by automated reasoning engines must be trustworthy. For Boolean satisfiability (SAT) solvers - and more recently SAT-based maximum satisfiability (MaxSAT) solvers - trustworthiness is obtained by integrating proof logging into solvers, making solvers capable of emitting machine-verifiable proofs to certify correctness of the reasoning steps performed. In this work, we enabl...",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2025-01-29",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 정형 검증 및 자동화된 추론 도구(SAT/MaxSAT solver)의 신뢰성을 위한 증명 기록(proof logging)에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.17431v1",
+    "title": "Human-Aligned Skill Discovery: Balancing Behaviour Exploration and Alignment",
+    "abstract": "Unsupervised skill discovery in Reinforcement Learning aims to mimic humans' ability to autonomously discover diverse behaviors. However, existing methods are often unconstrained, making it difficult to find useful skills, especially in complex environments, where discovered skills are frequently unsafe or impractical. We address this issue by proposing Human-aligned Skill Discovery (HaSD), a framework that incorporates human feedback to discover safer, more aligned skills. HaSD simultaneously o...",
+    "categories": [
+      "cs.LG",
+      "cs.RO"
+    ],
+    "published_date": "2025-01-29",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 강화학습(Reinforcement Learning) 환경에서의 비지도 기술 발견 및 인간 피드백을 통한 정렬을 다루는 연구로, LLM의 학습이나 응용과는 직접적인 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.17370v1",
+    "title": "Breaking the $\\log(1/Δ_2)$ Barrier: Better Batched Best Arm Identification with Adaptive Grids",
+    "abstract": "We investigate the problem of batched best arm identification in multi-armed bandits, where we aim to identify the best arm from a set of $n$ arms while minimizing both the number of samples and batches. We introduce an algorithm that achieves near-optimal sample complexity and features an instance-sensitive batch complexity, which breaks the $\\log(1/Δ_2)$ barrier. The main contribution of our algorithm is a novel sample allocation scheme that effectively balances exploration and exploitation fo...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-29",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 멀티암드 밴딧(Multi-armed Bandits) 문제의 효율성을 높이는 알고리즘에 관한 이론적 연구로, LLM과는 직접적인 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.17894v1",
+    "title": "Progress in Artificial Intelligence and its Determinants",
+    "abstract": "We study long-run progress in artificial intelligence in a quantitative way. Many measures, including traditional ones such as patents and publications, machine learning benchmarks, and a new Aggregate State of the Art in ML (or ASOTA) Index we have constructed from these, show exponential growth at roughly constant rates over long periods. Production of patents and publications doubles every ten years, by contrast with the growth of computing resources driven by Moore's Law, roughly a doubling ...",
+    "categories": [
+      "econ.GN",
+      "cs.AI",
+      "cs.CY",
+      "cs.LG",
+      "physics.soc-ph"
+    ],
+    "published_date": "2025-01-29",
+    "is_llm_relevant": false,
+    "relevance_reason": "특정 모델인 LLM에 관한 연구가 아니라, 인공지능(AI) 전반의 역사적 발전 속도와 컴퓨팅 자원 및 연구 인력의 관계를 정량적으로 분석하는 거시적인 논문이기 때문입니다."
+  },
+  {
+    "arxiv_id": "2502.00052v1",
+    "title": "Bridging Contrastive Learning and Domain Adaptation: Theoretical Perspective and Practical Application",
+    "abstract": "This work studies the relationship between Contrastive Learning and Domain Adaptation from a theoretical perspective. The two standard contrastive losses, NT-Xent loss (Self-supervised) and Supervised Contrastive loss, are related to the Class-wise Mean Maximum Discrepancy (CMMD), a dissimilarity measure widely used for Domain Adaptation. Our work shows that minimizing the contrastive losses decreases the CMMD and simultaneously improves class-separability, laying the theoretical groundwork for ...",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-28",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 의료 영상(유방 촬영술) 분야의 대조 학습(Contrastive Learning)과 도메인 적응(Domain Adaptation)에 관한 이론 및 실험적 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.17265v1",
+    "title": "Giving the Old a Fresh Spin: Quality Estimation-Assisted Constrained Decoding for Automatic Post-Editing",
+    "abstract": "Automatic Post-Editing (APE) systems often struggle with over-correction, where unnecessary modifications are made to a translation, diverging from the principle of minimal editing. In this paper, we propose a novel technique to mitigate over-correction by incorporating word-level Quality Estimation (QE) information during the decoding process. This method is architecture-agnostic, making it adaptable to any APE system, regardless of the underlying model or training approach. Our experiments on ...",
+    "categories": [
+      "cs.CL"
+    ],
+    "published_date": "2025-01-28",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 자동 사후 교정(APE) 성능 향상을 위한 방법론을 다루며, LLM을 시스템의 기반 모델로 사용할 수 있으나 연구의 주된 초점은 LLM 자체보다 특정 태스크(APE)의 알고리즘 개선에 있습니다."
+  },
+  {
+    "arxiv_id": "2501.17037v1",
+    "title": "Standardised schema and taxonomy for AI incident databases in critical digital infrastructure",
+    "abstract": "The rapid deployment of Artificial Intelligence (AI) in critical digital infrastructure introduces significant risks, necessitating a robust framework for systematically collecting AI incident data to prevent future incidents. Existing databases lack the granularity as well as the standardized structure required for consistent data collection and analysis, impeding effective incident management. This work proposes a standardized schema and taxonomy for AI incident databases, addressing these cha...",
+    "categories": [
+      "cs.CY",
+      "cs.AI",
+      "cs.HC"
+    ],
+    "published_date": "2025-01-28",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM에 특화된 연구가 아니라, 인공지능 전반의 사고 데이터 수집 및 관리를 위한 표준화된 체계와 정책 프레임워크를 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.16703v1",
+    "title": "Consistent support recovery for high-dimensional diffusions",
+    "abstract": "Statistical inference for stochastic processes has advanced significantly due to applications in diverse fields, but challenges remain in high-dimensional settings where parameters are allowed to grow with the sample size. This paper analyzes a d-dimensional ergodic diffusion process under sparsity constraints, focusing on the adaptive Lasso estimator, which improves variable selection and bias over the standard Lasso. We derive conditions under which the adaptive Lasso achieves support recovery...",
+    "categories": [
+      "math.ST",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-28",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 고차원 확률 과정(stochastic processes)의 모수 추정을 위한 통계적 방법론(Adaptive Lasso)에 관한 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.16621v1",
+    "title": "Chinese Stock Prediction Based on a Multi-Modal Transformer Framework: Macro-Micro Information Fusion",
+    "abstract": "This paper proposes an innovative Multi-Modal Transformer framework (MMF-Trans) designed to significantly improve the prediction accuracy of the Chinese stock market by integrating multi-source heterogeneous information including macroeconomy, micro-market, financial text, and event knowledge. The framework consists of four core modules: (1) A four-channel parallel encoder that processes technical indicators, financial text, macro data, and event knowledge graph respectively for independent feat...",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-28",
+    "is_llm_relevant": false,
+    "relevance_reason": "금융 텍스트 처리를 위해 트랜스포머 아키텍처를 도구로 사용하지만, 논문의 주된 초점은 멀티모달 데이터를 통합한 주식 시장 예측 프레임워크 구축에 있기 때문입니다."
+  },
+  {
+    "arxiv_id": "2501.16614v1",
+    "title": "FUNU: Boosting Machine Unlearning Efficiency by Filtering Unnecessary Unlearning",
+    "abstract": "Machine unlearning is an emerging field that selectively removes specific data samples from a trained model. This capability is crucial for addressing privacy concerns, complying with data protection regulations, and correcting errors or biases introduced by certain data. Unlike traditional machine learning, where models are typically static once trained, machine unlearning facilitates dynamic updates that enable the model to ``forget'' information without requiring complete retraining from scra...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-28",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 머신러닝 모델에서 특정 데이터를 삭제하는 일반적인 머신 언러닝(Machine Unlearning) 방법론에 관한 것이며, LLM에 특화된 구조나 학습법을 다루지 않습니다."
+  },
+  {
+    "arxiv_id": "2501.16520v2",
+    "title": "Safe Gradient Flow for Bilevel Optimization",
+    "abstract": "Bilevel optimization is a key framework in hierarchical decision-making, where one problem is embedded within the constraints of another. In this work, we propose a control-theoretic approach to solving bilevel optimization problems. Our method consists of two components: a gradient flow mechanism to minimize the upper-level objective and a safety filter to enforce the constraints imposed by the lower-level problem. Together, these components form a safe gradient flow that solves the bilevel pro...",
+    "categories": [
+      "math.OC",
+      "cs.LG",
+      "eess.SY"
+    ],
+    "published_date": "2025-01-27",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM과 무관한 이계 최적화(Bilevel optimization) 및 제어 이론에 관한 수학적 알고리즘과 수렴 증명을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.16322v2",
+    "title": "Implicit Bias in Matrix Factorization and its Explicit Realization in a New Architecture",
+    "abstract": "Gradient descent for matrix factorization exhibits an implicit bias toward approximately low-rank solutions. While existing theories often assume the boundedness of iterates, empirically the bias persists even with unbounded sequences. This reflects a dynamic where factors develop low-rank structure while their magnitudes increase, tending to align with certain directions. To capture this behavior in a stable way, we introduce a new factorization model: $X\\approx UDV^\\top$, where $U$ and $V$ are...",
+    "categories": [
+      "cs.LG",
+      "math.OC",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-27",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 행렬 분해와 일반적인 신경망의 저차원 구조(low-rank) 학습 및 최적화 편향에 관한 이론적/실험적 연구이며 LLM을 직접적으로 다루지 않습니다."
+  },
+  {
+    "arxiv_id": "2501.16306v1",
+    "title": "Graph Neural Network Based Hybrid Beamforming Design in Wideband Terahertz MIMO-OFDM Systems",
+    "abstract": "6G wireless technology is projected to adopt higher and wider frequency bands, enabled by highly directional beamforming. However, the vast bandwidths available also make the impact of beam squint in massive multiple input and multiple output (MIMO) systems non-negligible. Traditional approaches such as adding a true-time-delay line (TTD) on each antenna are costly due to the massive antenna arrays required. This paper puts forth a signal processing alternative, specifically adapted to the multi...",
+    "categories": [
+      "eess.SP",
+      "cs.LG",
+      "cs.NI"
+    ],
+    "published_date": "2025-01-27",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 6G 무선 통신의 빔포밍 최적화를 위해 그래프 신경망(GNN)을 사용하는 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.16130v2",
+    "title": "ReFill: Reinforcement Learning for Fill-In Minimization",
+    "abstract": "Efficiently solving sparse linear systems $Ax=b$, where $A$ is a large, sparse, symmetric positive semi-definite matrix, is a core challenge in scientific computing, machine learning, and optimization. A major bottleneck in Gaussian elimination for these systems is fill-in, the creation of non-zero entries that increase memory and computational cost. Minimizing fill-in is NP-hard, and existing heuristics like Minimum Degree and Nested Dissection offer limited adaptability across diverse problem ...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-27",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 희소 선형 시스템의 연산 효율을 높이기 위해 그래프 신경망(GNN)과 강화 학습을 활용하는 수치 최적화에 관한 것이며, 거대 언어 모델(LLM)과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.16123v2",
+    "title": "From #Dr00gtiktok to #harmreduction: Exploring Substance Use Hashtags on TikTok",
+    "abstract": "TikTok has emerged as a major source of information and social interaction for youth, raising urgent questions about how substance use discourse manifests and circulates on the platform. This paper presents the first comprehensive analysis of publicly visible, algorithmically surfaced substance-related content on TikTok, drawing on hashtags spanning all major substance categories. Using a mixed-methods approach that combines social network analysis with qualitative content coding, we examined 2,...",
+    "categories": [
+      "cs.CL"
+    ],
+    "published_date": "2025-01-27",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 틱톡의 소셜 네트워크 분석과 알고리즘 가시성을 통한 약물 관련 담론 및 커뮤니티 형성을 다루는 사회 컴퓨팅 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.16055v2",
+    "title": "Random Reshuffling for Stochastic Gradient Langevin Dynamics",
+    "abstract": "We examine the use of different randomisation policies for stochastic gradient algorithms used in sampling, based on first-order (or overdamped) Langevin dynamics, the most popular of which is known as Stochastic Gradient Langevin Dynamics. Conventionally, this algorithm is combined with a specific stochastic gradient strategy, called Robbins-Monro. In this work, we study an alternative strategy, Random Reshuffling, and show convincingly that it leads to improved performance via: a) a proof of r...",
+    "categories": [
+      "math.NA",
+      "math.PR",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-27",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 확률적 경사 랑주뱅 동역학(SGLD)과 같은 샘플링 알고리즘의 최적화 정책 및 수렴 성능에 관한 기초 기계학습 이론 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.15990v1",
+    "title": "3CEL: A corpus of legal Spanish contract clauses",
+    "abstract": "Legal corpora for Natural Language Processing (NLP) are valuable and scarce resources in languages like Spanish due to two main reasons: data accessibility and legal expert knowledge availability. INESData 2024 is a European Union funded project lead by the Universidad Politécnica de Madrid (UPM) and developed by Instituto de Ingeniería del Conocimiento (IIC) to create a series of state-of-the-art NLP resources applied to the legal/administrative domain in Spanish. The goal of this paper is to p...",
+    "categories": [
+      "cs.CL"
+    ],
+    "published_date": "2025-01-27",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 법률 정보 추출을 위한 말뭉치(3CEL) 구축 및 수동 주석 작업에 관한 것으로, LLM을 직접적인 연구 주제나 도구로 명시하고 있지는 않으나 NLP 자원으로서 LLM의 학습 및 평가에 활용될 가능성이 높습니다."
+  },
+  {
+    "arxiv_id": "2501.15972v1",
+    "title": "Flexible Blood Glucose Control: Offline Reinforcement Learning from Human Feedback",
+    "abstract": "Reinforcement learning (RL) has demonstrated success in automating insulin dosing in simulated type 1 diabetes (T1D) patients but is currently unable to incorporate patient expertise and preference. This work introduces PAINT (Preference Adaptation for INsulin control in T1D), an original RL framework for learning flexible insulin dosing policies from patient records. PAINT employs a sketch-based approach for reward learning, where past data is annotated with a continuous reward signal to reflec...",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-27",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 제1형 당뇨병 환자의 인슐린 투여 제어를 위한 강화학습(RL) 프레임워크에 관한 것이며, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.15760v1",
+    "title": "Investigating Application of Deep Neural Networks in Intrusion Detection System Design",
+    "abstract": "Despite decades of development, existing IDSs still face challenges in improving detection accuracy, evasion, and detection of unknown attacks. To solve these problems, many researchers have focused on designing and developing IDSs that use Deep Neural Networks (DNN) which provides advanced methods of threat investigation and detection. Given this reason, the motivation of this research then, is to learn how effective applications of Deep Neural Networks (DNN) can accurately detect and identify ...",
+    "categories": [
+      "cs.CR",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-27",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 다층 퍼셉트론(MLP) 기반의 심층 신경망(DNN)을 사용하여 네트워크 침입 탐지 시스템(IDS)을 연구한 논문입니다."
+  },
+  {
+    "arxiv_id": "2501.15739v1",
+    "title": "Automatic Machine Learning Framework to Study Morphological Parameters of AGN Host Galaxies within $z < 1.4$ in the Hyper Supreme-Cam Wide Survey",
+    "abstract": "We present a composite machine learning framework to estimate posterior probability distributions of bulge-to-total light ratio, half-light radius, and flux for Active Galactic Nucleus (AGN) host galaxies within $z<1.4$ and $m<23$ in the Hyper Supreme-Cam Wide survey. We divide the data into five redshift bins: low ($0<z<0.25$), mid ($0.25<z<0.5$), high ($0.5<z<0.9$), extra ($0.9<z<1.1$) and extreme ($1.1<z<1.4$), and train our models independently in each bin. We use PSFGAN to decompose the AGN...",
+    "categories": [
+      "astro-ph.GA",
+      "astro-ph.IM",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-27",
+    "is_llm_relevant": false,
+    "relevance_reason": "천문학 데이터(은하 형태) 분석을 위한 GAN 및 딥러닝 프레임워크에 관한 논문으로, 거대언어모델(LLM)과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.15693v2",
+    "title": "Beyond Benchmarks: On The False Promise of AI Regulation",
+    "abstract": "The performance of AI models on safety benchmarks does not indicate their real-world performance after deployment. This opaqueness of AI models impedes existing regulatory frameworks constituted on benchmark performance, leaving them incapable of mitigating ongoing real-world harm. The problem stems from a fundamental challenge in AI interpretability, which seems to be overlooked by regulators and decision makers. We propose a simple, realistic and readily usable regulatory framework which does ...",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published_date": "2025-01-26",
+    "is_llm_relevant": false,
+    "relevance_reason": "AI 모델의 안전성 및 벤치마크를 다루고 있어 LLM과 밀접한 관련이 있으나, 초록에서 LLM을 구체적으로 명시하고 있지 않음."
+  },
+  {
+    "arxiv_id": "2501.15618v3",
+    "title": "Your Learned Constraint is Secretly a Backward Reachable Tube",
+    "abstract": "Inverse Constraint Learning (ICL) is the problem of inferring constraints from safe (i.e., constraint-satisfying) demonstrations. The hope is that these inferred constraints can then be used downstream to search for safe policies for new tasks and, potentially, under different dynamics. Our paper explores the question of what mathematical entity ICL recovers. Somewhat surprisingly, we show that both in theory and in practice, ICL recovers the set of states where failure is inevitable, rather tha...",
+    "categories": [
+      "cs.RO",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-26",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 로봇 공학 및 제어 이론 분야의 안전 제약 조건 학습(Inverse Constraint Learning)에 관한 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.15592v1",
+    "title": "Information Consistent Pruning: How to Efficiently Search for Sparse Networks?",
+    "abstract": "Iterative magnitude pruning methods (IMPs), proven to be successful in reducing the number of insignificant nodes in over-parameterized deep neural networks (DNNs), have been getting an enormous amount of attention with the rapid deployment of DNNs into cutting-edge technologies with computation and memory constraints. Despite IMPs popularity in pruning networks, a fundamental limitation of existing IMP algorithms is the significant training time required for each pruning iteration. Our paper in...",
+    "categories": [
+      "cs.LG",
+      "cs.IT",
+      "cs.NE"
+    ],
+    "published_date": "2025-01-26",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 일반적인 심층 신경망(DNN)의 효율적인 가지치기(Pruning) 기법과 학습 시간 최적화에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.15461v2",
+    "title": "Mamba-Based Graph Convolutional Networks: Tackling Over-smoothing with Selective State Space",
+    "abstract": "Graph Neural Networks (GNNs) have shown great success in various graph-based learning tasks. However, it often faces the issue of over-smoothing as the model depth increases, which causes all node representations to converge to a single value and become indistinguishable. This issue stems from the inherent limitations of GNNs, which struggle to distinguish the importance of information from different neighborhoods. In this paper, we introduce MbaGCN, a novel graph convolutional architecture that...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-26",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 Large Language Model(LLM)이 아닌 그래프 신경망(GNN)의 구조적 개선과 Mamba 아키텍처의 그래프 데이터 적용을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.15458v2",
+    "title": "Amortized Safe Active Learning for Real-Time Data Acquisition: Pretrained Neural Policies from Simulated Nonparametric Functions",
+    "abstract": "Safe active learning (AL) is a sequential scheme for learning unknown systems while respecting safety constraints during data acquisition. Existing methods often rely on Gaussian processes (GPs) to model the task and safety constraints, requiring repeated GP updates and constrained acquisition optimization-incurring in significant computations which are challenging for real-time decision-making. We propose an amortized safe AL framework that replaces expensive online computations with a pretrain...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-26",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 가우시안 프로세스(GP)와 신경 정책을 활용한 안전한 능동 학습(Safe Active Learning)의 효율성 개선에 관한 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.15373v1",
+    "title": "Learning-Enhanced Safeguard Control for High-Relative-Degree Systems: Robust Optimization under Disturbances and Faults",
+    "abstract": "Merely pursuing performance may adversely affect the safety, while a conservative policy for safe exploration will degrade the performance. How to balance the safety and performance in learning-based control problems is an interesting yet challenging issue. This paper aims to enhance system performance with safety guarantee in solving the reinforcement learning (RL)-based optimal control problems of nonlinear systems subject to high-relative-degree state constraints and unknown time-varying dist...",
+    "categories": [
+      "eess.SY",
+      "cs.AI",
+      "cs.LG",
+      "math.OC",
+      "nlin.AO"
+    ],
+    "published_date": "2025-01-26",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 강화학습(RL) 기반의 비선형 시스템 제어와 안전성(Control Barrier Functions)에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.15348v1",
+    "title": "ReInc: Scaling Training of Dynamic Graph Neural Networks",
+    "abstract": "Dynamic Graph Neural Networks (DGNNs) have gained widespread attention due to their applicability in diverse domains such as traffic network prediction, epidemiological forecasting, and social network analysis. In this paper, we present ReInc, a system designed to enable efficient and scalable training of DGNNs on large-scale graphs. ReInc introduces key innovations that capitalize on the unique combination of Graph Neural Networks (GNNs) and Recurrent Neural Networks (RNNs) inherent in DGNNs. B...",
+    "categories": [
+      "cs.LG",
+      "cs.DC"
+    ],
+    "published_date": "2025-01-25",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 동적 그래프 신경망(DGNN)의 효율적인 학습을 위한 시스템(ReInc)에 관한 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.15223v1",
+    "title": "Efficient and Interpretable Neural Networks Using Complex Lehmer Transform",
+    "abstract": "We propose an efficient and interpretable neural network with a novel activation function called the weighted Lehmer transform. This new activation function enables adaptive feature selection and extends to the complex domain, capturing phase-sensitive and hierarchical relationships within data. Notably, it provides greater interpretability and transparency compared to existing machine learning models, facilitating a deeper understanding of its functionality and decision-making processes. We ana...",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-25",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 인공신경망의 일반적인 활성화 함수(weighted Lehmer transform) 개발 및 구조적 효율성에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.15190v1",
+    "title": "A Floating Normalization Scheme for Deep Learning-Based Custom-Range Parameter Extraction in BSIM-CMG Compact Models",
+    "abstract": "A deep-learning (DL) based methodology for automated extraction of BSIM-CMG compact model parameters from experimental gate capacitance vs gate voltage (Cgg-Vg) and drain current vs gate voltage (Id-Vg) measurements is proposed in this paper. The proposed method introduces a floating normalization scheme within a cascaded forward and inverse ANN architecture enabling user-defined parameter extraction ranges. Unlike conventional DL-based extraction techniques, which are often constrained by fixed...",
+    "categories": [
+      "cs.LG",
+      "eess.SP"
+    ],
+    "published_date": "2025-01-25",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 반도체 소자 모델링을 위한 인공 신경망(ANN) 활용에 관한 연구로, LLM의 학습, 구조, 응용과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.15063v1",
+    "title": "Cross-modal Context Fusion and Adaptive Graph Convolutional Network for Multimodal Conversational Emotion Recognition",
+    "abstract": "Emotion recognition has a wide range of applications in human-computer interaction, marketing, healthcare, and other fields. In recent years, the development of deep learning technology has provided new methods for emotion recognition. Prior to this, many emotion recognition methods have been proposed, including multimodal emotion recognition methods, but these methods ignore the mutual interference between different input modalities and pay little attention to the directional dialogue between s...",
+    "categories": [
+      "cs.CL"
+    ],
+    "published_date": "2025-01-25",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 그래프 컨벌루션 네트워크(GCN)와 교차 모달 융합 기술을 활용한 멀티모달 감정 인식 아키텍처를 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.14981v1",
+    "title": "The Muddy Waters of Modeling Empathy in Language: The Practical Impacts of Theoretical Constructs",
+    "abstract": "Conceptual operationalizations of empathy in NLP are varied, with some having specific behaviors and properties, while others are more abstract. How these variations relate to one another and capture properties of empathy observable in text remains unclear. To provide insight into this, we analyze the transfer performance of empathy models adapted to empathy tasks with different theoretical groundings. We study (1) the dimensionality of empathy definitions, (2) the correspondence between the def...",
+    "categories": [
+      "cs.CL"
+    ],
+    "published_date": "2025-01-24",
+    "is_llm_relevant": false,
+    "relevance_reason": "NLP의 공감(empathy) 정의와 전이 학습 성능을 분석하는 논문으로, LLM을 활용한 모델들이 사용되지만 연구의 주된 목적은 공감의 이론적 개념화와 그에 따른 모델의 특성 파악에 있기 때문입니다."
+  },
+  {
+    "arxiv_id": "2502.14869v1",
+    "title": "Envisioning Stakeholder-Action Pairs to Mitigate Negative Impacts of AI: A Participatory Approach to Inform Policy Making",
+    "abstract": "The potential for negative impacts of AI has rapidly become more pervasive around the world, and this has intensified a need for responsible AI governance. While many regulatory bodies endorse risk-based approaches and a multitude of risk mitigation practices are proposed by companies and academic scholars, these approaches are commonly expert-centered and thus lack the inclusion of a significant group of stakeholders. Ensuring that AI policies align with democratic expectations requires methods...",
+    "categories": [
+      "cs.CY",
+      "cs.AI",
+      "cs.HC"
+    ],
+    "published_date": "2025-01-24",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM에 특화된 기술이나 응용이 아닌, AI 전반에 대한 책임 있는 거버넌스와 위험 완화 전략 및 일반적인 정책 개발 방안을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.14689v1",
+    "title": "Approach to Designing CV Systems for Medical Applications: Data, Architecture and AI",
+    "abstract": "This paper introduces an innovative software system for fundus image analysis that deliberately diverges from the conventional screening approach, opting not to predict specific diagnoses. Instead, our methodology mimics the diagnostic process by thoroughly analyzing both normal and pathological features of fundus structures, leaving the ultimate decision-making authority in the hands of healthcare professionals. Our initiative addresses the need for objective clinical analysis and seeks to auto...",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-24",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 거대언어모델(LLM)이 아닌 안저 이미지 분석을 위한 컴퓨터 비전 및 딥러닝 기술에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.14617v1",
+    "title": "Funzac at CoMeDi Shared Task: Modeling Annotator Disagreement from Word-In-Context Perspectives",
+    "abstract": "In this work, we evaluate annotator disagreement in Word-in-Context (WiC) tasks exploring the relationship between contextual meaning and disagreement as part of the CoMeDi shared task competition. While prior studies have modeled disagreement by analyzing annotator attributes with single-sentence inputs, this shared task incorporates WiC to bridge the gap between sentence-level semantic representation and annotator judgment variability. We describe three different methods that we developed for ...",
+    "categories": [
+      "cs.CL"
+    ],
+    "published_date": "2025-01-24",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 Word-in-Context(WiC) 태스크의 어노테이터 불일치 분석을 위해 LLM의 문맥 임베딩과 어댑터를 도구로 활용하지만, 주된 연구 주제는 모델 자체보다 데이터의 주석 변동성 분석에 집중되어 있기 때문입니다."
+  },
+  {
+    "arxiv_id": "2501.18616v1",
+    "title": "STAMP: Scalable Task And Model-agnostic Collaborative Perception",
+    "abstract": "Perception is crucial for autonomous driving, but single-agent perception is often constrained by sensors' physical limitations, leading to degraded performance under severe occlusion, adverse weather conditions, and when detecting distant objects. Multi-agent collaborative perception offers a solution, yet challenges arise when integrating heterogeneous agents with varying model architectures. To address these challenges, we propose STAMP, a scalable task- and model-agnostic, collaborative perc...",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.RO"
+    ],
+    "published_date": "2025-01-24",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 자율 주행의 협력적 인지(perception)와 BEV 특징 융합에 관한 연구로, LLM의 구조나 학습과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.14539v5",
+    "title": "IP$^{2}$-RSNN: Bi-level Intrinsic Plasticity Enables Learning-to-learn in Recurrent Spiking Neural Networks",
+    "abstract": "Learning-to-learn (L2L), defined as progressively faster learning across similar tasks, is fundamental to both neuroscience and artificial intelligence. However, its neural basis remains elusive, as most studies emphasize neural population dynamics induced by synaptic plasticity while overlooking adaptations driven by intrinsic neuronal plasticity, which point-neuron models cannot capture. To address the above issue, we develop a recurrent spiking neural network with bi-level intrinsic plasticit...",
+    "categories": [
+      "cs.NE",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-24",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 Large Language Model(LLM)이 아니라 뇌과학적 원리를 적용한 스파이킹 신경망(RSNN)과 내재적 가소성 기반의 메타 학습에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.14496v1",
+    "title": "A Note on Implementation Errors in Recent Adaptive Attacks Against Multi-Resolution Self-Ensembles",
+    "abstract": "This note documents an implementation issue in recent adaptive attacks (Zhang et al. [2024]) against the multi-resolution self-ensemble defense (Fort and Lakshminarayanan [2024]). The implementation allowed adversarial perturbations to exceed the standard $L_\\infty = 8/255$ bound by up to a factor of 20$\\times$, reaching magnitudes of up to $L_\\infty = 160/255$. When attacks are properly constrained within the intended bounds, the defense maintains non-trivial robustness. Beyond highlighting the...",
+    "categories": [
+      "cs.CR",
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-24",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 이미지 데이터의 적대적 공격 및 방어(Adversarial Robustness)와 픽셀 제약($L_\\infty$ bound)을 다루는 컴퓨터 비전 관련 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.14474v1",
+    "title": "The Pseudo-Dimension of Contracts",
+    "abstract": "Algorithmic contract design studies scenarios where a principal incentivizes an agent to exert effort on her behalf. In this work, we focus on settings where the agent's type is drawn from an unknown distribution, and formalize an offline learning framework for learning near-optimal contracts from sample agent types. A central tool in our analysis is the notion of pseudo-dimension from statistical learning theory. Beyond its role in establishing upper bounds on the sample complexity, pseudo-dime...",
+    "categories": [
+      "cs.GT",
+      "cs.AI",
+      "cs.LG",
+      "econ.TH"
+    ],
+    "published_date": "2025-01-24",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 알고리즘 계약 설계와 통계적 학습 이론을 다루는 경제학 및 이론적 기계학습 분야의 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.14360v1",
+    "title": "In System Alignments we Trust! Explainable Alignments via Projections",
+    "abstract": "Alignments are a well-known process mining technique for reconciling system logs and normative process models. Evidence of certain behaviors in a real system may only be present in one representation - either a log or a model - but not in the other. Since for processes in which multiple entities, like objects and resources, are involved in the activities, their interactions affect the behavior and are therefore essential to take into account in the alignments.   Additionally, both logged and mod...",
+    "categories": [
+      "cs.AI",
+      "cs.FL"
+    ],
+    "published_date": "2025-01-24",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 프로세스 마이닝(Process Mining) 분야에서 시스템 로그와 프로세스 모델 간의 정렬(alignment) 기법을 다루고 있으며, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2502.10412v1",
+    "title": "Identifying relevant indicators for monitoring a National Artificial Intelligence Strategy",
+    "abstract": "How can a National Artificial Intelligence Strategy be effectively monitored? To address this question, we propose a methodology consisting of two key components. First, it involves identifying relevant indicators within national AI strategies. Second, it assesses the alignment between these indicators and the strategic actions of a specific government's AI strategy, allowing for a critical evaluation of its monitoring measures. Moreover, identifying these indicators helps assess the overall qua...",
+    "categories": [
+      "cs.CY",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-23",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM의 기술적 연구나 응용이 아닌, 국가 차원의 AI 전략 수립 및 모니터링 방법론에 관한 정책적 연구를 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.14007v1",
+    "title": "Adaptive Genetic Algorithms for Pulse-Level Quantum Error Mitigation",
+    "abstract": "Noise remains a fundamental challenge in quantum computing, significantly affecting pulse fidelity and overall circuit performance. This paper introduces an adaptive algorithm for pulse-level quantum error mitigation, designed to enhance fidelity by dynamically responding to noise conditions without modifying circuit gates. By targeting pulse parameters directly, this method reduces the impact of various noise sources, improving algorithm resilience in quantum circuits. We show the latter by app...",
+    "categories": [
+      "quant-ph",
+      "cs.AI",
+      "cs.AR"
+    ],
+    "published_date": "2025-01-23",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 양자 컴퓨팅의 노이즈 완화 및 펄스 수준의 성능 최적화를 다루는 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.13597v2",
+    "title": "A Comprehensive Survey on Spectral Clustering with Graph Structure Learning",
+    "abstract": "Spectral clustering is a powerful technique for clustering high-dimensional data, utilizing graph-based representations to detect complex, non-linear structures and non-convex clusters. The construction of a similarity graph is essential for ensuring accurate and effective clustering, making graph structure learning (GSL) central for enhancing spectral clustering performance in response to the growing demand for scalable solutions. Despite advancements in GSL, there is a lack of comprehensive su...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-23",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 전통적인 기계학습 기법인 스펙트럴 클러스터링(Spectral Clustering)과 그래프 구조 학습(GSL)에 관한 서베이 논문입니다."
+  },
+  {
+    "arxiv_id": "2501.13551v1",
+    "title": "Minimizing Queue Length Regret for Arbitrarily Varying Channels",
+    "abstract": "We consider an online channel scheduling problem for a single transmitter-receiver pair equipped with $N$ arbitrarily varying wireless channels. The transmission rates of the channels might be non-stationary and could be controlled by an oblivious adversary. At every slot, incoming data arrives at an infinite-capacity data queue located at the transmitter. A scheduler, which is oblivious to the current channel rates, selects one of the $N$ channels for transmission. At the end of the slot, the s...",
+    "categories": [
+      "cs.IT",
+      "cs.LG",
+      "cs.NI"
+    ],
+    "published_date": "2025-01-23",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 무선 통신 시스템의 채널 스케줄링과 큐 최적화를 위한 알고리즘(MAB)에 관한 연구로 LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.13394v3",
+    "title": "Concurrent Learning with Aggregated States via Randomized Least Squares Value Iteration",
+    "abstract": "Designing learning agents that explore efficiently in a complex environment has been widely recognized as a fundamental challenge in reinforcement learning. While a number of works have demonstrated the effectiveness of techniques based on randomized value functions on a single agent, it remains unclear, from a theoretical point of view, whether injecting randomization can help a society of agents {\\it concurently} explore an environment. The theoretical results %that we established in this work...",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-23",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 강화학습(Reinforcement Learning)의 탐색 알고리즘과 이론적 후회 분석(regret analysis)에 관한 연구로, LLM의 학습이나 구조와는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.13320v1",
+    "title": "Toward Ethical AI: A Qualitative Analysis of Stakeholder Perspectives",
+    "abstract": "As Artificial Intelligence (AI) systems become increasingly integrated into various aspects of daily life, concerns about privacy and ethical accountability are gaining prominence. This study explores stakeholder perspectives on privacy in AI systems, focusing on educators, parents, and AI professionals. Using qualitative analysis of survey responses from 227 participants, the research identifies key privacy risks, including data breaches, ethical misuse, and excessive data collection, alongside...",
+    "categories": [
+      "cs.CY",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-23",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM에 특화된 기술이나 응용이 아닌, 일반적인 AI 시스템의 개인정보 보호와 윤리적 책임에 관한 이해관계자들의 관점을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.13252v2",
+    "title": "Exploring the Technology Landscape through Topic Modeling, Expert Involvement, and Reinforcement Learning",
+    "abstract": "In today's rapidly evolving technological landscape, organizations face the challenge of integrating external insights into their decision-making processes to stay competitive. To address this issue, this study proposes a method that combines topic modeling, expert knowledge inputs, and reinforcement learning (RL) to enhance the detection of technological changes. The method has four main steps: (1) Build a relevant topic model, starting with textual data like documents and reports to find key t...",
+    "categories": [
+      "cs.LG",
+      "cs.CR",
+      "quant-ph"
+    ],
+    "published_date": "2025-01-22",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 토픽 모델링과 강화학습을 활용한 기술 트렌드 분석 및 의사결정 지원에 관한 연구로, LLM의 구조, 학습 또는 직접적인 활용을 다루고 있지 않습니다."
+  },
+  {
+    "arxiv_id": "2501.16370v3",
+    "title": "Advanced Physics-Informed Neural Network with Residuals for Solving Complex Integral Equations",
+    "abstract": "In this paper, we present the Residual Integral Solver Network (RISN), a novel neural network architecture designed to solve a wide range of integral and integro-differential equations, including one-dimensional, multi-dimensional, ordinary and partial integro-differential, systems, fractional types, and Helmholtz-type integral equations involving oscillatory kernels. RISN integrates residual connections with high-accuracy numerical methods such as Gaussian quadrature and fractional derivative o...",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.NE",
+      "math.NA"
+    ],
+    "published_date": "2025-01-22",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 적분 및 적분-미분 방정식을 해결하기 위한 수치 해석용 신경망 구조(RISN)에 관한 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.13052v1",
+    "title": "One-Class Domain Adaptation via Meta-Learning",
+    "abstract": "The deployment of IoT (Internet of Things) sensor-based machine learning models in industrial systems for anomaly classification tasks poses significant challenges due to distribution shifts, as the training data acquired in controlled laboratory settings may significantly differ from real-time data in production environments. Furthermore, many real-world applications cannot provide a substantial number of labeled examples for each anomalous class in every new environment. It is therefore crucia...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-22",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 IoT 센서 데이터의 이상 분류를 위한 메타러닝(MAML)과 도메인 적응 기술에 관한 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.12853v1",
+    "title": "Data-and-Semantic Dual-Driven Spectrum Map Construction for 6G Spectrum Management",
+    "abstract": "Spectrum maps reflect the utilization and distribution of spectrum resources in the electromagnetic environment, serving as an effective approach to support spectrum management. However, the construction of spectrum maps in urban environments is challenging because of high-density connection and complex terrain. Moreover, the existing spectrum map construction methods are typically applied to a fixed frequency, which cannot cover the entire frequency band. To address the aforementioned challenge...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-22",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 UNet(CNN 계열)을 활용하여 전자기 스펙트럼 지도를 구축하는 무선 통신 및 신호 처리 관련 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.12823v1",
+    "title": "To Measure or Not: A Cost-Sensitive, Selective Measuring Environment for Agricultural Management Decisions with Reinforcement Learning",
+    "abstract": "Farmers rely on in-field observations to make well-informed crop management decisions to maximize profit and minimize adverse environmental impact. However, obtaining real-world crop state measurements is labor-intensive, time-consuming and expensive. In most cases, it is not feasible to gather crop state measurements before every decision moment. Moreover, in previous research pertaining to farm management optimization, these observations are often assumed to be readily available without any co...",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-22",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 농업 관리 최적화를 위해 강화학습(RL)과 Recurrent PPO 알고리즘을 사용하는 연구로, LLM의 개발이나 응용과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2502.06789v1",
+    "title": "Information-theoretic Bayesian Optimization: Survey and Tutorial",
+    "abstract": "Several scenarios require the optimization of non-convex black-box functions, that are noisy expensive to evaluate functions with unknown analytical expression, whose gradients are hence not accessible. For example, the hyper-parameter tuning problem of machine learning models. Bayesian optimization is a class of methods with state-of-the-art performance delivering a solution to this problem in real scenarios. It uses an iterative process that employs a probabilistic surrogate model, typically a...",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.IT",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-22",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 베이지안 최적화(Bayesian Optimization)의 정보 이론적 획득 함수(acquisition functions)에 관한 일반적인 방법론을 다루는 조사 논문입니다."
+  },
+  {
+    "arxiv_id": "2501.12434v2",
+    "title": "Retro3D: A 3D-aware Template-free Method for Enhancing Retrosynthesis via Molecular Conformer Information",
+    "abstract": "Retrosynthesis plays a crucial role in the fields of organic synthesis and drug development, where the goal is to identify suitable reactants that can yield a target product molecule. Although existing methods have achieved notable success, they typically overlook the 3D conformational details and internal spatial organization of molecules. This oversight makes it challenging to predict reactants that conform to genuine chemical principles, particularly when dealing with complex molecular struct...",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-21",
+    "is_llm_relevant": false,
+    "relevance_reason": "대규모 언어 모델(LLM)이 아닌, 3D 분자 구조 정보를 활용하여 역합성(Retrosynthesis)을 수행하는 화학 분야의 특화된 Transformer 모델에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.12344v2",
+    "title": "CYCle: Choosing Your Collaborators Wisely to Enhance Collaborative Fairness in Decentralized Learning",
+    "abstract": "Collaborative learning (CL) enables multiple participants to jointly train machine learning (ML) models on decentralized data sources without raw data sharing. While the primary goal of CL is to maximize the expected accuracy gain for each participant, it is also important to ensure that the gains are fairly distributed: no client should be negatively impacted, and gains should reflect contributions. Most existing CL methods require central coordination and focus only on gain maximization, overl...",
+    "categories": [
+      "cs.LG",
+      "cs.DC"
+    ],
+    "published_date": "2025-01-21",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 분산 학습(Decentralized Learning) 환경에서의 협력적 학습 효율성과 공정성 개선을 위한 일반적인 머신러닝 프로토콜에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.12236v1",
+    "title": "Fast sparse optimization via adaptive shrinkage",
+    "abstract": "The need for fast sparse optimization is emerging, e.g., to deal with large-dimensional data-driven problems and to track time-varying systems. In the framework of linear sparse optimization, the iterative shrinkage-thresholding algorithm is a valuable method to solve Lasso, which is particularly appreciated for its ease of implementation. Nevertheless, it converges slowly. In this paper, we develop a proximal method, based on logarithmic regularization, which turns out to be an iterative shrink...",
+    "categories": [
+      "math.OC",
+      "cs.LG",
+      "eess.SY"
+    ],
+    "published_date": "2025-01-21",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 일반적인 희소 최적화(Sparse Optimization) 알고리즘의 수렴 속도 개선을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.12216v2",
+    "title": "RL-RC-DoT: A Block-level RL agent for Task-Aware Video Compression",
+    "abstract": "Video encoders optimize compression for human perception by minimizing reconstruction error under bit-rate constraints. In many modern applications such as autonomous driving, an overwhelming majority of videos serve as input for AI systems performing tasks like object recognition or segmentation, rather than being watched by humans. It is therefore useful to optimize the encoder for a downstream task instead of for perceptual image quality. However, a major challenge is how to combine such down...",
+    "categories": [
+      "cs.LG",
+      "cs.CV",
+      "eess.IV"
+    ],
+    "published_date": "2025-01-21",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 비디오 압축(인코딩) 최적화와 컴퓨터 비전 작업(객체 탐지 등)을 위한 강화학습 적용에 관한 것이며, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.12121v5",
+    "title": "Learning Dynamic Representations via An Optimally-Weighted Maximum Mean Discrepancy Optimization Framework for Continual Learning",
+    "abstract": "Continual learning has emerged as a pivotal area of research, primarily due to its advantageous characteristic that allows models to persistently acquire and retain information. However, catastrophic forgetting can severely impair model performance. In this study, we address network forgetting by introducing a novel framework termed Optimally-Weighted Maximum Mean Discrepancy (OWMMD), which imposes penalties on representation alterations via a Multi-Level Feature Matching Mechanism (MLFMM). Furt...",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-21",
+    "is_llm_relevant": false,
+    "relevance_reason": "해당 초록은 연속 학습(Continual Learning)의 일반적인 문제인 파괴적 망각을 해결하기 위한 범용적인 방법론을 다루고 있으며, LLM에 특화된 언급이나 연구 내용은 포함되어 있지 않습니다."
+  },
+  {
+    "arxiv_id": "2501.12119v2",
+    "title": "ENTIRE: Learning-based Volume Rendering Time Prediction",
+    "abstract": "We introduce ENTIRE, a novel deep learning-based approach for fast and accurate volume rendering time prediction. Predicting rendering time is inherently challenging due to its dependence on multiple factors, including volume data characteristics, image resolution, camera configuration, and transfer function settings. Our method addresses this by first extracting a feature vector that encodes structural volume properties relevant to rendering performance. This feature vector is then integrated w...",
+    "categories": [
+      "cs.GR",
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-21",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 컴퓨터 그래픽스의 볼륨 렌더링 시간 예측을 위한 딥러닝 모델에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.12048v1",
+    "title": "Adaptive Class Learning to Screen Diabetic Disorders in Fundus Images of Eye",
+    "abstract": "The prevalence of ocular illnesses is growing globally, presenting a substantial public health challenge. Early detection and timely intervention are crucial for averting visual impairment and enhancing patient prognosis. This research introduces a new framework called Class Extension with Limited Data (CELD) to train a classifier to categorize retinal fundus images. The classifier is initially trained to identify relevant features concerning Healthy and Diabetic Retinopathy (DR) classes and lat...",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-21",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 망막 저저 사진을 이용한 안과 질환 이미지 분류에 관한 연구로, LLM의 학습이나 구조가 아닌 컴퓨터 비전 기술을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.11899v2",
+    "title": "LASER: Lip Landmark Assisted Speaker Detection for Robustness",
+    "abstract": "Active Speaker Detection (ASD) aims to identify who is speaking in complex visual scenes. While humans naturally rely on lip-audio synchronization, existing ASD models often misclassify non-speaking instances when lip movements and audio are unsynchronized. To address this, we propose Lip landmark Assisted Speaker dEtection for Robustness (LASER), which explicitly incorporates lip landmarks during training to guide the model's attention to speech-relevant regions. Given a face track, LASER extra...",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-21",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 대규모 언어 모델(LLM)이 아닌, 비디오 내 화자 탐지(Active Speaker Detection)를 위한 컴퓨터 비전 및 시청각 정렬 기술에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.11870v2",
+    "title": "Coarse-to-Fine Lightweight Meta-Embedding for ID-Based Recommendation",
+    "abstract": "The state-of-the-art recommendation systems have shifted the attention to efficient recommendation, e.g., on-device recommendation, under memory constraints. To this end, the existing methods either focused on the lightweight embeddings for both users and items, or involved on-device systems enjoying the compact embeddings to enhance reusability and reduces space complexity. However, they focus solely on the coarse granularity of embedding, while overlook the fine-grained semantic nuances, to ad...",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-21",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 추천 시스템의 효율적인 임베딩 학습과 Graph Neural Networks(GNN) 아키텍처를 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.11799v1",
+    "title": "Policy-Adaptable Methods For Resolving Normative Conflicts Through Argumentation and Graph Colouring",
+    "abstract": "In a multi-agent system, one may choose to govern the behaviour of an agent by imposing norms, which act as guidelines for how agents should act either all of the time or in given situations. However, imposing multiple norms on one or more agents may result in situations where these norms conflict over how the agent should behave. In any system with normative conflicts (such as safe reinforcement models or systems which monitor safety protocols), one must decide which norms should be followed su...",
+    "categories": [
+      "cs.AI",
+      "cs.LO",
+      "math.LO"
+    ],
+    "published_date": "2025-01-21",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 멀티 에이전트 시스템의 규범 충돌 해결을 위한 논증 및 그래프 채색 기법에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.11758v1",
+    "title": "A Review Paper of the Effects of Distinct Modalities and ML Techniques to Distracted Driving Detection",
+    "abstract": "Distracted driving remains a significant global challenge with severe human and economic repercussions, demanding improved detection and intervention strategies. While previous studies have extensively explored single-modality approaches, recent research indicates that these systems often fall short in identifying complex distraction patterns, particularly cognitive distractions. This systematic review addresses critical gaps by providing a comprehensive analysis of machine learning (ML) and dee...",
+    "categories": [
+      "cs.CV",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-20",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 운전자 부주의 감지를 위한 머신러닝 및 딥러닝 기술을 다루는 연구로, LLM의 학습이나 구조, 응용과는 무관합니다."
+  },
+  {
+    "arxiv_id": "2501.11730v1",
+    "title": "Transformer Vibration Forecasting for Advancing Rail Safety and Maintenance 4.0",
+    "abstract": "Maintaining railway axles is critical to preventing severe accidents and financial losses. The railway industry is increasingly interested in advanced condition monitoring techniques to enhance safety and efficiency, moving beyond traditional periodic inspections toward Maintenance 4.0.   This study introduces a robust Deep Autoregressive solution that integrates seamlessly with existing systems to avert mechanical failures. Our approach simulates and predicts vibration signals under various con...",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-20",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 언어 모델이 아닌 철도 차축의 진동 신호(시계열 데이터) 분석 및 고장 예측을 위한 트랜스포머 기반 모델에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.11673v2",
+    "title": "Randomized Kaczmarz Methods with Beyond-Krylov Convergence",
+    "abstract": "Randomized Kaczmarz methods form a family of linear system solvers which converge by repeatedly projecting their iterates onto randomly sampled equations. While effective in some contexts, such as highly over-determined least squares, Kaczmarz methods are traditionally deemed secondary to Krylov subspace methods, since this latter family of solvers can exploit outliers in the input's singular value distribution to attain fast convergence on ill-conditioned systems.   In this paper, we introduce ...",
+    "categories": [
+      "math.NA",
+      "cs.DS",
+      "cs.LG",
+      "math.OC",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-20",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 선형 연립방정식을 풀기 위한 수치 해석 및 최적화 알고리즘에 관한 연구로, LLM의 구조나 응용과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2502.10399v1",
+    "title": "Data Stewardship Decoded: Mapping Its Diverse Manifestations and Emerging Relevance at a time of AI",
+    "abstract": "Data stewardship has become a critical component of modern data governance, especially with the growing use of artificial intelligence (AI). Despite its increasing importance, the concept of data stewardship remains ambiguous and varies in its application. This paper explores four distinct manifestations of data stewardship to clarify its emerging position in the data governance landscape. These manifestations include a) data stewardship as a set of competencies and skills, b) a function or role...",
+    "categories": [
+      "cs.CY",
+      "cs.AI",
+      "cs.DB"
+    ],
+    "published_date": "2025-01-20",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 AI 활용을 위한 데이터 거버넌스와 데이터 스튜어드십의 개념 및 원칙을 다룰 뿐, LLM의 특정 아키텍처, 학습, 평가 또는 직접적인 응용을 연구 주제로 하지 않습니다."
+  },
+  {
+    "arxiv_id": "2501.11526v1",
+    "title": "Meta-Instance Selection. Instance Selection as a Classification Problem with Meta-Features",
+    "abstract": "Data pruning, or instance selection, is an important problem in machine learning especially in terms of nearest neighbour classifier. However, in data pruning which speeds up the prediction phase, there is an issue related to the speed and efficiency of the process itself. In response, the study proposes an approach involving transforming the instance selection process into a classification task conducted in a unified meta-feature space where each instance can be classified and assigned to eithe...",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-20",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 Nearest Neighbor 분류기의 효율적인 데이터 프루닝(인스턴스 선택) 기법에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.11222v1",
+    "title": "An Imbalanced Learning-based Sampling Method for Physics-informed Neural Networks",
+    "abstract": "This paper introduces Residual-based Smote (RSmote), an innovative local adaptive sampling technique tailored to improve the performance of Physics-Informed Neural Networks (PINNs) through imbalanced learning strategies. Traditional residual-based adaptive sampling methods, while effective in enhancing PINN accuracy, often struggle with efficiency and high memory consumption, particularly in high-dimensional problems. RSmote addresses these challenges by targeting regions with high residuals and...",
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-20",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 물리 정보 신경망(PINN)의 샘플링 효율성을 개선하는 알고리즘에 관한 것으로, 거대언어모델(LLM)과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.11214v1",
+    "title": "Mitigating Spatial Disparity in Urban Prediction Using Residual-Aware Spatiotemporal Graph Neural Networks: A Chicago Case Study",
+    "abstract": "Urban prediction tasks, such as forecasting traffic flow, temperature, and crime rates, are crucial for efficient urban planning and management. However, existing Spatiotemporal Graph Neural Networks (ST-GNNs) often rely solely on accuracy, overlooking spatial and demographic disparities in their predictions. This oversight can lead to imbalanced resource allocation and exacerbate existing inequities in urban areas. This study introduces a Residual-Aware Attention (RAA) Block and an equality-enh...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-20",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 도시 예측을 위한 시공간 그래프 신경망(ST-GNN)의 공정성과 정확도 개선에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.11190v1",
+    "title": "Reinforcement Learning Based Goodput Maximization with Quantized Feedback in URLLC",
+    "abstract": "This paper presents a comprehensive system model for goodput maximization with quantized feedback in Ultra-Reliable Low-Latency Communication (URLLC), focusing on dynamic channel conditions and feedback schemes. The study investigates a communication system, where the receiver provides quantized channel state information to the transmitter. The system adapts its feedback scheme based on reinforcement learning, aiming to maximize goodput while accommodating varying channel statistics. We introduc...",
+    "categories": [
+      "cs.IT",
+      "cs.LG",
+      "eess.SP"
+    ],
+    "published_date": "2025-01-19",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 초고신뢰 저지연 통신(URLLC) 및 무선 채널 피드백 최적화에 관한 연구로, LLM과는 관련이 없는 통신 시스템 기술을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.11007v3",
+    "title": "HFGCN:Hypergraph Fusion Graph Convolutional Networks for Skeleton-Based Action Recognition",
+    "abstract": "In recent years, action recognition has received much attention and wide application due to its important role in video understanding. Most of the researches on action recognition methods focused on improving the performance via various deep learning methods rather than the classification of skeleton points. The topological modeling between skeleton points and body parts was seldom considered. Although some studies have used a data-driven approach to classify the topology of the skeleton point, ...",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-19",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 스켈레톤 데이터를 활용한 비디오 행동 인식(Action Recognition)과 그래프 신경망(GCN) 구조에 관한 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2503.15498v1",
+    "title": "Revival: Collaborative Artistic Creation through Human-AI Interactions in Musical Creativity",
+    "abstract": "Revival is an innovative live audiovisual performance and music improvisation by our artist collective K-Phi-A, blending human and AI musicianship to create electronic music with audio-reactive visuals. The performance features real-time co-creative improvisation between a percussionist, an electronic music artist, and AI musical agents. Trained in works by deceased composers and the collective's compositions, these agents dynamically respond to human input and emulate complex musical styles. An...",
+    "categories": [
+      "cs.HC",
+      "cs.AI",
+      "cs.MA",
+      "cs.MM",
+      "cs.SD",
+      "eess.AS"
+    ],
+    "published_date": "2025-01-19",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 대규모 언어 모델(LLM)이 아닌 실시간 음악 즉흥 연주 및 시각 효과를 위한 AI 뮤지컬 에이전트 기술을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.10935v2",
+    "title": "TSVC:Tripartite Learning with Semantic Variation Consistency for Robust Image-Text Retrieval",
+    "abstract": "Cross-modal retrieval maps data under different modality via semantic relevance. Existing approaches implicitly assume that data pairs are well-aligned and ignore the widely existing annotation noise, i.e., noisy correspondence (NC). Consequently, it inevitably causes performance degradation. Despite attempts that employ the co-teaching paradigm with identical architectures to provide distinct data perspectives, the differences between these architectures are primarily stemmed from random initia...",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-19",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 이미지-텍스트 검색(Cross-modal retrieval)에서의 데이터 노이즈 문제를 해결하기 위한 학습 메커니즘을 다루고 있으며, 거대 언어 모델(LLM)의 설계나 학습과는 직접적인 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.10859v1",
+    "title": "Which price to pay? Auto-tuning building MPC controller for optimal economic cost",
+    "abstract": "Model predictive control (MPC) controller is considered for temperature management in buildings but its performance heavily depends on hyperparameters. Consequently, MPC necessitates meticulous hyperparameter tuning to attain optimal performance under diverse contracts. However, conventional building controller design is an open-loop process without critical hyperparameter optimization, often leading to suboptimal performance due to unexpected environmental disturbances and modeling errors. Furt...",
+    "categories": [
+      "eess.SY",
+      "cs.LG",
+      "math.OC"
+    ],
+    "published_date": "2025-01-18",
+    "is_llm_relevant": false,
+    "relevance_reason": "건물 온도 제어를 위한 모델 예측 제어(MPC)의 하이퍼파라미터 최적화와 에너지 관리 모델에 관한 논문으로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.10848v1",
+    "title": "Fake Advertisements Detection Using Automated Multimodal Learning: A Case Study for Vietnamese Real Estate Data",
+    "abstract": "The popularity of e-commerce has given rise to fake advertisements that can expose users to financial and data risks while damaging the reputation of these e-commerce platforms. For these reasons, detecting and removing such fake advertisements are important for the success of e-commerce websites. In this paper, we propose FADAML, a novel end-to-end machine learning system to detect and filter out fake online advertisements. Our system combines techniques in multimodal machine learning and autom...",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-18",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 멀티모달 기계 학습과 자동화된 기계 학습(AutoML)을 활용한 가짜 광고 탐지에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.10787v1",
+    "title": "LD-DETR: Loop Decoder DEtection TRansformer for Video Moment Retrieval and Highlight Detection",
+    "abstract": "Video Moment Retrieval and Highlight Detection aim to find corresponding content in the video based on a text query. Existing models usually first use contrastive learning methods to align video and text features, then fuse and extract multimodal information, and finally use a Transformer Decoder to decode multimodal information. However, existing methods face several issues: (1) Overlapping semantic information between different samples in the dataset hinders the model's multimodal aligning per...",
+    "categories": [
+      "cs.CV",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-18",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 비디오 순간 검색 및 하이라이트 탐지를 위한 DETR 기반의 멀티모달 아키텍처(LD-DETR)에 관한 것이며, LLM의 학습이나 응용을 다루지 않습니다."
+  },
+  {
+    "arxiv_id": "2502.10396v1",
+    "title": "DASKT: A Dynamic Affect Simulation Method for Knowledge Tracing",
+    "abstract": "Knowledge Tracing (KT) predicts future performance by modeling students' historical interactions, and understanding students' affective states can enhance the effectiveness of KT, thereby improving the quality of education. Although traditional KT values students' cognition and learning behaviors, efficient evaluation of students' affective states and their application in KT still require further exploration due to the non-affect-oriented nature of the data and budget constraints. To address thi...",
+    "categories": [
+      "cs.CY",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-18",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 학생의 감정 상태를 시뮬레이션하여 학습 성취도를 예측하는 지식 추적(Knowledge Tracing) 모델에 관한 연구로, LLM과 직접적인 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.10667v1",
+    "title": "Precision Adaptive Imputation Network : An Unified Technique for Mixed Datasets",
+    "abstract": "The challenge of missing data remains a significant obstacle across various scientific domains, necessitating the development of advanced imputation techniques that can effectively address complex missingness patterns. This study introduces the Precision Adaptive Imputation Network (PAIN), a novel algorithm designed to enhance data reconstruction by dynamically adapting to diverse data types, distributions, and missingness mechanisms. PAIN employs a tri-step process that integrates statistical m...",
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-18",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 결측치 보간(Data Imputation)을 위해 랜덤 포레스트와 오토인코더를 사용하는 기술에 관한 것이며, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.10658v1",
+    "title": "LUT-DLA: Lookup Table as Efficient Extreme Low-Bit Deep Learning Accelerator",
+    "abstract": "The emergence of neural network capabilities invariably leads to a significant surge in computational demands due to expanding model sizes and increased computational complexity. To reduce model size and lower inference costs, recent research has focused on simplifying models and designing hardware accelerators using low-bit quantization. However, due to numerical representation limits, scalar quantization cannot reduce bit width lower than 1-bit, diminishing its benefits. To break through these...",
+    "categories": [
+      "cs.AR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-18",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM에 특화된 연구가 아니라, CNN과 Transformer를 포함한 딥러닝 모델 전반을 위한 하드웨어 가속기 및 양자화 프레임워크(LUT-DLA) 개발을 주제로 하고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.13943v1",
+    "title": "Language Representation Favored Zero-Shot Cross-Domain Cognitive Diagnosis",
+    "abstract": "Cognitive diagnosis aims to infer students' mastery levels based on their historical response logs. However, existing cognitive diagnosis models (CDMs), which rely on ID embeddings, often have to train specific models on specific domains. This limitation may hinder their directly practical application in various target domains, such as different subjects (e.g., Math, English and Physics) or different education platforms (e.g., ASSISTments, Junyi Academy and Khan Academy). To address this issue, ...",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.CY",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-18",
+    "is_llm_relevant": false,
+    "relevance_reason": "논문의 주된 주제는 인지 진단(Cognitive Diagnosis)이며, LLM(또는 텍스트 임베딩 모델)은 도메인 간 전이를 위한 텍스트 표현 추출 도구로 사용되었습니다."
+  },
+  {
+    "arxiv_id": "2501.10605v2",
+    "title": "Wasserstein Adaptive Value Estimation for Actor-Critic Reinforcement Learning",
+    "abstract": "We present Wasserstein Adaptive Value Estimation for Actor-Critic (WAVE), an approach to enhance stability in deep reinforcement learning through adaptive Wasserstein regularization. Our method addresses the inherent instability of actor-critic algorithms by incorporating an adaptively weighted Wasserstein regularization term into the critic's loss function. We prove that WAVE achieves $\\mathcal{O}\\left(\\frac{1}{k}\\right)$ convergence rate for the critic's mean squared error and provide theoreti...",
+    "categories": [
+      "cs.LG",
+      "eess.SY",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-17",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 강화학습(Reinforcement Learning)의 Actor-Critic 알고리즘 성능 개선과 수렴성을 다루는 일반적인 기계학습 연구이며 LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.10496v1",
+    "title": "Extension of Symmetrized Neural Network Operators with Fractional and Mixed Activation Functions",
+    "abstract": "We propose a novel extension to symmetrized neural network operators by incorporating fractional and mixed activation functions. This study addresses the limitations of existing models in approximating higher-order smooth functions, particularly in complex and high-dimensional spaces. Our framework introduces a fractional exponent in the activation functions, allowing adaptive non-linear approximations with improved accuracy. We define new density functions based on $q$-deformed and $θ$-parametr...",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-17",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아니라 신경망의 근사 이론, 활성화 함수 및 수학적 연산자와 같은 인공신경망의 기초 수학적 원리에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.10190v2",
+    "title": "Temporal Causal Reasoning with (Non-Recursive) Structural Equation Models",
+    "abstract": "Structural Equation Models (SEM) are the standard approach to representing causal dependencies between variables in causal models. In this paper we propose a new interpretation of SEMs when reasoning about Actual Causality, in which SEMs are viewed as mechanisms transforming the dynamics of exogenous variables into the dynamics of endogenous variables. This allows us to combine counterfactual causal reasoning with existing temporal logic formalisms, and to introduce a temporal logic, CPLTL, for ...",
+    "categories": [
+      "cs.AI",
+      "cs.LO"
+    ],
+    "published_date": "2025-01-17",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 인과 추론(Causal Reasoning)과 시계열 논리(Temporal Logic)를 결합한 구조 방정식 모델(SEM)에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.10179v1",
+    "title": "A Simple but Effective Closed-form Solution for Extreme Multi-label Learning",
+    "abstract": "Extreme multi-label learning (XML) is a task of assigning multiple labels from an extremely large set of labels to each data instance. Many current high-performance XML models are composed of a lot of hyperparameters, which complicates the tuning process. Additionally, the models themselves are adapted specifically to XML, which complicates their reimplementation. To remedy this problem, we propose a simple method based on ridge regression for XML. The proposed method not only has a closed-form ...",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-17",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 릿지 회귀(Ridge Regression)를 기반으로 한 극한 다중 레이블 분류(XML) 알고리즘의 효율성에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.09943v2",
+    "title": "Indigenous Languages Spoken in Argentina: A Survey of NLP and Speech Resources",
+    "abstract": "Argentina has a large yet little-known Indigenous linguistic diversity, encompassing at least 40 different languages. The majority of these languages are at risk of disappearing, resulting in a significant loss of world heritage and cultural knowledge. Currently, unified information on speakers and computational tools is lacking for these languages. In this work, we present a systematization of the Indigenous languages spoken in Argentina, classifying them into seven language families: Mapuche, ...",
+    "categories": [
+      "cs.CL"
+    ],
+    "published_date": "2025-01-17",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 아르헨티나 토착어의 언어학적 분류, 인구 조사 데이터 분석 및 전산 자원 현황을 조사하는 것이 주 목적으로 LLM의 개발이나 응용을 다루지 않습니다."
+  },
+  {
+    "arxiv_id": "2501.09734v1",
+    "title": "Random Subspace Cubic-Regularization Methods, with Applications to Low-Rank Functions",
+    "abstract": "We propose and analyze random subspace variants of the second-order Adaptive Regularization using Cubics (ARC) algorithm. These methods iteratively restrict the search space to some random subspace of the parameters, constructing and minimizing a local model only within this subspace. Thus, our variants only require access to (small-dimensional) projections of first- and second-order problem derivatives and calculate a reduced step inexpensively. Under suitable assumptions, the ensuing methods m...",
+    "categories": [
+      "math.OC",
+      "cs.LG",
+      "math.NA"
+    ],
+    "published_date": "2025-01-16",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 범용적인 수치 최적화 알고리즘(ARC)의 효율성과 수렴 속도를 개선하기 위한 수학적 방법론을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.09707v1",
+    "title": "The Goofus & Gallant Story Corpus for Practical Value Alignment",
+    "abstract": "Values or principles are key elements of human society that influence people to behave and function according to an accepted standard set of social rules to maintain social order. As AI systems are becoming ubiquitous in human society, it is a major concern that they could violate these norms or values and potentially cause harm. Thus, to prevent intentional or unintentional harm, AI systems are expected to take actions that align with these principles. Training systems to exhibit this type of b...",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2025-01-16",
+    "is_llm_relevant": false,
+    "relevance_reason": "AI의 사회적 규범 준수를 위한 멀티모달 데이터셋 구축에 관한 논문으로, 자연어를 포함하고 있으나 LLM에 특화된 연구인지 혹은 일반적인 AI 에이전트를 위한 것인지 명시되어 있지 않음."
+  },
+  {
+    "arxiv_id": "2502.08651v1",
+    "title": "Democratizing AI Governance: Balancing Expertise and Public Participation",
+    "abstract": "The development and deployment of artificial intelligence (AI) systems, with their profound societal impacts, raise critical challenges for governance. Historically, technological innovations have been governed by concentrated expertise with limited public input. However, AI's pervasive influence across domains such as healthcare, employment, and justice necessitates inclusive governance approaches. This article explores the tension between expert-led oversight and democratic participation, anal...",
+    "categories": [
+      "cs.CY",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-16",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM의 특정 기술이나 응용이 아닌, 인공지능(AI) 전반에 대한 거버넌스 정책과 민주적 참여를 주제로 다룹니다."
+  },
+  {
+    "arxiv_id": "2501.09621v2",
+    "title": "Weight for Robustness: A Comprehensive Approach towards Optimal Fault-Tolerant Asynchronous ML",
+    "abstract": "We address the challenges of Byzantine-robust training in asynchronous distributed machine learning systems, aiming to enhance efficiency amid massive parallelization and heterogeneous computing resources. Asynchronous systems, marked by independently operating workers and intermittent updates, uniquely struggle with maintaining integrity against Byzantine failures, which encompass malicious or erroneous actions that disrupt learning. The inherent delays in such settings not only introduce addit...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-16",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 비동기 분산 기계 학습 시스템의 보안(Byzantine-robust) 및 최적화 알고리즘에 관한 일반적인 내용을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.09561v1",
+    "title": "Stylomech: Unveiling Authorship via Computational Stylometry in English and Romanized Sinhala",
+    "abstract": "With the advent of Web 2.0, the development in social technology coupled with global communication systematically brought positive and negative impacts to society. Copyright claims and Author identification are deemed crucial as there has been a considerable amount of increase in content violation owing to the lack of proper ethics in society. The Author's attribution in both English and Romanized Sinhala became a major requirement in the last few decades. As an area largely unexplored, particul...",
+    "categories": [
+      "cs.CL"
+    ],
+    "published_date": "2025-01-16",
+    "is_llm_relevant": false,
+    "relevance_reason": "해당 논문은 저자 식별(Author Attribution)을 위해 텍스트 쌍의 수치적 표현을 활용하는 방법론에 관한 것으로, LLM의 설계나 학습과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.09298v2",
+    "title": "Physics-informed deep learning for infectious disease forecasting",
+    "abstract": "Accurate forecasting of contagious diseases is critical for public health policymaking and pandemic preparedness. We propose a new infectious disease forecasting model based on physics-informed neural networks (PINNs), an emerging scientific machine learning approach. By embedding a compartmental model into the loss function, our method integrates epidemiological theory with data, helping to prevent model overfitting. We further enhance the model with a sub-network that accounts for covariates s...",
+    "categories": [
+      "cs.LG",
+      "q-bio.QM"
+    ],
+    "published_date": "2025-01-16",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 물리 정보 신경망(PINN)을 활용한 감염병 시계열 예측에 관한 연구이며, Transformer를 비교 모델로 사용했을 뿐 LLM의 학습이나 구조를 다루지 않습니다."
+  },
+  {
+    "arxiv_id": "2501.09217v1",
+    "title": "Adaptive Law-Based Transformation (ALT): A Lightweight Feature Representation for Time Series Classification",
+    "abstract": "Time series classification (TSC) is fundamental in numerous domains, including finance, healthcare, and environmental monitoring. However, traditional TSC methods often struggle with the inherent complexity and variability of time series data. Building on our previous work with the linear law-based transformation (LLT) - which improved classification accuracy by transforming the feature space based on key data patterns - we introduce adaptive law-based transformation (ALT). ALT enhances LLT by i...",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CV",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-16",
+    "is_llm_relevant": false,
+    "relevance_reason": "시계열 데이터 분류를 위한 ALT(Adaptive Law-based Transformation) 기법에 관한 논문이며, 대규모 언어 모델(LLM)과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2502.00019v1",
+    "title": "Growth Patterns of Inference",
+    "abstract": "What properties of a first-order search space support/hinder inference? What kinds of facts would be most effective to learn? Answering these questions is essential for understanding the dynamics of deductive reasoning and creating large-scale knowledge-based learning systems that support efficient inference. We address these questions by developing a model of how the distribution of ground facts affects inference performance in search spaces. Experiments suggest that uniform search spaces are s...",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2025-01-15",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 1차 논리(first-order logic) 기반의 지식 베이스와 연역적 추론 탐색 공간의 구조적 특성을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.09187v1",
+    "title": "Patch-aware Vector Quantized Codebook Learning for Unsupervised Visual Defect Detection",
+    "abstract": "Unsupervised visual defect detection is critical in industrial applications, requiring a representation space that captures normal data features while detecting deviations. Achieving a balance between expressiveness and compactness is challenging; an overly expressive space risks inefficiency and mode collapse, impairing detection accuracy. We propose a novel approach using an enhanced VQ-VAE framework optimized for unsupervised defect detection. Our model introduces a patch-aware dynamic code a...",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-15",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 산업용 이미지의 결함 탐지를 위한 VQ-VAE 기반의 컴퓨터 비전 기술을 다루고 있으며, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.09182v1",
+    "title": "A Blockchain-Enabled Approach to Cross-Border Compliance and Trust",
+    "abstract": "As artificial intelligence (AI) systems become increasingly integral to critical infrastructure and global operations, the need for a unified, trustworthy governance framework is more urgent that ever. This paper proposes a novel approach to AI governance, utilizing blockchain and distributed ledger technologies (DLT) to establish a decentralized, globally recognized framework that ensures security, privacy, and trustworthiness of AI systems across borders. The paper presents specific implementa...",
+    "categories": [
+      "cs.AI",
+      "cs.CR",
+      "cs.CY",
+      "cs.SE"
+    ],
+    "published_date": "2025-01-15",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM에 특화된 연구가 아니라 인공지능(AI) 전반의 거버넌스, 보안 및 블록체인 기반의 관리 체계 구축을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.09163v1",
+    "title": "Towards Understanding Extrapolation: a Causal Lens",
+    "abstract": "Canonical work handling distribution shifts typically necessitates an entire target distribution that lands inside the training distribution. However, practical scenarios often involve only a handful of target samples, potentially lying outside the training support, which requires the capability of extrapolation. In this work, we aim to provide a theoretical understanding of when extrapolation is possible and offer principled methods to achieve it without requiring an on-support target distribut...",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-15",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 데이터 분포 변화(distribution shifts)와 외삽(extrapolation)에 관한 일반적인 기계 학습 이론 및 잠재 변수 모델을 다루며, LLM에 특화된 연구가 아닙니다."
+  },
+  {
+    "arxiv_id": "2501.08821v1",
+    "title": "A Closer Look at the Learnability of Out-of-Distribution (OOD) Detection",
+    "abstract": "Machine learning algorithms often encounter different or \"out-of-distribution\" (OOD) data at deployment time, and OOD detection is frequently employed to detect these examples. While it works reasonably well in practice, existing theoretical results on OOD detection are highly pessimistic. In this work, we take a closer look at this problem, and make a distinction between uniform and non-uniform learnability, following PAC learning theory. We characterize under what conditions OOD detection is u...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-15",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 기계 학습의 일반적인 OOD(Out-of-Distribution) 탐지에 관한 PAC 학습 이론 및 이론적 분석을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.08712v1",
+    "title": "Self-supervised Transformation Learning for Equivariant Representations",
+    "abstract": "Unsupervised representation learning has significantly advanced various machine learning tasks. In the computer vision domain, state-of-the-art approaches utilize transformations like random crop and color jitter to achieve invariant representations, embedding semantically the same inputs despite transformations. However, this can degrade performance in tasks requiring precise features, such as localization or flower classification. To address this, recent research incorporates equivariant repre...",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-15",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 컴퓨터 비전 분야의 이미지 표현 학습(Representation Learning) 및 변환 학습에 관한 연구로, LLM과는 직접적인 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.08653v2",
+    "title": "Fine-grained Spatio-temporal Event Prediction with Self-adaptive Anchor Graph",
+    "abstract": "Event prediction tasks often handle spatio-temporal data distributed in a large spatial area. Different regions in the area exhibit different characteristics while having latent correlations. This spatial heterogeneity and correlations greatly affect the spatio-temporal distributions of event occurrences, which has not been addressed by state-of-the-art models. Learning spatial dependencies of events in a continuous space is challenging due to its fine granularity and a lack of prior knowledge. ...",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.SI"
+    ],
+    "published_date": "2025-01-15",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 시공간 데이터의 이벤트 예측을 위한 그래프 신경망 및 신경 상미분 방정식(Neural ODEs) 기반 모델에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.08561v3",
+    "title": "ANSR-DT: An Adaptive Neuro-Symbolic Learning and Reasoning Framework for Digital Twins",
+    "abstract": "In this paper, we propose an Adaptive Neuro-Symbolic Learning and Reasoning Framework for digital twin technology called \"ANSR-DT.\" Digital twins in industrial environments often struggle with interpretability, real-time adaptation, and human input integration. Our approach addresses these challenges by combining CNN-LSTM dynamic event detection with reinforcement learning and symbolic reasoning to enable adaptive intelligence with interpretable decision processes. This integration enhances envi...",
+    "categories": [
+      "cs.AI",
+      "cs.HC",
+      "cs.LG",
+      "cs.SC"
+    ],
+    "published_date": "2025-01-15",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 CNN-LSTM, 강화 학습, 기호 추론을 이용한 디지털 트윈 기술에 관한 것으로, LLM의 학습이나 응용과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.08429v2",
+    "title": "Modeling Discrimination with Causal Abstraction",
+    "abstract": "A person is directly racially discriminated against only if her race caused her worse treatment. This implies that race is an attribute sufficiently separable from other attributes to isolate its causal role. But race is embedded in a nexus of social factors that resist isolated treatment. If race is socially constructed, in what sense can it cause worse treatment? Some propose that the perception of race, rather than race itself, causes worse treatment. Others suggest that since causal models r...",
+    "categories": [
+      "cs.CY",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-14",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 인종 차별의 인과 모델링과 사회적 구성주의에 관한 철학적·통계적 방법론을 다루고 있으며, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.08202v2",
+    "title": "Data-driven system identification using quadratic embeddings of nonlinear dynamics",
+    "abstract": "We propose a novel data-driven method called QENDy (Quadratic Embedding of Nonlinear Dynamics) that not only allows us to learn quadratic representations of highly nonlinear dynamical systems, but also to identify the governing equations. The approach is based on an embedding of the system into a higher-dimensional feature space in which the dynamics become quadratic. Just like SINDy (Sparse Identification of Nonlinear Dynamics), our method requires trajectory data, time derivatives for the trai...",
+    "categories": [
+      "math.DS",
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-14",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 비선형 동적 시스템의 물리적 지배 방정식을 식별하는 수치 해석적 방법론에 관한 것이며, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.08099v1",
+    "title": "Smooth Handovers via Smoothed Online Learning",
+    "abstract": "With users demanding seamless connectivity, handovers (HOs) have become a fundamental element of cellular networks. However, optimizing HOs is a challenging problem, further exacerbated by the growing complexity of mobile networks. This paper presents the first countrywide study of HO optimization, through the prism of Smoothed Online Learning (SOL). We first analyze an extensive dataset from a commercial mobile network operator (MNO) in Europe with more than 40M users, to understand and reveal ...",
+    "categories": [
+      "cs.NI",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-14",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 모바일 네트워크의 핸드오버(Handover) 최적화와 온라인 학습 알고리즘에 관한 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.16341v1",
+    "title": "Developing Enhanced Conversational Agents for Social Virtual Worlds",
+    "abstract": "In this paper, we present a methodology for the development of embodied conversational agents for social virtual worlds. The agents provide multimodal communication with their users in which speech interaction is included. Our proposal combines different techniques related to Artificial Intelligence, Natural Language Processing, Affective Computing, and User Modeling. Firstly, the developed conversational agents. A statistical methodology has been developed to model the system conversational beh...",
+    "categories": [
+      "eess.AS",
+      "cs.CL",
+      "cs.SD"
+    ],
+    "published_date": "2025-01-14",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 현대의 대규모 언어 모델(LLM)이 아닌 통계적 방법론과 감성 컴퓨팅 기반의 가상 세계용 대화 에이전트를 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.07930v3",
+    "title": "An Adaptive Orthogonal Convolution Scheme for Efficient and Flexible CNN Architectures",
+    "abstract": "Orthogonal convolutional layers are valuable components in multiple areas of machine learning, such as adversarial robustness, normalizing flows, GANs, and Lipschitz-constrained models. Their ability to preserve norms and ensure stable gradient propagation makes them valuable for a large range of problems. Despite their promise, the deployment of orthogonal convolution in large-scale applications is a significant challenge due to computational overhead and limited support for modern features lik...",
+    "categories": [
+      "cs.AI",
+      "cs.NE"
+    ],
+    "published_date": "2025-01-14",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 합성곱 신경망(CNN)의 직교 층 설계와 효율성 개선을 다루는 딥러닝 아키텍처 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.07911v1",
+    "title": "Deep Learning and Natural Language Processing in the Field of Construction",
+    "abstract": "This article presents a complete process to extract hypernym relationships in the field of construction using two main steps: terminology extraction and detection of hypernyms from these terms. We first describe the corpus analysis method to extract terminology from a collection of technical specifications in the field of construction. Using statistics and word n-grams analysis, we extract the domain's terminology and then perform pruning steps with linguistic patterns and internet queries to im...",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2025-01-14",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM 대신 통계적 기법, n-gram 분석, 그리고 단어 임베딩(word embedding) 모델을 활용하여 용어 및 상위어 관계를 추출하는 전통적인 NLP 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.07903v1",
+    "title": "Optimal Classification Trees for Continuous Feature Data Using Dynamic Programming with Branch-and-Bound",
+    "abstract": "Computing an optimal classification tree that provably maximizes training performance within a given size limit, is NP-hard, and in practice, most state-of-the-art methods do not scale beyond computing optimal trees of depth three. Therefore, most methods rely on a coarse binarization of continuous features to maintain scalability. We propose a novel algorithm that optimizes trees directly on the continuous feature data using dynamic programming with branch-and-bound. We develop new pruning tech...",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.DS"
+    ],
+    "published_date": "2025-01-14",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 Large Language Model이 아닌, 전통적인 머신러닝 모델인 의사결정 나무(Decision Tree)의 최적화 알고리즘에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.07761v1",
+    "title": "Impatient Bandits: Optimizing for the Long-Term Without Delay",
+    "abstract": "Increasingly, recommender systems are tasked with improving users' long-term satisfaction. In this context, we study a content exploration task, which we formalize as a bandit problem with delayed rewards. There is an apparent trade-off in choosing the learning signal: waiting for the full reward to become available might take several weeks, slowing the rate of learning, whereas using short-term proxy rewards reflects the actual long-term goal only imperfectly. First, we develop a predictive mod...",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-14",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 밴딧 알고리즘과 지연된 보상을 활용한 추천 시스템의 최적화에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2503.15494v1",
+    "title": "AI-Powered Assistive Technologies for Visual Impairment",
+    "abstract": "Artificial Intelligence (AI) is revolutionizing assistive technologies. It offers innovative solutions to enhance the quality of life for individuals with visual impairments. This review examines the development, applications, and impact of AI-powered tools in key domains, such as computer vision, natural language processing (NLP), and wearable devices. Specific advancements include object recognition for identifying everyday items, scene description for understanding surroundings, and NLP-drive...",
+    "categories": [
+      "cs.HC",
+      "cs.AI",
+      "cs.CY"
+    ],
+    "published_date": "2025-01-14",
+    "is_llm_relevant": false,
+    "relevance_reason": "시각 장애인을 위한 인공지능 보조 기술 전반을 다루는 리뷰 논문이며, LLM보다는 컴퓨터 비전과 일반적인 NLP 기술에 초점을 맞추고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.07700v4",
+    "title": "Adaptive Collocation Point Strategies For Physics Informed Neural Networks via the QR Discrete Empirical Interpolation Method",
+    "abstract": "Physics-informed neural networks (PINNs) have gained significant attention for solving forward and inverse problems related to partial differential equations (PDEs). While advancements in loss functions and network architectures have improved PINN accuracy, the impact of collocation point sampling on their performance remains underexplored. Fixed sampling methods, such as uniform random sampling and equispaced grids, can fail to capture critical regions with high solution gradients, limiting the...",
+    "categories": [
+      "cs.LG",
+      "cs.CE",
+      "math.NA"
+    ],
+    "published_date": "2025-01-13",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 물리 정보 신경망(PINN)을 이용한 편미분 방정식(PDE) 해결에 관한 연구로, 대규모 언어 모델(LLM)과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.07515v1",
+    "title": "The Paradox of Success in Evolutionary and Bioinspired Optimization: Revisiting Critical Issues, Key Studies, and Methodological Pathways",
+    "abstract": "Evolutionary and bioinspired computation are crucial for efficiently addressing complex optimization problems across diverse application domains. By mimicking processes observed in nature, like evolution itself, these algorithms offer innovative solutions beyond the reach of traditional optimization methods. They excel at finding near-optimal solutions in large, complex search spaces, making them invaluable in numerous fields. However, both areas are plagued by challenges at their core, includin...",
+    "categories": [
+      "cs.NE",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-13",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 진화 연산 및 생체 모사 알고리즘의 연구 방법론과 엄밀성에 관한 연구로, LLM의 구조, 학습 또는 응용과는 직접적인 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.07426v2",
+    "title": "MVICAD2: Multi-View Independent Component Analysis with Delays and Dilations",
+    "abstract": "Machine learning techniques in multi-view settings face significant challenges, particularly when integrating heterogeneous data, aligning feature spaces, and managing view-specific biases. These issues are prominent in neuroscience, where data from multiple subjects exposed to the same stimuli are analyzed to uncover brain activity dynamics. In magnetoencephalography (MEG), where signals are captured at the scalp level, estimating the brain's underlying sources is crucial, especially in group s...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-13",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 뇌 신호(MEG) 분석을 위한 다중 뷰 독립 성분 분석(ICA) 방법론에 관한 것으로, LLM과는 관련이 없는 신경과학 및 신호 처리 분야의 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.07400v1",
+    "title": "Derivation of effective gradient flow equations and dynamical truncation of training data in Deep Learning",
+    "abstract": "We derive explicit equations governing the cumulative biases and weights in Deep Learning with ReLU activation function, based on gradient descent for the Euclidean cost in the input layer, and under the assumption that the weights are, in a precise sense, adapted to the coordinate system distinguished by the activations. We show that gradient descent corresponds to a dynamical process in the input layer, whereby clusters of data are progressively reduced in complexity (\"truncated\") at an expone...",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "math.AP",
+      "math.OC",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-13",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 ReLU 활성화 함수를 사용하는 딥러닝의 일반적인 가중치 변화와 경사 하강법의 수학적 원리를 다루는 이론적 연구이며, LLM에 특화된 연구가 아닙니다."
+  },
+  {
+    "arxiv_id": "2501.07306v2",
+    "title": "Variable Bregman Majorization-Minimization Algorithm and its Application to Dirichlet Maximum Likelihood Estimation",
+    "abstract": "We propose a novel Bregman descent algorithm for minimizing a convex function that is expressed as the sum of a differentiable part (defined over an open set) and a possibly nonsmooth term. The approach, referred to as the Variable Bregman Majorization-Minimization (VBMM) algorithm, extends the Bregman Proximal Gradient method by allowing the Bregman function used in the divergence to adaptively vary at each iteration, provided it satisfies a majorizing condition on the objective function. This ...",
+    "categories": [
+      "cs.LG",
+      "math.OC"
+    ],
+    "published_date": "2025-01-13",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 볼록 최적화를 위한 수학적 알고리즘(Bregman descent)과 디리클레 분포의 모수 추정에 관한 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.07247v1",
+    "title": "Interpretable machine-learning for predicting molecular weight of PLA based on artificial bee colony optimization algorithm and adaptive neurofuzzy inference system",
+    "abstract": "This article discusses the integration of the Artificial Bee Colony (ABC) algorithm with two supervised learning methods, namely Artificial Neural Networks (ANNs) and Adaptive Network-based Fuzzy Inference System (ANFIS), for feature selection from Near-Infrared (NIR) spectra for predicting the molecular weight of medical-grade Polylactic Acid (PLA). During extrusion processing of PLA, in-line NIR spectra were captured along with extrusion process and machine setting data. With a dataset compris...",
+    "categories": [
+      "eess.SY",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-13",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 인공신경망(ANN)과 퍼지 추론 시스템(ANFIS) 등 전통적인 머신러닝 기법을 사용하여 화학 공정 데이터를 분석하는 내용입니다."
+  },
+  {
+    "arxiv_id": "2501.07021v2",
+    "title": "Neural Probabilistic Circuits: Enabling Compositional and Interpretable Predictions through Logical Reasoning",
+    "abstract": "End-to-end deep neural networks have achieved remarkable success across various domains but are often criticized for their lack of interpretability. While post hoc explanation methods attempt to address this issue, they often fail to accurately represent these black-box models, resulting in misleading or incomplete explanations. To overcome these challenges, we propose an inherently transparent model architecture called Neural Probabilistic Circuits (NPCs), which enable compositional and interpr...",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-13",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 해석 가능한 새로운 모델 아키텍처인 Neural Probabilistic Circuits(NPC)의 설계와 학습 방법에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.06826v3",
+    "title": "Aligning NLP Models with Target Population Perspectives using PAIR: Population-Aligned Instance Replication",
+    "abstract": "Models trained on crowdsourced annotations may not reflect population views, if those who work as annotators do not represent the broader population. In this paper, we propose PAIR: Population-Aligned Instance Replication, a post-processing method that adjusts training data to better reflect target population characteristics without collecting additional annotations. Using simulation studies on offensive language and hate speech detection with varying annotator compositions, we show that non-rep...",
+    "categories": [
+      "stat.ME",
+      "cs.CL"
+    ],
+    "published_date": "2025-01-12",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 혐오 표현 탐지 모델의 학습 데이터 주석자 편향 문제를 다루는 NLP 연구로, LLM이 모델로 사용될 수 있으나 논문의 핵심 주제는 인구 통계학적 특성을 반영한 데이터 조정 방법론(PAIR)임."
+  },
+  {
+    "arxiv_id": "2501.06701v2",
+    "title": "Sequential Portfolio Selection under Latent Side Information-Dependence Structure: Optimality and Universal Learning Algorithms",
+    "abstract": "This paper investigates the investment problem of constructing an optimal no-short sequential portfolio strategy in a market with a latent dependence structure between asset prices and partly unobservable side information, which is often high-dimensional. The results demonstrate that a dynamic strategy, which forms a portfolio based on perfect knowledge of the dependence structure and full market information over time, may not grow at a higher rate infinitely often than a constant strategy, whic...",
+    "categories": [
+      "q-fin.MF",
+      "cs.IT",
+      "cs.LG",
+      "math.PR",
+      "q-fin.PM"
+    ],
+    "published_date": "2025-01-12",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 자산 가격의 상관관계와 금융 데이터를 활용한 최적의 포트폴리오 투자 전략을 다루는 금융 공학 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.06554v1",
+    "title": "Hierarchical Reinforcement Learning for Optimal Agent Grouping in Cooperative Systems",
+    "abstract": "This paper presents a hierarchical reinforcement learning (RL) approach to address the agent grouping or pairing problem in cooperative multi-agent systems. The goal is to simultaneously learn the optimal grouping and agent policy. By employing a hierarchical RL framework, we distinguish between high-level decisions of grouping and low-level agents' actions. Our approach utilizes the CTDE (Centralized Training with Decentralized Execution) paradigm, ensuring efficient learning and scalable execu...",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.MA"
+    ],
+    "published_date": "2025-01-11",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 다중 에이전트 강화학습(MARL)과 계층적 강화학습을 다루는 연구로, LLM의 구조, 학습 또는 응용과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.06408v2",
+    "title": "Computational and Statistical Asymptotic Analysis of the JKO Scheme for Iterative Algorithms to update distributions",
+    "abstract": "The seminal paper of Jordan, Kinderlehrer, and Otto introduced what is now widely known as the JKO scheme, an iterative algorithmic framework for computing distributions. This scheme can be interpreted as a Wasserstein gradient flow and has been successfully applied in machine learning contexts, such as deriving policy solutions in reinforcement learning. In this paper, we extend the JKO scheme to accommodate models with unknown parameters. Specifically, we develop statistical methods to estimat...",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-11",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 확률 분포 계산을 위한 JKO 스킴의 통계적 확장과 수치적 분석을 다루는 수학 및 통계 이론 중심의 논문으로, LLM과는 직접적인 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.06141v3",
+    "title": "Emergent Symbol-like Number Variables in Artificial Neural Networks",
+    "abstract": "What types of numeric representations emerge in neural systems, and what would a satisfying answer to this question look like? In this work, we interpret Neural Network (NN) solutions to sequence based number tasks using a variety of methods to understand how well we can interpret them through the lens of interpretable Symbolic Algorithms (SAs) -- precise programs describable by rules and typed, mutable variables. We use autoregressive GRUs, LSTMs, and Transformers trained on tasks where the cor...",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-10",
+    "is_llm_relevant": false,
+    "relevance_reason": "대규모 언어 모델(LLM)이 아닌, 수치 연산 과제를 수행하는 다양한 신경망 아키텍처(GRU, LSTM, Transformer)의 수치 표현과 해석 가능성을 다루는 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.06089v3",
+    "title": "Towards Developing Socially Compliant Automated Vehicles: Advances, Expert Insights, and A Conceptual Framework",
+    "abstract": "Automated Vehicles (AVs) hold promise for revolutionizing transportation by improving road safety, traffic efficiency, and overall mobility. Despite the steady advancement in high-level AVs in recent years, the transition to full automation entails a period of mixed traffic, where AVs of varying automation levels coexist with human-driven vehicles (HDVs). Making AVs socially compliant and understood by human drivers is expected to improve the safety and efficiency of mixed traffic. Thus, ensurin...",
+    "categories": [
+      "cs.RO",
+      "cs.AI",
+      "cs.LG",
+      "cs.MA",
+      "eess.SY"
+    ],
+    "published_date": "2025-01-10",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 자율주행 차량(AV)의 사회적 적응성과 혼합 교통 환경에서의 통합을 위한 개념적 프레임워크를 다루는 연구이며 LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.06078v2",
+    "title": "Explaining k-Nearest Neighbors: Abductive and Counterfactual Explanations",
+    "abstract": "Despite the wide use of $k$-Nearest Neighbors as classification models, their explainability properties remain poorly understood from a theoretical perspective.   While nearest neighbors classifiers offer interpretability from a ``data perspective'', in which the classification of an input vector $\\bar{x}$ is explained by identifying the vectors $\\bar{v}_1, \\ldots, \\bar{v}_k$ in the training set that determine the classification of $\\bar{x}$, we argue that such explanations can be impractical in...",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-10",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 k-최근접 이웃(k-NN) 분류 모델의 설명 가능성과 복잡도 분석을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.05845v1",
+    "title": "Annealing Machine-assisted Learning of Graph Neural Network for Combinatorial Optimization",
+    "abstract": "While Annealing Machines (AM) have shown increasing capabilities in solving complex combinatorial problems, positioning themselves as a more immediate alternative to the expected advances of future fully quantum solutions, there are still scaling limitations. In parallel, Graph Neural Networks (GNN) have been recently adapted to solve combinatorial problems, showing competitive results and potentially high scalability due to their distributed nature. We propose a merging approach that aims at re...",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-10",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 그래프 신경망(GNN)과 어닐링 머신(AM)을 결합하여 조합 최적화 문제를 해결하는 기술에 관한 것입니다."
+  },
+  {
+    "arxiv_id": "2501.05765v3",
+    "title": "Deontic Temporal Logic for Formal Verification of AI Ethics",
+    "abstract": "Ensuring ethical behavior in Artificial Intelligence (AI) systems amidst their increasing ubiquity and influence is a major concern the world over. The use of formal methods in AI ethics is a possible crucial approach for specifying and verifying the ethical behavior of AI systems. This paper proposes a formalization based on deontic logic to define and evaluate the ethical behavior of AI systems, focusing on system-level specifications, contributing to this important goal. It introduces axioms ...",
+    "categories": [
+      "cs.AI",
+      "cs.LO"
+    ],
+    "published_date": "2025-01-10",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아니라 정형 기법(deontic logic)을 활용한 일반적인 AI 시스템(COMPAS, 대출 예측 등)의 윤리적 검증을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.05563v1",
+    "title": "Prediction-Assisted Online Distributed Deep Learning Workload Scheduling in GPU Clusters",
+    "abstract": "The recent explosive growth of deep learning (DL) models has necessitated a compelling need for efficient job scheduling for distributed deep learning training with mixed parallelisms (DDLwMP) in GPU clusters. This paper proposes an adaptive shortest-remaining-processing-time-first (A-SRPT) scheduling algorithm, a novel prediction-assisted online scheduling approach designed to mitigate the challenges associated with DL cluster scheduling. By modeling each job as a graph corresponding to heterog...",
+    "categories": [
+      "cs.DC",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-09",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM에 특화된 연구가 아니라 일반적인 딥러닝 모델(DNN)의 분산 학습을 위한 GPU 클러스터 스케줄링 알고리즘을 제안하고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.05435v2",
+    "title": "Neuro-Symbolic AI in 2024: A Systematic Review",
+    "abstract": "Background: The field of Artificial Intelligence has undergone cyclical periods of growth and decline, known as AI summers and winters. Currently, we are in the third AI summer, characterized by significant advancements and commercialization, particularly in the integration of Symbolic AI and Sub-Symbolic AI, leading to the emergence of Neuro-Symbolic AI.   Methods: The review followed the PRISMA methodology, utilizing databases such as IEEE Explore, Google Scholar, arXiv, ACM, and SpringerLink....",
+    "categories": [
+      "cs.AI"
+    ],
+    "published_date": "2025-01-09",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 기호주의(Symbolic) AI와 연결주의(Sub-symbolic) AI를 결합한 '뉴로-심볼릭 AI(Neuro-Symbolic AI)' 전반에 관한 체계적 문헌 고찰을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.05407v1",
+    "title": "On-line Policy Improvement using Monte-Carlo Search",
+    "abstract": "We present a Monte-Carlo simulation algorithm for real-time policy improvement of an adaptive controller. In the Monte-Carlo simulation, the long-term expected reward of each possible action is statistically measured, using the initial policy to make decisions in each step of the simulation. The action maximizing the measured expected reward is then taken, resulting in an improved policy. Our algorithm is easily parallelizable and has been implemented on the IBM SP1 and SP2 parallel-RISC superco...",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.NE"
+    ],
+    "published_date": "2025-01-09",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM과 관련이 없으며, 백개먼(Backgammon) 게임의 정책 개선을 위한 몬테카를로 시뮬레이션 알고리즘에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.05361v1",
+    "title": "No-Regret Linear Bandits under Gap-Adjusted Misspecification",
+    "abstract": "This work studies linear bandits under a new notion of gap-adjusted misspecification and is an extension of Liu et al. (2023). When the underlying reward function is not linear, existing linear bandits work usually relies on a uniform misspecification parameter $ε$ that measures the sup-norm error of the best linear approximation. This results in an unavoidable linear regret whenever $ε> 0$. We propose a more natural model of misspecification which only requires the approximation error at each i...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-09",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 선형 밴딧(linear bandits) 문제의 이론적 최적화와 후회(regret) 분석에 관한 논문으로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.05213v1",
+    "title": "GLaM-Sign: Greek Language Multimodal Lip Reading with Integrated Sign Language Accessibility",
+    "abstract": "The Greek Language Multimodal Lip Reading with Integrated Sign Language Accessibility (GLaM-Sign) [1] is a groundbreaking resource in accessibility and multimodal AI, designed to support Deaf and Hard-of-Hearing (DHH) individuals. Developed from the FEELIT project [2], it integrates high-resolution audio, video, textual transcriptions, and Greek Sign Language translations for applications like real-time sign language translation and enhanced subtitle synchronization. While its primary focus is o...",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-09",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 립리딩 및 수어 번역을 위한 멀티모달 데이터셋과 접근성 기술에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.05163v1",
+    "title": "Explainable AI based System for Supply Air Temperature Forecast",
+    "abstract": "This paper explores the application of Explainable AI (XAI) techniques to improve the transparency and understanding of predictive models in control of automated supply air temperature (ASAT) of Air Handling Unit (AHU). The study focuses on forecasting of ASAT using a linear regression with Huber loss. However, having only a control curve without semantic and/or physical explanation is often not enough. The present study employs one of the XAI methods: Shapley values, which allows to reveal the ...",
+    "categories": [
+      "eess.SY",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-09",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 선형 회귀 모델과 XAI 기법(Shapley values)을 활용한 공조 시스템 제어에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.05089v1",
+    "title": "Supervised Learning with Evolving Tasks and Performance Guarantees",
+    "abstract": "Multiple supervised learning scenarios are composed by a sequence of classification tasks. For instance, multi-task learning and continual learning aim to learn a sequence of tasks that is either fixed or grows over time. Existing techniques for learning tasks that are in a sequence are tailored to specific scenarios, lacking adaptability to others. In addition, most of existing techniques consider situations in which the order of the tasks in the sequence is not relevant. However, it is common ...",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-09",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 일반적인 지도 학습, 특히 연속 학습(continual learning)과 다중 작업 학습(multi-task learning)의 이론적 성능 보장에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.05085v1",
+    "title": "End-to-End Deep Learning for Interior Tomography with Low-Dose X-ray CT",
+    "abstract": "Objective: There exist several X-ray computed tomography (CT) scanning strategies to reduce a radiation dose, such as (1) sparse-view CT, (2) low-dose CT, and (3) region-of-interest (ROI) CT (called interior tomography). To further reduce the dose, the sparse-view and/or low-dose CT settings can be applied together with interior tomography. Interior tomography has various advantages in terms of reducing the number of detectors and decreasing the X-ray radiation dose. However, a large patient or ...",
+    "categories": [
+      "eess.IV",
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-09",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아니라 CT 영상의 노이즈 및 아티팩트 제거를 위한 CNN 기반의 의료 영상 처리 기법을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.04903v4",
+    "title": "Analyzing decision tree bias towards the minority class",
+    "abstract": "There is a widespread and longstanding belief that machine learning models are biased towards the majority class when learning from imbalanced binary response data, leading them to neglect or ignore the minority class. Motivated by a recent simulation study that found that decision trees can be biased towards the minority class, our paper aims to reconcile the conflict between that study and other published works. First, we critically evaluate past literature on this problem, finding that failin...",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-09",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 전통적인 머신러닝 알고리즘인 의사결정 나무(Decision Trees)와 랜덤 포레스트(Random Forests)의 데이터 불균형 및 편향 문제를 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.04898v1",
+    "title": "Optimality and Adaptivity of Deep Neural Features for Instrumental Variable Regression",
+    "abstract": "We provide a convergence analysis of deep feature instrumental variable (DFIV) regression (Xu et al., 2021), a nonparametric approach to IV regression using data-adaptive features learned by deep neural networks in two stages. We prove that the DFIV algorithm achieves the minimax optimal learning rate when the target structural function lies in a Besov space. This is shown under standard nonparametric IV assumptions, and an additional smoothness assumption on the regularity of the conditional di...",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-09",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 도구 변수(Instrumental Variable) 회귀 분석에서의 심층 신경망 수렴 성능을 다루는 기계학습 이론 연구이며, LLM의 구조나 학습과는 직접적인 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.04882v1",
+    "title": "Reach Measurement, Optimization and Frequency Capping In Targeted Online Advertising Under k-Anonymity",
+    "abstract": "The growth in the use of online advertising to foster brand awareness over recent years is largely attributable to the ubiquity of social media. One pivotal technology contributing to the success of online brand advertising is frequency capping, a mechanism that enables marketers to control the number of times an ad is shown to a specific user. However, the very foundation of this technology is being scrutinized as the industry gravitates towards advertising solutions that prioritize user privac...",
+    "categories": [
+      "cs.GT",
+      "cs.AI",
+      "cs.LG",
+      "stat.AP",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-08",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 온라인 광고의 빈도 제한과 프라이버시 보호 모델(k-anonymity)에 관한 연구로, LLM의 학습이나 구조 및 응용과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.04832v1",
+    "title": "ActPC-Geom: Towards Scalable Online Neural-Symbolic Learning via Accelerating Active Predictive Coding with Information Geometry & Diverse Cognitive Mechanisms",
+    "abstract": "This paper introduces ActPC-Geom, an approach to accelerate Active Predictive Coding (ActPC) in neural networks by integrating information geometry, specifically using Wasserstein-metric-based methods for measure-dependent gradient flows. We propose replacing KL-divergence in ActPC's predictive error assessment with the Wasserstein metric, suggesting this may enhance network robustness.   To make this computationally feasible, we present strategies including: (1) neural approximators for inverse...",
+    "categories": [
+      "cs.AI",
+      "cs.LG",
+      "cs.NE"
+    ],
+    "published_date": "2025-01-08",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 Large Language Model(LLM)이 아닌 Active Predictive Coding(ActPC) 기반의 인지 아키텍처와 기호-연결주의 통합 신경망 연구를 주로 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.05486v1",
+    "title": "Towards an Ontology of Traceable Impact Management in the Food Supply Chain",
+    "abstract": "The pursuit of quality improvements and accountability in the food supply chains, especially how they relate to food-related outcomes, such as hunger, has become increasingly vital, necessitating a comprehensive approach that encompasses product quality and its impact on various stakeholders and their communities. Such an approach offers numerous benefits in increasing product quality and eliminating superfluous measurements while appraising and alleviating the broader societal and environmental...",
+    "categories": [
+      "physics.soc-ph",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-08",
+    "is_llm_relevant": false,
+    "relevance_reason": "식품 공급망의 추적성, 품질 관리 및 지속 가능성 모델(TIMM)에 관한 연구로 LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.04610v1",
+    "title": "Resilient Peer-to-peer Learning based on Adaptive Aggregation",
+    "abstract": "Collaborative learning in peer-to-peer networks offers the benefits of distributed learning while mitigating the risks associated with single points of failure inherent in centralized servers. However, adversarial workers pose potential threats by attempting to inject malicious information into the network. Thus, ensuring the resilience of peer-to-peer learning emerges as a pivotal research objective. The challenge is exacerbated in the presence of non-convex loss functions and non-iid data dist...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-08",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 분산 학습 환경에서의 보안 및 데이터 프라이버시를 다루는 일반적인 머신러닝 방법론에 관한 것이며, LLM에 특화된 연구 내용이 포함되어 있지 않습니다."
+  },
+  {
+    "arxiv_id": "2501.06242v1",
+    "title": "Intelligent Task Offloading: Advanced MEC Task Offloading and Resource Management in 5G Networks",
+    "abstract": "5G technology enhances industries with high-speed, reliable, low-latency communication, revolutionizing mobile broadband and supporting massive IoT connectivity. With the increasing complexity of applications on User Equipment (UE), offloading resource-intensive tasks to robust servers is essential for improving latency and speed. The 3GPP's Multi-access Edge Computing (MEC) framework addresses this challenge by processing tasks closer to the user, highlighting the need for an intelligent contro...",
+    "categories": [
+      "cs.NI",
+      "cs.AI",
+      "cs.DC"
+    ],
+    "published_date": "2025-01-08",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 5G 네트워크 환경에서 강화학습(PPO)을 이용한 자원 할당 및 작업 오프로딩 최적화에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.04572v3",
+    "title": "Regret Analysis: a control perspective",
+    "abstract": "Online learning and model reference adaptive control have many interesting intersections. One area where they differ however is in how the algorithms are analyzed and what objective or metric is used to discriminate \"good\" algorithms from \"bad\" algorithms. In adaptive control there are usually two objectives: 1) prove that all time varying parameters/states of the system are bounded, and 2) that the instantaneous error between the adaptively controlled system and a reference system converges to ...",
+    "categories": [
+      "eess.SY",
+      "cs.LG",
+      "math.OC"
+    ],
+    "published_date": "2025-01-08",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 제어 이론(Adaptive Control)과 온라인 학습의 성능 분석 방법론을 비교하는 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.04517v2",
+    "title": "Histogram-Equalized Quantization for logic-gated Residual Neural Networks",
+    "abstract": "Adjusting the quantization according to the data or to the model loss seems mandatory to enable a high accuracy in the context of quantized neural networks. This work presents Histogram-Equalized Quantization (HEQ), an adaptive framework for linear symmetric quantization. HEQ automatically adapts the quantization thresholds using a unique step size optimization. We empirically show that HEQ achieves state-of-the-art performances on CIFAR-10. Experiments on the STL-10 dataset even show that HEQ e...",
+    "categories": [
+      "cs.LG",
+      "cs.AR"
+    ],
+    "published_date": "2025-01-08",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 이미지 분류 데이터셋(CIFAR-10, STL-10)과 잔차 네트워크를 활용한 신경망 양자화 기법에 관한 연구로 LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.04472v1",
+    "title": "Hybrid Artificial Intelligence Strategies for Drone Navigation",
+    "abstract": "Objective: This paper describes the development of hybrid artificial intelligence strategies for drone navigation. Methods: The navigation module combines a deep learning model with a rule-based engine depending on the agent state. The deep learning model has been trained using reinforcement learning. The rule-based engine uses expert knowledge to deal with specific situations. The navigation module incorporates several strategies to explain the drone decision based on its observation space, and...",
+    "categories": [
+      "cs.AI",
+      "cs.RO"
+    ],
+    "published_date": "2025-01-08",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 강화학습과 규칙 기반 엔진을 활용한 드론의 자율 주행 제어에 관한 연구로, 거대언어모델(LLM)과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.04444v2",
+    "title": "A novel Facial Recognition technique with Focusing on Masked Faces",
+    "abstract": "Recognizing the same faces with and without masks is important for ensuring consistent identification in security, access control, and public safety. This capability is crucial in scenarios like law enforcement, healthcare, and surveillance, where accurate recognition must be maintained despite facial occlusion. This research focuses on the challenge of recognizing the same faces with and without masks by employing cosine similarity as the primary technique. With the increased use of masks, trad...",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-08",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 컴퓨터 비전 기술(VGG16, CNN)을 활용한 마스크 착용 얼굴 인식 및 이미지 처리에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2504.11459v1",
+    "title": "From Conceptual Data Models to Multimodal Representation",
+    "abstract": "1) Introduction and Conceptual Framework: This document explores the concept of information design by dividing it into two major practices: defining the meaning of a corpus of textual data and its visual or multimodal representation. It draws on expertise in enriching textual corpora, particularly audiovisual ones, and transforming them into multiple narrative formats. The text highlights a crucial distinction between the semantic content of a domain and the modalities of its graphic expression,...",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published_date": "2025-01-08",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 구조 기호학 및 언어학에 기반한 의미론적 모델링, 온톨로지, 정보 디자인에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.04300v3",
+    "title": "HI-PMK: A Data-Dependent Kernel for Incomplete Heterogeneous Data Representation",
+    "abstract": "Handling incomplete and heterogeneous data remains a central challenge in real-world machine learning, where missing values may follow complex mechanisms (MCAR, MAR, MNAR) and features can be of mixed types (numerical and categorical). Existing methods often rely on imputation, which may introduce bias or privacy risks, or fail to jointly address data heterogeneity and structured missingness. We propose the \\textbf{H}eterogeneous \\textbf{I}ncomplete \\textbf{P}robability \\textbf{M}ass \\textbf{K}e...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-08",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 정형 데이터의 결측치 처리 및 커널 기반 표현 학습을 다루는 전통적인 머신러닝 연구이며, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.06232v1",
+    "title": "An Interpretable ML-based Model for Predicting p-y Curves of Monopile Foundations in Sand",
+    "abstract": "Predicting the lateral pile response is challenging due to the complexity of pile-soil interactions. Machine learning (ML) techniques have gained considerable attention for their effectiveness in non-linear analysis and prediction. This study develops an interpretable ML-based model for predicting p-y curves of monopile foundations. An XGBoost model was trained using a database compiled from existing research. The results demonstrate that the model achieves superior predictive accuracy. Shapley ...",
+    "categories": [
+      "cs.LG",
+      "cond-mat.soft"
+    ],
+    "published_date": "2025-01-08",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 토목 공학 분야의 말뚝 기초 거동 예측을 위해 XGBoost 머신러닝 모델을 사용하는 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2502.03467v1",
+    "title": "Where AI Assurance Might Go Wrong: Initial lessons from engineering of critical systems",
+    "abstract": "We draw on our experience working on system and software assurance and evaluation for systems important to society to summarise how safety engineering is performed in traditional critical systems, such as aircraft flight control. We analyse how this critical systems perspective might support the development and implementation of AI Safety Frameworks. We present the analysis in terms of: system engineering, safety and risk analysis, and decision analysis and support.   We consider four key questi...",
+    "categories": [
+      "cs.CY",
+      "cs.AI",
+      "cs.SE"
+    ],
+    "published_date": "2025-01-07",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 전통적인 안전 공학 원칙을 AI 안전 프레임워크에 적용하는 일반적인 AI 시스템 안전 및 보증에 관한 연구이며, LLM을 구체적으로 다루지 않습니다."
+  },
+  {
+    "arxiv_id": "2501.04136v1",
+    "title": "Implementing Systemic Thinking for Automatic Schema Matching: An Agent-Based Modeling Approach",
+    "abstract": "Several approaches are proposed to deal with the problem of the Automatic Schema Matching (ASM). The challenges and difficulties caused by the complexity and uncertainty characterizing both the process and the outcome of Schema Matching motivated us to investigate how bio-inspired emerging paradigm can help with understanding, managing, and ultimately overcoming those challenges. In this paper, we explain how we approached Automatic Schema Matching as a systemic and Complex Adaptive System (CAS)...",
+    "categories": [
+      "cs.AI",
+      "cs.MA"
+    ],
+    "published_date": "2025-01-07",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM 대신 에이전트 기반 모델링(ABMS)과 복잡 적응계(CAS) 모델을 활용하여 자동 스키마 매칭을 연구한 논문입니다."
+  },
+  {
+    "arxiv_id": "2501.03727v3",
+    "title": "Detecting Neurocognitive Disorders through Analyses of Topic Evolution and Cross-modal Consistency in Visual-Stimulated Narratives",
+    "abstract": "Early detection of neurocognitive disorders (NCDs) is crucial for timely intervention and disease management. Given that language impairments manifest early in NCD progression, visual-stimulated narrative (VSN)-based analysis offers a promising avenue for NCD detection. Current VSN-based NCD detection methods primarily focus on linguistic microstructures (e.g., lexical diversity) that are closely tied to bottom-up, stimulus-driven cognitive processes. While these features illuminate basic langua...",
+    "categories": [
+      "eess.AS",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-07",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 신경인지 장애(NCD) 탐지를 위한 언어적 거시구조 분석 및 시각-언어 정렬 모델에 관한 연구이며, LLM의 설계, 학습 또는 직접적인 활용을 다루지 않습니다."
+  },
+  {
+    "arxiv_id": "2502.00011v1",
+    "title": "TOAST Framework: A Multidimensional Approach to Ethical and Sustainable AI Integration in Organizations",
+    "abstract": "Artificial Intelligence (AI) has emerged as a transformative technology with the potential to revolutionize various sectors, from healthcare to finance, education, and beyond. However, successfully implementing AI systems remains a complex challenge, requiring a comprehensive and methodologically sound framework. This paper contributes to this challenge by introducing the Trustworthy, Optimized, Adaptable, and Socio-Technologically harmonious (TOAST) framework. It draws on insights from various ...",
+    "categories": [
+      "cs.CY",
+      "cs.AI",
+      "cs.HC"
+    ],
+    "published_date": "2025-01-07",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM에 특화된 연구가 아니라 AI 시스템 전반의 구현 프레임워크와 윤리적/사회적 정렬에 관한 일반적인 AI 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.03176v1",
+    "title": "Scalable Forward-Forward Algorithm",
+    "abstract": "We propose a scalable Forward-Forward (FF) algorithm that eliminates the need for backpropagation by training each layer separately. Unlike backpropagation, FF avoids backward gradients and can be more modular and memory efficient, making it appealing for large networks. We extend FF to modern convolutional architectures, such as MobileNetV3 and ResNet18, by introducing a new way to compute losses for convolutional layers. Experiments show that our method achieves performance comparable to stand...",
+    "categories": [
+      "cs.LG",
+      "cs.NE"
+    ],
+    "published_date": "2025-01-06",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 합성곱 신경망(CNN) 아키텍처를 대상으로 한 새로운 학습 알고리즘(Forward-Forward)에 관한 내용을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.03132v1",
+    "title": "Communication Bounds for the Distributed Experts Problem",
+    "abstract": "In this work, we study the experts problem in the distributed setting where an expert's cost needs to be aggregated across multiple servers. Our study considers various communication models such as the message-passing model and the broadcast model, along with multiple aggregation functions, such as summing and taking the $\\ell_p$ norm of an expert's cost across servers. We propose the first communication-efficient protocols that achieve near-optimal regret in these settings, even against a stron...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-06",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 온라인 학습의 이론적 문제인 'experts problem'을 분산 환경에서 최적화하는 알고리즘과 통신 효율성에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.02860v1",
+    "title": "Seeing the Whole in the Parts in Self-Supervised Representation Learning",
+    "abstract": "Recent successes in self-supervised learning (SSL) model spatial co-occurrences of visual features either by masking portions of an image or by aggressively cropping it. Here, we propose a new way to model spatial co-occurrences by aligning local representations (before pooling) with a global image representation. We present CO-SSL, a family of instance discrimination methods and show that it outperforms previous methods on several datasets, including ImageNet-1K where it achieves 71.5% of Top-1...",
+    "categories": [
+      "cs.LG",
+      "cs.CV"
+    ],
+    "published_date": "2025-01-06",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 이미지 데이터의 자기지도학습(Self-Supervised Learning)과 컴퓨터 비전 성능 향상에 관한 연구로 LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.02837v1",
+    "title": "Forward Once for All: Structural Parameterized Adaptation for Efficient Cloud-coordinated On-device Recommendation",
+    "abstract": "In cloud-centric recommender system, regular data exchanges between user devices and cloud could potentially elevate bandwidth demands and privacy risks. On-device recommendation emerges as a viable solution by performing reranking locally to alleviate these concerns. Existing methods primarily focus on developing local adaptive parameters, while potentially neglecting the critical role of tailor-made model architecture. Insights from broader research domains suggest that varying data distributi...",
+    "categories": [
+      "cs.DC",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published_date": "2025-01-06",
+    "is_llm_relevant": false,
+    "relevance_reason": "온디바이스 추천 시스템을 위한 가변적 모델 구조 설계 및 최적화에 관한 논문으로, LLM과는 직접적인 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.02521v1",
+    "title": "Remote Inference over Dynamic Links via Adaptive Rate Deep Task-Oriented Vector Quantization",
+    "abstract": "A broad range of technologies rely on remote inference, wherein data acquired is conveyed over a communication channel for inference in a remote server. Communication between the participating entities is often carried out over rate-limited channels, necessitating data compression for reducing latency. While deep learning facilitates joint design of the compression mapping along with encoding and inference rules, existing learned compression mechanisms are static, and struggle in adapting their ...",
+    "categories": [
+      "eess.SP",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-05",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 통신 채널의 제약 조건에서 효율적인 데이터 압축과 원격 추론을 위한 벡터 양자화 기술에 관한 것이며, LLM의 구조나 학습과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.02504v1",
+    "title": "Watch Video, Catch Keyword: Context-aware Keyword Attention for Moment Retrieval and Highlight Detection",
+    "abstract": "The goal of video moment retrieval and highlight detection is to identify specific segments and highlights based on a given text query. With the rapid growth of video content and the overlap between these tasks, recent works have addressed both simultaneously. However, they still struggle to fully capture the overall video context, making it challenging to determine which words are most relevant. In this paper, we present a novel Video Context-aware Keyword Attention module that overcomes this l...",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-05",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 비디오 모먼트 검색 및 하이라이트 탐지를 위한 비디오-텍스트 정렬 및 어텐션 메커니즘에 관한 연구로, LLM의 설계나 학습보다는 컴퓨터 비전과 멀티모달 학습에 집중하고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.02477v1",
+    "title": "A Deep Positive-Negative Prototype Approach to Integrated Prototypical Discriminative Learning",
+    "abstract": "This paper proposes a novel Deep Positive-Negative Prototype (DPNP) model that combines prototype-based learning (PbL) with discriminative methods to improve class compactness and separability in deep neural networks. While PbL traditionally emphasizes interpretability by classifying samples based on their similarity to representative prototypes, it struggles with creating optimal decision boundaries in complex scenarios. Conversely, discriminative methods effectively separate classes but often ...",
+    "categories": [
+      "cs.LG",
+      "cs.CV"
+    ],
+    "published_date": "2025-01-05",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 프로토타입 기반 학습(PbL)과 딥러닝 분류 모델의 잠재 공간 최적화 및 일반적인 이미지 분류 성능 향상에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.02414v1",
+    "title": "Journey into Automation: Image-Derived Pavement Texture Extraction and Evaluation",
+    "abstract": "Mean texture depth (MTD) is pivotal in assessing the skid resistance of asphalt pavements and ensuring road safety. This study focuses on developing an automated system for extracting texture features and evaluating MTD based on pavement images. The contributions of this work are threefold: firstly, it proposes an economical method to acquire three-dimensional (3D) pavement texture data; secondly, it enhances 3D image processing techniques and formulates features that represent various aspects o...",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-05",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 아스팔트 포장의 표면 거칠기(MTD) 분석을 위한 이미지 처리 및 전통적인 머신러닝 모델(GBT)에 관한 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.02392v1",
+    "title": "Syntactic Evolution in Language Usage",
+    "abstract": "This research aims to investigate the dynamic nature of linguistic style throughout various stages of life, from post teenage to old age. By employing linguistic analysis tools and methodologies, the study will delve into the intricacies of how individuals adapt and modify their language use over time. The research uses a data set of blogs from blogger.com from 2004 and focuses on English for syntactic analysis. The findings of this research can have implications for linguistics, psychology, and...",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-04",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 연령에 따른 언어 스타일의 변화를 분석하는 사회언어학적 연구이며, LLM의 아키텍처, 학습 또는 응용과 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.14785v1",
+    "title": "ED-Filter: Dynamic Feature Filtering for Eating Disorder Classification",
+    "abstract": "Eating disorders (ED) are critical psychiatric problems that have alarmed the mental health community. Mental health professionals are increasingly recognizing the utility of data derived from social media platforms such as Twitter. However, high dimensionality and extensive feature sets of Twitter data present remarkable challenges for ED classification. To overcome these hurdles, we introduce a novel method, an informed branch and bound search technique known as ED-Filter. This strategy signif...",
+    "categories": [
+      "stat.ML",
+      "cs.AI",
+      "cs.LG",
+      "cs.SI"
+    ],
+    "published_date": "2025-01-04",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 소셜 미디어 데이터를 활용한 섭식 장애 분류를 위한 특성 선택 알고리즘과 일반적인 딥러닝 기법에 초점을 맞추고 있으며, LLM의 설계, 학습 또는 활용에 관한 내용을 포함하고 있지 않습니다."
+  },
+  {
+    "arxiv_id": "2501.02208v1",
+    "title": "Robust Multi-Dimensional Scaling via Accelerated Alternating Projections",
+    "abstract": "We consider the robust multi-dimensional scaling (RMDS) problem in this paper. The goal is to localize point locations from pairwise distances that may be corrupted by outliers. Inspired by classic MDS theories, and nonconvex works for the robust principal component analysis (RPCA) problem, we propose an alternating projection based algorithm that is further accelerated by the tangent space projection technique. For the proposed algorithm, if the outliers are sparse enough, we can establish line...",
+    "categories": [
+      "stat.ML",
+      "cs.LG",
+      "math.OC"
+    ],
+    "published_date": "2025-01-04",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 다차원 척도법(MDS)과 이상치 제거를 위한 최적화 알고리즘에 관한 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.02182v1",
+    "title": "AdaMixup: A Dynamic Defense Framework for Membership Inference Attack Mitigation",
+    "abstract": "Membership inference attacks have emerged as a significant privacy concern in the training of deep learning models, where attackers can infer whether a data point was part of the training set based on the model's outputs. To address this challenge, we propose a novel defense mechanism, AdaMixup. AdaMixup employs adaptive mixup techniques to enhance the model's robustness against membership inference attacks by dynamically adjusting the mixup strategy during training. This method not only improve...",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-04",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 일반적인 딥러닝 모델의 데이터 프라이버시 보호를 위한 멤버십 추론 공격 방어 기법(AdaMixup)을 다루고 있습니다."
+  },
+  {
+    "arxiv_id": "2501.01732v1",
+    "title": "Combined Hyper-Extensible Extremely-Secured Zero-Trust CIAM-PAM architecture",
+    "abstract": "Customer Identity and Access Management (CIAM) systems play a pivotal role in securing enterprise infrastructures. However, the complexity of implementing these systems requires careful architectural planning to ensure positive Return on Investment (RoI) and avoid costly delays. The proliferation of Active Persistent cyber threats, coupled with advancements in AI, cloud computing, and geographically distributed customer populations, necessitates a paradigm shift towards adaptive and zero-trust s...",
+    "categories": [
+      "cs.CR",
+      "cs.AI",
+      "cs.NI"
+    ],
+    "published_date": "2025-01-03",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 고객 식별 및 액세스 관리(CIAM)와 제로 트러스트 보안 아키텍처 설계에 관한 것이며, LLM에 대한 직접적인 연구나 활용을 다루지 않습니다."
+  },
+  {
+    "arxiv_id": "2501.02032v1",
+    "title": "Dynamic Feature Fusion: Combining Global Graph Structures and Local Semantics for Blockchain Fraud Detection",
+    "abstract": "The advent of blockchain technology has facilitated the widespread adoption of smart contracts in the financial sector. However, current fraud detection methodologies exhibit limitations in capturing both global structural patterns within transaction networks and local semantic relationships embedded in transaction data. Most existing models focus on either structural information or semantic features individually, leading to suboptimal performance in detecting complex fraud patterns.In this pape...",
+    "categories": [
+      "cs.CR",
+      "cs.AI",
+      "cs.SE"
+    ],
+    "published_date": "2025-01-03",
+    "is_llm_relevant": false,
+    "relevance_reason": "블록체인 이상 거래 탐지를 위해 그래프 학습과 시맨틱 특징 추출을 결합한 연구이며, LLM의 구조나 활용에 관한 내용을 포함하고 있지 않습니다."
+  },
+  {
+    "arxiv_id": "2501.01620v1",
+    "title": "Adaptive Meta-learning-based Adversarial Training for Robust Automatic Modulation Classification",
+    "abstract": "DL-based automatic modulation classification (AMC) models are highly susceptible to adversarial attacks, where even minimal input perturbations can cause severe misclassifications. While adversarially training an AMC model based on an adversarial attack significantly increases its robustness against that attack, the AMC model will still be defenseless against other adversarial attacks. The theoretically infinite possibilities for adversarial perturbations mean that an AMC model will inevitably e...",
+    "categories": [
+      "cs.LG",
+      "cs.CR"
+    ],
+    "published_date": "2025-01-03",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 통신 시스템의 자동 변조 분류(AMC) 모델에 대한 적대적 공격 방어 및 메타 학습을 다루는 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.01552v2",
+    "title": "Multi-view Bayesian optimisation in an input-output reduced space for engineering design",
+    "abstract": "Bayesian optimisation is an adaptive sampling strategy for constructing a Gaussian process surrogate to efficiently search for the global minimum of a black-box computational model. Gaussian processes have limited applicability in engineering design problems, which usually have many design variables but typically a low intrinsic dimensionality. Their scalability can be significantly improved by identifying a low-dimensional space of latent variables that serve as inputs to the Gaussian process. ...",
+    "categories": [
+      "stat.AP",
+      "math.NA",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-02",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 공학 설계를 위한 베이지안 최적화와 가우시안 프로세스의 효율성 개선에 관한 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.01511v1",
+    "title": "TreeLUT: An Efficient Alternative to Deep Neural Networks for Inference Acceleration Using Gradient Boosted Decision Trees",
+    "abstract": "Accelerating machine learning inference has been an active research area in recent years. In this context, field-programmable gate arrays (FPGAs) have demonstrated compelling performance by providing massive parallelism in deep neural networks (DNNs). Neural networks (NNs) are computationally intensive during inference, as they require massive amounts of multiplication and addition, which makes their implementations costly. Numerous studies have recently addressed this challenge to some extent u...",
+    "categories": [
+      "cs.LG",
+      "cs.AR"
+    ],
+    "published_date": "2025-01-02",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 GBDT(Gradient Boosted Decision Trees)의 FPGA 가속 및 하드웨어 아키텍처 최적화에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.01344v1",
+    "title": "Machine Learning for Modeling Wireless Radio Metrics with Crowdsourced Data and Local Environment Features",
+    "abstract": "This paper presents a suite of machine learning models, CRC-ML-Radio Metrics, designed for modeling RSRP, RSRQ, and RSSI wireless radio metrics in 4G environments. These models utilize crowdsourced data with local environmental features to enhance prediction accuracy across both indoor at elevation and outdoor urban settings. They achieve RMSE performance of 9.76 to 11.69 dB for RSRP, 2.90 to 3.23 dB for RSRQ, and 9.50 to 10.36 dB for RSSI, evaluated on over 300,000 data points in the Toronto, M...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-02",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 4G 무선 통신 환경의 신호 지표(RSRP, RSRQ, RSSI)를 예측하는 머신러닝 모델에 관한 것이며, 대규모 언어 모델(LLM)과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.01326v2",
+    "title": "Domain-invariant feature learning in brain MR imaging for content-based image retrieval",
+    "abstract": "When conducting large-scale studies that collect brain MR images from multiple facilities, the impact of differences in imaging equipment and protocols at each site cannot be ignored, and this domain gap has become a significant issue in recent years. In this study, we propose a new low-dimensional representation (LDR) acquisition method called style encoder adversarial domain adaptation (SE-ADA) to realize content-based image retrieval (CBIR) of brain MR images. SE-ADA reduces domain difference...",
+    "categories": [
+      "cs.LG",
+      "cs.CV",
+      "cs.IR"
+    ],
+    "published_date": "2025-01-02",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 뇌 MR 이미지의 도메인 격차 해소와 이미지 검색(CBIR)을 위한 도메인 적응 기술에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.01276v1",
+    "title": "Marketing Mix Modeling in Lemonade",
+    "abstract": "Marketing mix modeling (MMM) is a widely used method to assess the effectiveness of marketing campaigns and optimize marketing strategies. Bayesian MMM is an advanced approach that allows for the incorporation of prior information, uncertainty quantification, and probabilistic predictions (1). In this paper, we describe the process of building a Bayesian MMM model for the online insurance company Lemonade. We first collected data on Lemonade's marketing activities, such as online advertising, so...",
+    "categories": [
+      "stat.AP",
+      "cs.LG"
+    ],
+    "published_date": "2025-01-02",
+    "is_llm_relevant": false,
+    "relevance_reason": "Bayesian Marketing Mix Modeling(MMM)을 활용한 마케팅 성과 분석 및 예산 최적화에 관한 연구로, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.01248v1",
+    "title": "Bayesian Active Learning By Distribution Disagreement",
+    "abstract": "Active Learning (AL) for regression has been systematically under-researched due to the increased difficulty of measuring uncertainty in regression models. Since normalizing flows offer a full predictive distribution instead of a point forecast, they facilitate direct usage of known heuristics for AL like Entropy or Least-Confident sampling. However, we show that most of these heuristics do not work well for normalizing flows in pool-based AL and we need more sophisticated algorithms to distingu...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-02",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 Normalizing Flows를 이용한 회귀 분석과 능동 학습(Active Learning) 알고리즘을 다루고 있으며, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.01222v2",
+    "title": "Classification of Operational Records in Aviation Using Deep Learning Approaches",
+    "abstract": "Ensuring safety in the aviation industry is critical, even minor anomalies can lead to severe consequences. This study evaluates the performance of four different models for DP (deep learning), including: Bidirectional Long Short-Term Memory (BLSTM), Convolutional Neural Networks (CNN), Long Short-Term Memory (LSTM), and Simple Recurrent Neural Networks (sRNN), on a multi-class classification task involving Commercial, Military, and Private categories using the Socrata aviation dataset of 4,864 ...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-02",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 BLSTM, LSTM, CNN, sRNN과 같은 전통적인 딥러닝 모델을 사용하여 항공 데이터를 분류하는 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.01148v1",
+    "title": "Adaptive posterior distributions for uncertainty analysis of covariance matrices in Bayesian inversion problems for multioutput signals",
+    "abstract": "In this paper we address the problem of performing Bayesian inference for the parameters of a nonlinear multi-output model and the covariance matrix of the different output signals. We propose an adaptive importance sampling (AIS) scheme for multivariate Bayesian inversion problems, which is based in two main ideas: the variables of interest are split in two blocks and the inference takes advantage of known analytical optimization formulas. We estimate both the unknown parameters of the multivar...",
+    "categories": [
+      "stat.CO",
+      "cs.CE",
+      "stat.ML"
+    ],
+    "published_date": "2025-01-02",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 통계적 추론 및 샘플링 기법(Bayesian inference, Importance Sampling)에 관한 연구로, LLM의 구조, 학습 또는 응용과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.04718v2",
+    "title": "Knowledge-Guided Biomarker Identification for Label-Free Single-Cell RNA-Seq Data: A Reinforcement Learning Perspective",
+    "abstract": "Gene panel selection aims to identify the most informative genomic biomarkers in label-free genomic datasets. Traditional approaches, which rely on domain expertise, embedded machine learning models, or heuristic-based iterative optimization, often introduce biases and inefficiencies, potentially obscuring critical biological signals. To address these challenges, we present an iterative gene panel selection strategy that harnesses ensemble knowledge from existing gene selection algorithms to est...",
+    "categories": [
+      "q-bio.GN",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-02",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 유전체 데이터 분석을 위해 강화학습과 앙상블 기법을 제안하는 생명정보학 연구이며, LLM의 구조나 활용에 대한 언급이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.01057v1",
+    "title": "HPC Application Parameter Autotuning on Edge Devices: A Bandit Learning Approach",
+    "abstract": "The growing necessity for enhanced processing capabilities in edge devices with limited resources has led us to develop effective methods for improving high-performance computing (HPC) applications. In this paper, we introduce LASP (Lightweight Autotuning of Scientific Application Parameters), a novel strategy designed to address the parameter search space challenge in edge devices. Our strategy employs a multi-armed bandit (MAB) technique focused on online exploration and exploitation. Notably,...",
+    "categories": [
+      "cs.PF",
+      "cs.LG",
+      "eess.SY"
+    ],
+    "published_date": "2025-01-02",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 HPC 응용 프로그램의 매개변수 최적화를 위한 Multi-armed bandit(MAB) 기법에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.00919v2",
+    "title": "Geometry matters: insights from Ollivier Ricci Curvature and Ricci Flow into representational alignment through Ollivier-Ricci Curvature and Ricci Flow",
+    "abstract": "Representational similarity analysis (RSA) is widely used to analyze the alignment between humans and neural networks; however, conclusions based on this approach can be misleading without considering the underlying representational geometry. Our work introduces a framework using Ollivier Ricci Curvature and Ricci Flow to analyze the fine-grained local structure of representations. This approach is agnostic to the source of the representational space, enabling a direct geometric comparison betwe...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-01",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 LLM이 아닌 안면 인식 모델(VGG-Face)과 인간의 시각적 판단 사이의 기하학적 구조를 분석하는 컴퓨터 비전 및 인지과학 분야의 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.00884v1",
+    "title": "Diversity Optimization for Travelling Salesman Problem via Deep Reinforcement Learning",
+    "abstract": "Existing neural methods for the Travelling Salesman Problem (TSP) mostly aim at finding a single optimal solution. To discover diverse yet high-quality solutions for Multi-Solution TSP (MSTSP), we propose a novel deep reinforcement learning based neural solver, which is primarily featured by an encoder-decoder structured policy. Concretely, on the one hand, a Relativization Filter (RF) is designed to enhance the robustness of the encoder to affine transformations of the instances, so as to poten...",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-01",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 조합 최적화 문제(TSP)를 해결하기 위한 강화학습 기반의 신경망 솔버에 관한 것으로, 대규모 언어 모델(LLM)의 학습이나 응용과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.00852v1",
+    "title": "Hybridising Reinforcement Learning and Heuristics for Hierarchical Directed Arc Routing Problems",
+    "abstract": "The Hierarchical Directed Capacitated Arc Routing Problem (HDCARP) is an extension of the Capacitated Arc Routing Problem (CARP), where the arcs of a graph are divided into classes based on their priority. The traversal of these classes is determined by either precedence constraints or a hierarchical objective, resulting in two distinct HDCARP variants. To the best of our knowledge, only one matheuristic has been proposed for these variants, but it performs relatively slowly, particularly for la...",
+    "categories": [
+      "cs.LG"
+    ],
+    "published_date": "2025-01-01",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 대규모 언어 모델(LLM)이 아닌 강화학습(RL)과 휴리스틱을 활용한 경로 최적화 문제(HDCARP) 해결에 관한 연구입니다."
+  },
+  {
+    "arxiv_id": "2501.00738v2",
+    "title": "Learning Physically Interpretable Atmospheric Models from Data with WSINDy",
+    "abstract": "The multiscale and turbulent nature of Earth's atmosphere has historically rendered accurate weather modeling a hard problem. Recently, there has been an explosion of interest surrounding data-driven approaches to weather modeling, which in many cases show improved forecasting accuracy and computational efficiency when compared to traditional methods. However, many of the current data-driven approaches employ highly parameterized neural networks, often resulting in uninterpretable models and lim...",
+    "categories": [
+      "physics.geo-ph",
+      "cs.LG",
+      "physics.comp-ph"
+    ],
+    "published_date": "2025-01-01",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 기상 현상을 지배하는 물리 방정식을 데이터로부터 추출하는 수리적 모델링(WSINDy 알고리즘)에 관한 것이며, LLM과는 관련이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.00715v1",
+    "title": "eRevise+RF: A Writing Evaluation System for Assessing Student Essay Revisions and Providing Formative Feedback",
+    "abstract": "The ability to revise essays in response to feedback is important for students' writing success. An automated writing evaluation (AWE) system that supports students in revising their essays is thus essential. We present eRevise+RF, an enhanced AWE system for assessing student essay revisions (e.g., changes made to an essay to improve its quality in response to essay feedback) and providing revision feedback. We deployed the system with 6 teachers and 406 students across 3 schools in Pennsylvania...",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published_date": "2025-01-01",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 자동 작문 평가(AWE) 시스템의 교육적 효과와 기능 평가에 집중하고 있으며, LLM의 아키텍처나 활용에 관한 언급이 없습니다."
+  },
+  {
+    "arxiv_id": "2501.00701v4",
+    "title": "ResKoopNet: Learning Koopman Representations for Complex Dynamics with Spectral Residuals",
+    "abstract": "Analyzing the long-term behavior of high-dimensional nonlinear dynamical systems remains a significant challenge. While the Koopman operator framework provides a powerful global linearization tool, current methods for approximating its spectral components often face theoretical limitations and depend on predefined dictionaries. Residual Dynamic Mode Decomposition (ResDMD) advanced the field by introducing the \\emph{spectral residual} to assess Koopman operator approximation accuracy; however, it...",
+    "categories": [
+      "cs.LG",
+      "math.DS"
+    ],
+    "published_date": "2025-01-01",
+    "is_llm_relevant": false,
+    "relevance_reason": "이 논문은 비선형 동적 시스템 분석을 위한 Koopman 연산자 학습 및 신경망 활용에 관한 것으로, LLM의 학습이나 구조와는 관련이 없습니다."
+  }
+]
