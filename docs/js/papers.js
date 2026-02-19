@@ -61,7 +61,7 @@ async function loadPapers() {
             return;
         }
 
-        // Render papers table
+        // Render papers table (Dark Mode)
         tableBody.innerHTML = papers.map((paper, index) => {
             const date = paper.published_date
                 ? new Date(paper.published_date).toLocaleDateString('en-US', {
@@ -78,17 +78,17 @@ async function loadPapers() {
                 : safeTitle;
 
             return `
-                <tr class="hover:bg-gray-50 cursor-pointer" onclick="showAbstract('${escapeHtml(paper.title?.replace(/'/g, "\\'") || '')}', '${date}', '${paper.arxiv_id}', \`${escapeHtml(paper.abstract?.replace(/`/g, "\\`") || '')}\`)">
-                    <td class="px-4 py-3 text-sm text-gray-500">${index + 1}</td>
+                <tr class="hover:bg-slate-700 cursor-pointer transition-colors" onclick="showAbstract('${escapeHtml(paper.title?.replace(/'/g, "\\'") || '')}', '${date}', '${paper.arxiv_id}', \`${escapeHtml(paper.abstract?.replace(/`/g, "\\`") || '')}\`)">
+                    <td class="px-4 py-3 text-sm text-slate-400">${index + 1}</td>
                     <td class="px-4 py-3">
-                        <div class="text-sm font-medium text-gray-900">${truncatedTitle}</div>
+                        <div class="text-sm font-medium text-slate-200">${truncatedTitle}</div>
                     </td>
-                    <td class="px-4 py-3 text-sm text-gray-500 whitespace-nowrap">${date}</td>
+                    <td class="px-4 py-3 text-sm text-slate-400 whitespace-nowrap">${date}</td>
                     <td class="px-4 py-3">
                         <a href="https://arxiv.org/abs/${paper.arxiv_id}"
                            target="_blank"
                            onclick="event.stopPropagation()"
-                           class="text-blue-600 hover:underline text-sm">
+                           class="text-blue-400 hover:text-blue-300 hover:underline text-sm">
                             ${paper.arxiv_id}
                         </a>
                     </td>

@@ -3,27 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>arXiv RAG v1 - Evaluation Dashboard</title>
+    <title>arXiv RAG v1 - AI Research Assistant</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Configure Tailwind for dark mode
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#0f172a',
+                            card: '#1e293b',
+                            border: '#334155',
+                            text: '#e2e8f0',
+                            muted: '#94a3b8'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
         .card {
-            @apply bg-white rounded-lg shadow-md p-6;
+            @apply bg-slate-800 rounded-lg shadow-lg p-6 border border-slate-700;
         }
         .metric-value {
-            @apply text-3xl font-bold text-blue-600;
+            @apply text-3xl font-bold text-blue-400;
         }
         .metric-label {
-            @apply text-sm text-gray-500 uppercase tracking-wide;
+            @apply text-sm text-slate-400 uppercase tracking-wide;
         }
         .tab-btn {
-            @apply px-6 py-3 font-medium text-sm rounded-t-lg transition-colors duration-200;
+            @apply px-6 py-3 font-medium text-sm rounded-t-lg transition-all duration-200 mr-2;
         }
         .tab-btn.active {
-            @apply bg-white text-blue-600 border-t-2 border-blue-600;
+            @apply bg-slate-800 text-blue-400 border-2 border-blue-500 border-b-0 shadow-lg;
         }
         .tab-btn:not(.active) {
-            @apply bg-gray-100 text-gray-600 hover:bg-gray-200;
+            @apply bg-slate-700 text-slate-400 hover:bg-slate-600 border border-slate-600 hover:text-slate-200;
         }
         .tab-content {
             display: none;
@@ -31,9 +54,35 @@
         .tab-content.active {
             display: block;
         }
+        /* Chat styles */
+        .chat-container {
+            @apply bg-slate-800 rounded-lg border border-slate-700;
+        }
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+        }
+        .chat-input {
+            @apply bg-slate-700 border-slate-600 text-slate-100 placeholder-slate-400;
+        }
+        /* Custom scrollbar for dark mode */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen">
+<body class="min-h-screen">
     <!-- Header -->
     <header class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-8">
         <div class="container mx-auto px-4">
@@ -45,7 +94,7 @@
 
     <!-- Tab Navigation -->
     <div class="container mx-auto px-4 mt-6">
-        <div class="flex space-x-1 border-b border-gray-200">
+        <div class="flex border-b border-slate-700">
             <button class="tab-btn active" onclick="showTab('dashboard')">
                 <span class="flex items-center">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -57,9 +106,9 @@
             <button class="tab-btn" onclick="showTab('papers')">
                 <span class="flex items-center">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
                     </svg>
-                    Papers & Chat
+                    Chat & Papers
                 </span>
             </button>
         </div>
@@ -90,43 +139,39 @@
 
             <!-- Charts Section -->
             <section class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-                <!-- Bar Chart: Metrics Comparison -->
                 <div class="card">
-                    <h2 class="text-xl font-semibold mb-4">Metrics Comparison</h2>
+                    <h2 class="text-xl font-semibold mb-4 text-slate-100">Metrics Comparison</h2>
                     <canvas id="metricsChart"></canvas>
                 </div>
-
-                <!-- Radar Chart: Model Profiles -->
                 <div class="card">
-                    <h2 class="text-xl font-semibold mb-4">Model Profiles</h2>
+                    <h2 class="text-xl font-semibold mb-4 text-slate-100">Model Profiles</h2>
                     <canvas id="radarChart"></canvas>
                 </div>
             </section>
 
             <!-- Search Time Comparison -->
             <section class="card mb-8">
-                <h2 class="text-xl font-semibold mb-4">Search Latency (ms)</h2>
+                <h2 class="text-xl font-semibold mb-4 text-slate-100">Search Latency (ms)</h2>
                 <canvas id="latencyChart" height="100"></canvas>
             </section>
 
             <!-- Detailed Results Table -->
             <section class="card mb-8">
-                <h2 class="text-xl font-semibold mb-4">Detailed Results</h2>
+                <h2 class="text-xl font-semibold mb-4 text-slate-100">Detailed Results</h2>
                 <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
+                    <table class="min-w-full divide-y divide-slate-700">
+                        <thead class="bg-slate-700">
                             <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Model</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">MRR</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">NDCG@5</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">NDCG@10</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">P@5</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">P@10</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Latency (ms)</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-300 uppercase">Model</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-300 uppercase">MRR</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-300 uppercase">NDCG@5</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-300 uppercase">NDCG@10</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-300 uppercase">P@5</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-300 uppercase">P@10</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-300 uppercase">Latency (ms)</th>
                             </tr>
                         </thead>
-                        <tbody id="results-table" class="bg-white divide-y divide-gray-200">
-                            <!-- Populated by JS -->
+                        <tbody id="results-table" class="bg-slate-800 divide-y divide-slate-700">
                         </tbody>
                     </table>
                 </div>
@@ -134,41 +179,101 @@
 
             <!-- Key Findings -->
             <section class="card">
-                <h2 class="text-xl font-semibold mb-4">Key Findings</h2>
-                <div id="findings" class="prose max-w-none">
-                    <p class="text-gray-600">Loading analysis...</p>
+                <h2 class="text-xl font-semibold mb-4 text-slate-100">Key Findings</h2>
+                <div id="findings" class="prose prose-invert max-w-none text-slate-300">
+                    <p>Loading analysis...</p>
                 </div>
             </section>
         </div>
 
-        <!-- Papers & Chat Tab -->
+        <!-- Chat & Papers Tab -->
         <div id="papers-tab" class="tab-content">
-            <!-- Papers Section -->
-            <section class="card mb-6">
+            <!-- Chat Section (Top) -->
+            <section class="chat-container mb-6">
+                <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-t-lg">
+                    <h2 class="text-xl font-semibold">Chat with Research Papers</h2>
+                    <p class="text-blue-100 text-sm">AI/ML 연구 논문에 대해 질문하세요</p>
+                </div>
+
+                <!-- Chat Messages -->
+                <div id="inline-chat-messages" class="chat-messages p-4 space-y-4">
+                    <div class="bg-slate-700 rounded-lg p-4">
+                        <p class="text-slate-200 mb-3">안녕하세요! AI/ML 연구 논문에 대해 질문해 주세요. 다음과 같은 주제에 대해 답변드릴 수 있습니다:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+                            <button onclick="askQuestion('What are the main approaches for training large language models?')" class="text-left p-2 bg-slate-600 hover:bg-slate-500 rounded text-blue-300 transition-colors">
+                                • What are the main approaches for training large language models?
+                            </button>
+                            <button onclick="askQuestion('How does attention mechanism work in transformers?')" class="text-left p-2 bg-slate-600 hover:bg-slate-500 rounded text-blue-300 transition-colors">
+                                • How does attention mechanism work in transformers?
+                            </button>
+                            <button onclick="askQuestion('대형 언어 모델의 학습 방법에 대해 설명해 주세요')" class="text-left p-2 bg-slate-600 hover:bg-slate-500 rounded text-blue-300 transition-colors">
+                                • 대형 언어 모델의 학습 방법에 대해 설명해 주세요
+                            </button>
+                            <button onclick="askQuestion('Transformer의 attention 메커니즘은 어떻게 작동하나요?')" class="text-left p-2 bg-slate-600 hover:bg-slate-500 rounded text-blue-300 transition-colors">
+                                • Transformer의 attention 메커니즘은 어떻게 작동하나요?
+                            </button>
+                            <button onclick="askQuestion('RLHF (인간 피드백 강화학습)의 최신 발전은 무엇인가요?')" class="text-left p-2 bg-slate-600 hover:bg-slate-500 rounded text-blue-300 transition-colors">
+                                • RLHF (인간 피드백 강화학습)의 최신 발전은 무엇인가요?
+                            </button>
+                            <button onclick="askQuestion('What are recent advances in prompt engineering?')" class="text-left p-2 bg-slate-600 hover:bg-slate-500 rounded text-blue-300 transition-colors">
+                                • What are recent advances in prompt engineering?
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Input -->
+                <div class="border-t border-slate-700 p-4">
+                    <div class="flex space-x-3">
+                        <input
+                            type="text"
+                            id="inline-chat-input"
+                            placeholder="논문에 대해 질문하세요... Ask about research papers..."
+                            class="flex-1 bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        >
+                        <button
+                            id="inline-chat-send"
+                            class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
+                        >
+                            <span>Send</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-between mt-2 text-xs text-slate-400">
+                        <span id="inline-chat-status"></span>
+                        <span id="inline-chat-metrics"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Papers Section (Bottom) -->
+            <section class="card">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-semibold">Research Papers Dataset</h2>
+                    <h2 class="text-xl font-semibold text-slate-100">Research Papers Dataset</h2>
                     <div class="flex items-center space-x-2">
-                        <span id="papers-count" class="text-sm text-gray-500">Loading...</span>
-                        <button onclick="loadPapers()" class="px-3 py-1 bg-blue-100 text-blue-600 rounded hover:bg-blue-200 text-sm">
+                        <span id="papers-count" class="text-sm text-slate-400">Loading...</span>
+                        <button onclick="loadPapers()" class="px-3 py-1 bg-slate-700 text-blue-400 rounded hover:bg-slate-600 text-sm border border-slate-600 transition-colors">
                             Refresh
                         </button>
                     </div>
                 </div>
 
                 <!-- Papers Table -->
-                <div class="overflow-x-auto max-h-[600px] overflow-y-auto">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50 sticky top-0">
+                <div class="overflow-x-auto max-h-[400px] overflow-y-auto">
+                    <table class="min-w-full divide-y divide-slate-700">
+                        <thead class="bg-slate-700 sticky top-0">
                             <tr>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase w-16">#</th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Title</th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase w-28">Date</th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase w-24">arXiv</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-slate-300 uppercase w-16">#</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-slate-300 uppercase">Title</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-slate-300 uppercase w-28">Date</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-slate-300 uppercase w-24">arXiv</th>
                             </tr>
                         </thead>
-                        <tbody id="papers-table" class="bg-white divide-y divide-gray-200">
+                        <tbody id="papers-table" class="bg-slate-800 divide-y divide-slate-700">
                             <tr>
-                                <td colspan="4" class="px-4 py-8 text-center text-gray-500">
+                                <td colspan="4" class="px-4 py-8 text-center text-slate-400">
                                     <div class="flex flex-col items-center">
                                         <svg class="animate-spin h-8 w-8 text-blue-500 mb-2" fill="none" viewBox="0 0 24 24">
                                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -183,77 +288,54 @@
                 </div>
             </section>
 
-            <!-- Abstract Modal (shown when clicking a paper) -->
-            <div id="abstract-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
-                <div class="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-hidden">
+            <!-- Abstract Modal -->
+            <div id="abstract-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden z-50 flex items-center justify-center p-4">
+                <div class="bg-slate-800 rounded-lg max-w-2xl w-full max-h-[80vh] overflow-hidden border border-slate-700">
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-4">
-                            <h3 id="modal-title" class="text-lg font-semibold text-gray-800 pr-8"></h3>
-                            <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">
+                            <h3 id="modal-title" class="text-lg font-semibold text-slate-100 pr-8"></h3>
+                            <button onclick="closeModal()" class="text-slate-400 hover:text-slate-200">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
                             </button>
                         </div>
-                        <div class="text-sm text-gray-500 mb-3">
+                        <div class="text-sm text-slate-400 mb-3">
                             <span id="modal-date"></span> |
-                            <a id="modal-link" href="#" target="_blank" class="text-blue-600 hover:underline">View on arXiv</a>
+                            <a id="modal-link" href="#" target="_blank" class="text-blue-400 hover:underline">View on arXiv</a>
                         </div>
-                        <div id="modal-abstract" class="text-gray-700 text-sm leading-relaxed max-h-[50vh] overflow-y-auto"></div>
+                        <div id="modal-abstract" class="text-slate-300 text-sm leading-relaxed max-h-[50vh] overflow-y-auto"></div>
                     </div>
                 </div>
             </div>
-
-            <!-- Chat Instructions -->
-            <section class="card">
-                <h2 class="text-xl font-semibold mb-4">Chat with Papers</h2>
-                <p class="text-gray-600 mb-4">
-                    Use the chat widget (bottom right corner) to ask questions about the research papers.
-                    The AI assistant will search through the papers and provide answers with citations.
-                </p>
-                <div class="bg-blue-50 p-4 rounded-lg">
-                    <h3 class="font-medium text-blue-800 mb-2">Example Questions:</h3>
-                    <ul class="text-blue-700 text-sm space-y-1">
-                        <li>• What are the main approaches for training large language models?</li>
-                        <li>• How does attention mechanism work in transformers?</li>
-                        <li>• What are recent advances in reinforcement learning from human feedback?</li>
-                    </ul>
-                </div>
-            </section>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-400 py-6 mt-12">
+    <footer class="bg-slate-900 text-slate-400 py-6 mt-12 border-t border-slate-800">
         <div class="container mx-auto px-4 text-center">
             <p>arXiv RAG v1 - AI/ML Research Paper Search</p>
-            <p class="text-sm mt-1">BGE-M3 & OpenAI Embeddings | Powered by Supabase & Gemini</p>
+            <p class="text-sm mt-1 text-slate-500">BGE-M3 & OpenAI Embeddings | Powered by Supabase & Gemini</p>
         </div>
     </footer>
 
     <!-- Tab Switching Script -->
     <script>
         function showTab(tabName) {
-            // Hide all tabs
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
-            // Remove active from all buttons
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            // Show selected tab
             document.getElementById(tabName + '-tab').classList.add('active');
-            // Set button active
             event.currentTarget.classList.add('active');
 
-            // Load papers when switching to papers tab
             if (tabName === 'papers' && !window.papersLoaded) {
                 loadPapers();
             }
         }
 
-        // Modal functions
         function showAbstract(title, date, arxivId, abstract) {
             document.getElementById('modal-title').textContent = title;
             document.getElementById('modal-date').textContent = date;
@@ -266,15 +348,21 @@
             document.getElementById('abstract-modal').classList.add('hidden');
         }
 
-        // Close modal on background click
         document.getElementById('abstract-modal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
         });
 
-        // Close modal on Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeModal();
         });
+
+        // Ask question helper
+        function askQuestion(question) {
+            document.getElementById('inline-chat-input').value = question;
+            if (window.inlineChatbot) {
+                window.inlineChatbot.sendMessage();
+            }
+        }
     </script>
 
     <script src="js/charts.js"></script>
