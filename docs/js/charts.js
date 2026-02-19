@@ -1,8 +1,14 @@
 // arXiv RAG v1 - Evaluation Dashboard Charts
+console.log('[Charts] Script loaded');
 
 // Chart.js Dark Mode Configuration
-Chart.defaults.color = '#e2e8f0';           // slate-200 for text
-Chart.defaults.borderColor = '#475569';     // slate-600 for borders
+if (typeof Chart !== 'undefined') {
+    Chart.defaults.color = '#e2e8f0';           // slate-200 for text
+    Chart.defaults.borderColor = '#475569';     // slate-600 for borders
+    console.log('[Charts] Chart.js configured');
+} else {
+    console.error('[Charts] Chart.js not loaded!');
+}
 
 const MODEL_COLORS = {
     'hybrid': 'rgba(59, 130, 246, 0.8)',   // blue

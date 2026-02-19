@@ -1,4 +1,6 @@
 // arXiv RAG Papers List
+console.log('[Papers] Script loaded');
+
 const SUPABASE_URL = 'https://wfkectgpoifwbgyjslcl.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indma2VjdGdwb2lmd2JneWpzbGNsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA3Nzk4MjIsImV4cCI6MjA4NjM1NTgyMn0.xHR7kXUleU9ZPRmg4PoXfebr3iJUYXTwHnQwzZ5qEZs';
 
