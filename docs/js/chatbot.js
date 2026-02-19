@@ -17,12 +17,19 @@ class InlineChatbot {
     this.status = document.getElementById('inline-chat-status');
     this.metrics = document.getElementById('inline-chat-metrics');
 
+    console.log('[Chatbot] Elements found:', {
+      messages: !!this.messages,
+      input: !!this.input,
+      sendBtn: !!this.sendBtn
+    });
+
     if (!this.messages || !this.input || !this.sendBtn) {
       console.warn('Inline chat elements not found');
       return;
     }
 
     this.bindEvents();
+    console.log('[Chatbot] Events bound successfully');
   }
 
   bindEvents() {
@@ -36,7 +43,9 @@ class InlineChatbot {
   }
 
   async sendMessage() {
+    console.log('[Chatbot] sendMessage called');
     const query = this.input.value.trim();
+    console.log('[Chatbot] Query:', query, 'isLoading:', this.isLoading);
     if (!query || this.isLoading) return;
 
     // Add user message
@@ -170,5 +179,7 @@ class InlineChatbot {
 
 // Initialize inline chatbot when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('[Chatbot] Initializing...');
   window.inlineChatbot = new InlineChatbot();
+  console.log('[Chatbot] Initialized:', window.inlineChatbot);
 });
