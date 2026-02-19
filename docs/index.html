@@ -277,7 +277,7 @@
                 </div>
 
                 <!-- Papers Table -->
-                <div class="overflow-x-auto max-h-[400px] overflow-y-auto">
+                <div class="overflow-x-auto max-h-[500px] overflow-y-auto">
                     <table class="min-w-full divide-y divide-slate-700">
                         <thead class="bg-slate-700 sticky top-0">
                             <tr>
@@ -301,6 +301,18 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="mt-4 text-center">
+                    <button
+                        id="load-more-btn"
+                        onclick="loadMorePapers()"
+                        style="display: none;"
+                        class="px-6 py-2 bg-slate-700 text-slate-200 rounded-lg hover:bg-slate-600 transition-colors border border-slate-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        Load More
+                    </button>
                 </div>
             </section>
 
