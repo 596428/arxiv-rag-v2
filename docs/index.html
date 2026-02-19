@@ -40,13 +40,29 @@
             @apply text-sm text-slate-400 uppercase tracking-wide;
         }
         .tab-btn {
-            @apply px-6 py-3 font-medium text-sm rounded-t-lg transition-all duration-200 mr-2;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+            border-radius: 0.5rem 0.5rem 0 0;
+            transition: all 0.2s;
+            margin-right: 0.5rem;
+            cursor: pointer;
         }
         .tab-btn.active {
-            @apply bg-blue-600 text-white border-2 border-blue-500 border-b-0 shadow-lg;
+            background-color: #2563eb; /* blue-600 */
+            color: white;
+            border: 2px solid #3b82f6; /* blue-500 */
+            border-bottom: none;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
         .tab-btn:not(.active) {
-            @apply bg-slate-800 text-slate-400 hover:bg-slate-700 border border-slate-600 hover:text-slate-200;
+            background-color: #1e293b; /* slate-800 */
+            color: #94a3b8; /* slate-400 */
+            border: 1px solid #475569; /* slate-600 */
+        }
+        .tab-btn:not(.active):hover {
+            background-color: #334155; /* slate-700 */
+            color: #e2e8f0; /* slate-200 */
         }
         .tab-content {
             display: none;
