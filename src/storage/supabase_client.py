@@ -460,6 +460,34 @@ class SupabaseClient:
                     pass
             return count
 
+    def batch_insert_chunks_metadata(self, chunks_data: list[dict]) -> int:
+        """
+        Insert chunk metadata only (v2 architecture).
+
+        v2 Architecture: Supabase stores metadata, Qdrant stores vectors.
+        This method inserts only the metadata fields without any embedding columns.
+
+        Args:
+            chunks_data: List of chunk dicts with keys:
+                - chunk_id, paper_id, content, section_title, chunk_type, metadata
+
+        Returns:
+            Number of chunks inserted/updated
+        """
+        if not chunks_data:
+            return 0
+
+        # Filter to only metadata fields (no embeddings)
+        metadata_fields = ["chunk_id", "paper_id", "content", "section_title",
+                          "chunk_type", "chunk_index", "token_count", "metadata"]
+
+        clean_chunks = []
+        for chunk in chunks_data:
+            clean = {k: v for k, v in chunk.items() if k in metadata_fields}
+            clean_chunks.append(clean)
+
+        return self.batch_insert_chunks(clean_chunks)
+
     def get_chunks_by_paper(self, paper_id: str) -> list[dict]:
         """
         Get all chunks for a paper.
@@ -510,6 +538,67 @@ class SupabaseClient:
         except Exception as e:
             logger.error(f"Failed to get chunk {chunk_id}: {e}")
             return None
+
+    def get_chunks_by_ids(self, chunk_ids: list[str]) -> list[dict]:
+        """
+        Get multiple chunks by their IDs.
+
+        v2 Architecture: Used for fetching content after Qdrant vector search.
+        Qdrant returns chunk_ids + scores, then we fetch full content from Supabase.
+
+        Args:
+            chunk_ids: List of chunk IDs to fetch
+
+        Returns:
+            List of chunk records (order may not match input)
+        """
+        if not chunk_ids:
+            return []
+
+        try:
+            result = (
+                self.client.table("chunks")
+                .select("chunk_id, paper_id, content, section_title, chunk_type, metadata")
+                .in_("chunk_id", chunk_ids)
+                .execute()
+            )
+
+            if result.data:
+                logger.debug(f"Fetched {len(result.data)} chunks by IDs")
+                return result.data
+            return []
+
+        except Exception as e:
+            logger.error(f"Failed to get chunks by IDs: {e}")
+            return []
+
+    def get_chunks_by_ids_ordered(self, chunk_ids: list[str]) -> list[dict]:
+        """
+        Get multiple chunks by IDs, preserving the input order.
+
+        Useful when chunk_ids come from ranked search results.
+
+        Args:
+            chunk_ids: List of chunk IDs in desired order
+
+        Returns:
+            List of chunk records in same order as input
+        """
+        if not chunk_ids:
+            return []
+
+        chunks = self.get_chunks_by_ids(chunk_ids)
+
+        # Build lookup map
+        chunk_map = {c["chunk_id"]: c for c in chunks}
+
+        # Return in original order, skipping missing
+        ordered = []
+        for cid in chunk_ids:
+            if cid in chunk_map:
+                ordered.append(chunk_map[cid])
+
+        return ordered
 
     def delete_chunks_by_paper(self, paper_id: str) -> int:
         """
@@ -595,6 +684,80 @@ class SupabaseClient:
 
         except Exception as e:
             logger.error(f"Failed to get papers for embedding: {e}")
+            return []
+
+    def update_chunk_colbert(self, chunk_id: str, colbert_data: dict) -> bool:
+        """
+        Update a chunk with ColBERT embedding.
+
+        Args:
+            chunk_id: Chunk ID
+            colbert_data: ColBERT embedding data (token_embeddings, token_count)
+
+        Returns:
+            True if successful
+        """
+        try:
+            result = (
+                self.client.table("chunks")
+                .update({"embedding_colbert": colbert_data})
+                .eq("chunk_id", chunk_id)
+                .execute()
+            )
+
+            return bool(result.data)
+
+        except Exception as e:
+            logger.error(f"Failed to update chunk ColBERT {chunk_id}: {e}")
+            return False
+
+    def batch_update_colbert(self, updates: list[dict]) -> int:
+        """
+        Batch update chunks with ColBERT embeddings.
+
+        Args:
+            updates: List of dicts with chunk_id and embedding_colbert
+
+        Returns:
+            Number of chunks updated
+        """
+        if not updates:
+            return 0
+
+        count = 0
+        for update in updates:
+            if self.update_chunk_colbert(
+                update["chunk_id"],
+                update["embedding_colbert"]
+            ):
+                count += 1
+
+        logger.info(f"Updated {count}/{len(updates)} chunks with ColBERT embeddings")
+        return count
+
+    def get_chunks_without_colbert(self, limit: int = 1000) -> list[dict]:
+        """
+        Get chunks that don't have ColBERT embeddings.
+
+        Args:
+            limit: Maximum number of results
+
+        Returns:
+            List of chunk records
+        """
+        try:
+            result = (
+                self.client.table("chunks")
+                .select("chunk_id, paper_id, content")
+                .is_("embedding_colbert", "null")
+                .limit(limit)
+                .execute()
+            )
+
+            return result.data or []
+
+        except Exception as e:
+            logger.error(f"Failed to get chunks without ColBERT: {e}")
             return []
 
     # =========================================================================

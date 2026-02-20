@@ -145,6 +145,65 @@ class LatexParser:
         # Return first .tex file
         return tex_files[0] if tex_files else None
 
+    def _resolve_inputs(self, content: str, base_dir: Path, resolved_files: set | None = None) -> str:
+        """
+        Recursively resolve \\input{} and \\include{} commands.
+
+        This fixes multi-file LaTeX projects where content is split across files
+        (e.g., \\input{1_introduction}, \\input{2_related_work}).
+
+        Args:
+            content: LaTeX content with potential \\input{} commands
+            base_dir: Base directory for resolving relative paths
+            resolved_files: Set of already resolved files (prevents infinite loops)
+
+        Returns:
+            Content with all \\input{} and \\include{} commands replaced with file contents
+        """
+        if resolved_files is None:
+            resolved_files = set()
+
+        # Pattern matches \input{filename} and \include{filename}
+        # Also handles \input{path/to/file} with subdirectories
+        pattern = r'\\(input|include)\s*\{([^}]+)\}'
+
+        def replacer(match):
+            cmd = match.group(1)
+            filename = match.group(2).strip()
+
+            # Try with and without .tex extension
+            for ext in ['', '.tex']:
+                # Handle both absolute-looking and relative paths
+                file_path = base_dir / f"{filename}{ext}"
+
+                # Normalize to prevent duplicate resolution
+                try:
+                    resolved_path = file_path.resolve()
+                except Exception:
+                    continue
+
+                if resolved_path in resolved_files:
+                    logger.debug(f"Skipping already resolved file: {resolved_path}")
+                    return ''  # Prevent infinite loops
+
+                if file_path.exists():
+                    try:
+                        resolved_files.add(resolved_path)
+                        file_content = file_path.read_text(encoding='utf-8', errors='ignore')
+                        logger.debug(f"Resolved \\{cmd}{{{filename}}} -> {file_path}")
+
+                        # Recursively resolve nested inputs (use parent dir of the included file)
+                        return self._resolve_inputs(file_content, file_path.parent, resolved_files)
+                    except Exception as e:
+                        logger.warning(f"Failed to read {file_path}: {e}")
+                        return ''
+
+            # File not found - log and remove the command
+            logger.debug(f"File not found for \\{cmd}{{{filename}}} in {base_dir}")
+            return ''
+
+        return re.sub(pattern, replacer, content)
+
     def _parse_tex_file(
         self, tex_path: Path, arxiv_id: str, source_file: str
     ) -> ParsedDocument:
@@ -153,6 +212,10 @@ class LatexParser:
             content = tex_path.read_text(encoding="utf-8", errors="ignore")
         except Exception as e:
             raise LatexParseError(f"Failed to read tex file: {e}")
+
+        # Resolve \input{} and \include{} commands BEFORE parsing
+        # This fixes multi-file LaTeX projects that produce zero sections
+        content = self._resolve_inputs(content, tex_path.parent)
 
         # Extract document body
         body = self._extract_document_body(content)

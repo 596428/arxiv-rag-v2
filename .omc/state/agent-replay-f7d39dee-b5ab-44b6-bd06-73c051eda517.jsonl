@@ -1,0 +1,5 @@
+{"t":0,"agent":"system","event":"keyword_detected","keyword":"research"}
+{"t":0,"agent":"a5261a9","agent_type":"Explore","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"a5261a9","agent_type":"Explore","event":"agent_stop","success":true,"duration_ms":52064}
+{"t":0,"agent":"acaf5fb","agent_type":"Explore","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"acaf5fb","agent_type":"Explore","event":"agent_stop","success":true,"duration_ms":101392}

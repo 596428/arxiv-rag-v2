@@ -1,0 +1,1002 @@
+[
+  {
+    "query": "optimized GPU attention kernels for large language model serving with flexible KV-cache storage and JIT compilation",
+    "relevant_papers": [
+      "2501.01005v2"
+    ],
+    "category": "cs.DC",
+    "missing_papers": [
+      "2501.01005v2"
+    ]
+  },
+  {
+    "query": "high performance attention engine for low latency LLM inference supporting diverse attention formats and load balanced scheduling",
+    "relevant_papers": [
+      "2501.01005v2"
+    ],
+    "category": "cs.DC",
+    "missing_papers": [
+      "2501.01005v2"
+    ]
+  },
+  {
+    "query": "benchmarks for evaluating the fine-grained error detection capabilities of process-level reward models in complex reasoning tasks",
+    "relevant_papers": [
+      "2501.03124v5"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.03124v5"
+    ]
+  },
+  {
+    "query": "how to measure the soundness and sensitivity of large language models when acting as step-level reward critics",
+    "relevant_papers": [
+      "2501.03124v5"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.03124v5"
+    ]
+  },
+  {
+    "query": "Recent survey of large vision language models covering alignment strategies benchmarks and challenges like hallucinations and model safety up to 2025",
+    "relevant_papers": [
+      "2501.02189v6"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.02189v6"
+    ]
+  },
+  {
+    "query": "Overview of state of the art multimodal architectures and evaluation metrics for comparing different large vision language models and their reasoning capabilities",
+    "relevant_papers": [
+      "2501.02189v6"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.02189v6"
+    ]
+  },
+  {
+    "query": "comprehensive synthesis of global evidence regarding the capabilities and risks of advanced artificial intelligence systems commissioned by the Bletchley AI Safety Summit",
+    "relevant_papers": [
+      "2501.17805v1"
+    ],
+    "category": "cs.CY",
+    "missing_papers": [
+      "2501.17805v1"
+    ]
+  },
+  {
+    "query": "what are the key findings from the international expert advisory panel on the safety of frontier AI models and their potential societal risks",
+    "relevant_papers": [
+      "2501.17805v1"
+    ],
+    "category": "cs.CY",
+    "missing_papers": [
+      "2501.17805v1"
+    ]
+  },
+  {
+    "query": "how does visual editing as a chain of thought help multimodal LLMs better understand structured images like tables and charts through python code",
+    "relevant_papers": [
+      "2501.05452v1"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.05452v1"
+    ]
+  },
+  {
+    "query": "enhancing multimodal model reasoning on complex charts and tables by generating visual thoughts through automated image highlighting and masking tools",
+    "relevant_papers": [
+      "2501.05452v1"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.05452v1"
+    ]
+  },
+  {
+    "query": "Research opportunities and gaps for addressing bias in large language models within the field of information management systems",
+    "relevant_papers": [
+      "2502.10407v1"
+    ],
+    "category": "cs.CY",
+    "missing_papers": [
+      "2502.10407v1"
+    ]
+  },
+  {
+    "query": "A framework for mitigating generative AI bias to ensure fairness and transparency in business decision-making and information management practices",
+    "relevant_papers": [
+      "2502.10407v1"
+    ],
+    "category": "cs.CY",
+    "missing_papers": [
+      "2502.10407v1"
+    ]
+  },
+  {
+    "query": "How to improve medical vision language models using abnormal-aware feedback and reinforcement learning rewards for better localization of clinical abnormalities?",
+    "relevant_papers": [
+      "2501.01377v2"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.01377v2"
+    ]
+  },
+  {
+    "query": "Enhancing medical image understanding in large vision-language models through abnormal-aware instruction tuning and the Medical Abnormalities Unveiling dataset.",
+    "relevant_papers": [
+      "2501.01377v2"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.01377v2"
+    ]
+  },
+  {
+    "query": "comprehensive survey on visual large language models covering generalized and specialized applications across image video and depth modalities",
+    "relevant_papers": [
+      "2501.02765v1"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.02765v1"
+    ]
+  },
+  {
+    "query": "current state of visual large language models including their diverse application scenarios ethical considerations and future development directions in multimodal learning",
+    "relevant_papers": [
+      "2501.02765v1"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.02765v1"
+    ]
+  },
+  {
+    "query": "how large language models contribute to fundamental questions in linguistic theory and serve as model systems for usage-based learning",
+    "relevant_papers": [
+      "2501.17047v3"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.17047v3"
+    ]
+  },
+  {
+    "query": "the relationship between large language models and linguistics regarding the study of linguistic structure and human language processing",
+    "relevant_papers": [
+      "2501.17047v3"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.17047v3"
+    ]
+  },
+  {
+    "query": "recent literature review on the various methods used to integrate large language models with structured knowledge representation systems and their applications",
+    "relevant_papers": [
+      "2501.13947v3"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.13947v3"
+    ]
+  },
+  {
+    "query": "current state of research regarding the synergy between generative AI and knowledge bases for enhancing model accuracy and data contextualization",
+    "relevant_papers": [
+      "2501.13947v3"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.13947v3"
+    ]
+  },
+  {
+    "query": "large language models for automated slide generation from natural language instructions using program generation and code execution",
+    "relevant_papers": [
+      "2501.00912v2"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.00912v2"
+    ]
+  },
+  {
+    "query": "benchmarks and datasets for evaluating the design quality of presentation slides generated from text prompts across multiple domains",
+    "relevant_papers": [
+      "2501.00912v2"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.00912v2"
+    ]
+  },
+  {
+    "query": "How consistent are large language models in aligning their stated values with their actual actions across different cultural and social scenarios?",
+    "relevant_papers": [
+      "2501.15463v4"
+    ],
+    "category": "cs.HC",
+    "missing_papers": [
+      "2501.15463v4"
+    ]
+  },
+  {
+    "query": "Evaluation of the value-action gap in LLMs using the ValueActionLens framework to measure discrepancies between stated inclinations and behavior.",
+    "relevant_papers": [
+      "2501.15463v4"
+    ],
+    "category": "cs.HC",
+    "missing_papers": [
+      "2501.15463v4"
+    ]
+  },
+  {
+    "query": "How can thermal and power management systems for large language model inference clusters minimize throttling events and optimize total cost of ownership in cloud environments?",
+    "relevant_papers": [
+      "2501.02600v1"
+    ],
+    "category": "cs.DC",
+    "missing_papers": [
+      "2501.02600v1"
+    ]
+  },
+  {
+    "query": "Efficient VM placement and request routing strategies for power-aware scheduling of large language model inference workloads in co-located cloud datacenter clusters.",
+    "relevant_papers": [
+      "2501.02600v1"
+    ],
+    "category": "cs.DC",
+    "missing_papers": [
+      "2501.02600v1"
+    ]
+  },
+  {
+    "query": "enhancing temporal grounding in long-form video large multimodal models using preference optimization and self-training methods",
+    "relevant_papers": [
+      "2501.13919v3"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.13919v3"
+    ]
+  },
+  {
+    "query": "how to use preference learning to improve the temporal reasoning and grounding capabilities of video-LMMs on long video benchmarks",
+    "relevant_papers": [
+      "2501.13919v3"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.13919v3"
+    ]
+  },
+  {
+    "query": "What is the iteration complexity of DDIM and DDPM samplers when the target distribution has an intrinsic low-dimensional structure?",
+    "relevant_papers": [
+      "2501.12982v2"
+    ],
+    "category": "stat.ML",
+    "missing_papers": [
+      "2501.12982v2"
+    ]
+  },
+  {
+    "query": "Theoretical convergence rates in total variation distance for diffusion models adapting to unknown low-dimensional data manifolds.",
+    "relevant_papers": [
+      "2501.12982v2"
+    ],
+    "category": "stat.ML",
+    "missing_papers": [
+      "2501.12982v2"
+    ]
+  },
+  {
+    "query": "theoretical analysis of snowball errors and the probability of correct reasoning in large language model test-time scaling methods",
+    "relevant_papers": [
+      "2501.15602v3"
+    ],
+    "category": "cs.AI",
+    "missing_papers": [
+      "2501.15602v3"
+    ]
+  },
+  {
+    "query": "understanding the impact of external slow-thinking strategies on mitigating error propagation during multi-step reasoning in large language models",
+    "relevant_papers": [
+      "2501.15602v3"
+    ],
+    "category": "cs.AI",
+    "missing_papers": [
+      "2501.15602v3"
+    ]
+  },
+  {
+    "query": "distilling multiple visual foundation model encoders into a single efficient encoder for vision language models using mixture of experts and lora",
+    "relevant_papers": [
+      "2501.01709v3"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.01709v3"
+    ]
+  },
+  {
+    "query": "how to improve multimodal model efficiency by distilling specialized knowledge from several visual teachers into one student encoder with attention-based distillation",
+    "relevant_papers": [
+      "2501.01709v3"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.01709v3"
+    ]
+  },
+  {
+    "query": "How can a multi-agent system using large language models provide explainable and automated portfolio management for cryptocurrencies using multi-modal data and expert agent collaboration?",
+    "relevant_papers": [
+      "2501.00826v2"
+    ],
+    "category": "q-fin.TR",
+    "missing_papers": [
+      "2501.00826v2"
+    ]
+  },
+  {
+    "query": "Framework for cryptocurrency investment using specialized LLM agents fine-tuned on historical data and professional literature to enhance portfolio performance and decision explainability.",
+    "relevant_papers": [
+      "2501.00826v2"
+    ],
+    "category": "q-fin.TR",
+    "missing_papers": [
+      "2501.00826v2"
+    ]
+  },
+  {
+    "query": "How can nested attention mechanisms improve identity preservation and text alignment in encoder-based personalization for text-to-image diffusion models?",
+    "relevant_papers": [
+      "2501.01407v1"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.01407v1"
+    ]
+  },
+  {
+    "query": "Generating query-dependent subject values through nested attention layers to balance subject representation with prior preservation in multi-concept image generation.",
+    "relevant_papers": [
+      "2501.01407v1"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.01407v1"
+    ]
+  },
+  {
+    "query": "How does a hybrid model combining CNN, GRU-SKIP, and transformers improve the accuracy of spatiotemporal traffic flow prediction in intelligent transportation systems?",
+    "relevant_papers": [
+      "2501.07593v1"
+    ],
+    "category": "cs.LG",
+    "missing_papers": [
+      "2501.07593v1"
+    ]
+  },
+  {
+    "query": "Spatiotemporal traffic flow prediction using a six-layer CNN with GRU-SKIP and transformer architecture for capturing long-term temporal dependencies in PeMS datasets.",
+    "relevant_papers": [
+      "2501.07593v1"
+    ],
+    "category": "cs.LG",
+    "missing_papers": [
+      "2501.07593v1"
+    ]
+  },
+  {
+    "query": "comparing the performance of chatgpt o1 and deepseek r1 for python code generation using online judge benchmarks",
+    "relevant_papers": [
+      "2502.18467v1"
+    ],
+    "category": "cs.SE",
+    "missing_papers": [
+      "2502.18467v1"
+    ]
+  },
+  {
+    "query": "evaluation of code quality and correctness between deepseek and chatgpt for solving algorithmic programming problems in python",
+    "relevant_papers": [
+      "2502.18467v1"
+    ],
+    "category": "cs.SE",
+    "missing_papers": [
+      "2502.18467v1"
+    ]
+  },
+  {
+    "query": "How does scaling the number of unit tests generated by LLMs improve reward modeling and accuracy for complex code generation tasks?",
+    "relevant_papers": [
+      "2501.01054v1"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.01054v1"
+    ]
+  },
+  {
+    "query": "Improving code reward signal quality through dynamic scaling of unit tests based on task difficulty using a lightweight generator like CodeRM-8B.",
+    "relevant_papers": [
+      "2501.01054v1"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.01054v1"
+    ]
+  },
+  {
+    "query": "How can prepending source metadata like URLs during large language model pre-training improve training efficiency and allow for better model steering at inference time?",
+    "relevant_papers": [
+      "2501.01956v3"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.01956v3"
+    ]
+  },
+  {
+    "query": "Effect of conditioning on document metadata and using a cooldown phase to accelerate convergence and enhance downstream task performance in neural language models.",
+    "relevant_papers": [
+      "2501.01956v3"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.01956v3"
+    ]
+  },
+  {
+    "query": "How to perform accurate 2-bit KV cache quantization in large language models using outlier-aware adaptive rotations and Hadamard transforms?",
+    "relevant_papers": [
+      "2501.16383v2"
+    ],
+    "category": "cs.LG",
+    "missing_papers": [
+      "2501.16383v2"
+    ]
+  },
+  {
+    "query": "Reducing LLM memory footprint through 2-bit KV cache compression techniques that mitigate channel-wise outliers and protect attention sinks for efficient inference.",
+    "relevant_papers": [
+      "2501.16383v2"
+    ],
+    "category": "cs.LG",
+    "missing_papers": [
+      "2501.16383v2"
+    ]
+  },
+  {
+    "query": "How to build an end-to-end speech model that understands paralinguistic emotional cues and responds with natural, emotionally sensitive audio output using tool calling",
+    "relevant_papers": [
+      "2501.16327v1"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.16327v1"
+    ]
+  },
+  {
+    "query": "End-to-end speech-to-speech models capable of sensing user emotions and generating natural responses with integrated external tool use for real-time information retrieval",
+    "relevant_papers": [
+      "2501.16327v1"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.16327v1"
+    ]
+  },
+  {
+    "query": "How to preserve object identity in text-to-image diffusion models using multiple visual prompts and KV-mixed cross-attention for compositional generation?",
+    "relevant_papers": [
+      "2501.01424v1"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.01424v1"
+    ]
+  },
+  {
+    "query": "Improving layout control and identity preservation in multi-object image synthesis through object-level visual prompting and compositional guidance during inference.",
+    "relevant_papers": [
+      "2501.01424v1"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.01424v1"
+    ]
+  },
+  {
+    "query": "How to improve multi-source retrieval augmented generation in medical large language models using source planning and alignment techniques for diverse knowledge repositories?",
+    "relevant_papers": [
+      "2501.02460v3"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.02460v3"
+    ]
+  },
+  {
+    "query": "State of the art methods for medical knowledge acquisition in LLMs through source planning optimization and the integration of multi-structured medical databases.",
+    "relevant_papers": [
+      "2501.02460v3"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.02460v3"
+    ]
+  },
+  {
+    "query": "Implementing transfer learning in Adaptive Hoeffding Trees for fast anomaly detection and fault classification in streaming synchrophasor measurement unit data.",
+    "relevant_papers": [
+      "2501.16354v1"
+    ],
+    "category": "cs.LG",
+    "missing_papers": [
+      "2501.16354v1"
+    ]
+  },
+  {
+    "query": "Performance comparison of transfer learning based Hoeffding trees versus OzaBag for low latency processing of power system PMU data.",
+    "relevant_papers": [
+      "2501.16354v1"
+    ],
+    "category": "cs.LG",
+    "missing_papers": [
+      "2501.16354v1"
+    ]
+  },
+  {
+    "query": "How have large language models transformed computational protein science through sequence-structure-function reasoning and what are their current applications in protein design and drug discovery?",
+    "relevant_papers": [
+      "2501.10282v2"
+    ],
+    "category": "cs.CE",
+    "missing_papers": [
+      "2501.10282v2"
+    ]
+  },
+  {
+    "query": "Recent systematic reviews of protein language models and their effectiveness in predicting protein structures, functions, and master sequences for specific engineering tasks like enzyme design.",
+    "relevant_papers": [
+      "2501.10282v2"
+    ],
+    "category": "cs.CE",
+    "missing_papers": [
+      "2501.10282v2"
+    ]
+  },
+  {
+    "query": "Improving image-to-video generation using mask-based motion trajectories and object-level attention for consistent multi-object motion",
+    "relevant_papers": [
+      "2501.03059v1"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.03059v1"
+    ]
+  },
+  {
+    "query": "Framework for controllable image-to-video synthesis using explicit intermediate representations of object trajectories and masked spatio-temporal attention",
+    "relevant_papers": [
+      "2501.03059v1"
+    ],
+    "category": "cs.CV",
+    "missing_papers": [
+      "2501.03059v1"
+    ]
+  },
+  {
+    "query": "Applying propositional attitudes like beliefs and desires to mechanistic interpretability and the challenge of thought logging in artificial intelligence systems",
+    "relevant_papers": [
+      "2501.15740v1"
+    ],
+    "category": "cs.AI",
+    "missing_papers": [
+      "2501.15740v1"
+    ]
+  },
+  {
+    "query": "How can psychosemantics and philosophical methods be used to interpret internal AI mechanisms and log a system's propositional attitudes over time?",
+    "relevant_papers": [
+      "2501.15740v1"
+    ],
+    "category": "cs.AI",
+    "missing_papers": [
+      "2501.15740v1"
+    ]
+  },
+  {
+    "query": "How to evaluate task-oriented conversational AI systems using multi-agent simulations and graph-based policy modeling for synthetic benchmark generation?",
+    "relevant_papers": [
+      "2501.11067v1"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.11067v1"
+    ]
+  },
+  {
+    "query": "Automated frameworks for providing fine-grained diagnostics of large language model agents navigating complex multi-turn dialogues with strict policy constraints.",
+    "relevant_papers": [
+      "2501.11067v1"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.11067v1"
+    ]
+  },
+  {
+    "query": "How can autoencoder latent space embeddings and supervised fine-tuning be used to distinguish between platinum-sensitive and platinum-resistant ovarian cancer patients?",
+    "relevant_papers": [
+      "2501.15881v1"
+    ],
+    "category": "cs.LG",
+    "missing_papers": [
+      "2501.15881v1"
+    ]
+  },
+  {
+    "query": "Applying the informative variable identifier and autoencoder embeddings to combine clinical and genetic data for identifying novel biomarkers in ovarian cancer research.",
+    "relevant_papers": [
+      "2501.15881v1"
+    ],
+    "category": "cs.LG",
+    "missing_papers": [
+      "2501.15881v1"
+    ]
+  },
+  {
+    "query": "How to quantify and decompose predictive uncertainty into recommendation and prompt uncertainty for more reliable LLM-based recommender systems?",
+    "relevant_papers": [
+      "2501.17630v2"
+    ],
+    "category": "cs.IR",
+    "missing_papers": [
+      "2501.17630v2"
+    ]
+  },
+  {
+    "query": "Measuring the reliability of large language model recommendations through predictive uncertainty decomposition and uncertainty-aware prompting strategies.",
+    "relevant_papers": [
+      "2501.17630v2"
+    ],
+    "category": "cs.IR",
+    "missing_papers": [
+      "2501.17630v2"
+    ]
+  },
+  {
+    "query": "How does DeepSeek R1 perform on complex MATH dataset problems compared to lightweight models like GPT-4o-mini and Llama 3.1 8B?",
+    "relevant_papers": [
+      "2501.18576v1"
+    ],
+    "category": "cs.LG",
+    "missing_papers": [
+      "2501.18576v1"
+    ]
+  },
+  {
+    "query": "Analysis of the trade-off between token generation volume and accuracy in DeepSeek R1 for solving difficult mathematical problems.",
+    "relevant_papers": [
+      "2501.18576v1"
+    ],
+    "category": "cs.LG",
+    "missing_papers": [
+      "2501.18576v1"
+    ]
+  },
+  {
+    "query": "How should enterprise API architectures be adapted to support the dynamic and goal-oriented behaviors of autonomous AI agents?",
+    "relevant_papers": [
+      "2502.17443v1"
+    ],
+    "category": "cs.SE",
+    "missing_papers": [
+      "2502.17443v1"
+    ]
+  },
+  {
+    "query": "Strategic framework and design principles for building next-generation enterprise APIs compatible with generative AI agentic workflows.",
+    "relevant_papers": [
+      "2502.17443v1"
+    ],
+    "category": "cs.SE",
+    "missing_papers": [
+      "2502.17443v1"
+    ]
+  },
+  {
+    "query": "How can combining myopic optimization with non-myopic approval prevent reinforcement learning agents from executing multi-step reward hacking strategies?",
+    "relevant_papers": [
+      "2501.13011v2"
+    ],
+    "category": "cs.LG",
+    "missing_papers": [
+      "2501.13011v2"
+    ]
+  },
+  {
+    "query": "Reinforcement learning techniques for mitigating multi-step reward hacks and sensor tampering using short-sighted optimization and long-term reward signals.",
+    "relevant_papers": [
+      "2501.13011v2"
+    ],
+    "category": "cs.LG",
+    "missing_papers": [
+      "2501.13011v2"
+    ]
+  },
+  {
+    "query": "How to design a multi-agent framework using large language models and RAG to automate complex cloud operations and infrastructure management?",
+    "relevant_papers": [
+      "2501.08243v1"
+    ],
+    "category": "cs.SE",
+    "missing_papers": [
+      "2501.08243v1"
+    ]
+  },
+  {
+    "query": "Implementing autonomous GenAI agents for cloud compliance and security orchestration while maintaining human-in-the-loop control for enterprise systems.",
+    "relevant_papers": [
+      "2501.08243v1"
+    ],
+    "category": "cs.SE",
+    "missing_papers": [
+      "2501.08243v1"
+    ]
+  },
+  {
+    "query": "Vulnerability of large language models to black-box jailbreaking attacks in medical contexts and automated evaluation of AI clinician safety",
+    "relevant_papers": [
+      "2501.18632v2"
+    ],
+    "category": "cs.CR",
+    "missing_papers": [
+      "2501.18632v2"
+    ]
+  },
+  {
+    "query": "Effectiveness of continual fine-tuning as a defense mechanism against adversarial attacks on large language models deployed in clinical practice",
+    "relevant_papers": [
+      "2501.18632v2"
+    ],
+    "category": "cs.CR",
+    "missing_papers": [
+      "2501.18632v2"
+    ]
+  },
+  {
+    "query": "How can dynamic layer importance evaluation and adaptive weight allocation improve the efficiency of LoRA fine-tuning for large language models?",
+    "relevant_papers": [
+      "2501.14859v1"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.14859v1"
+    ]
+  },
+  {
+    "query": "Fine-tuning large language models using dynamic LoRA with adaptive weight allocation and input feature-based strategies for better generalization and task performance.",
+    "relevant_papers": [
+      "2501.14859v1"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.14859v1"
+    ]
+  },
+  {
+    "query": "How does generative artificial intelligence impact biomedical education and what are the recommendations for using large language models in health professions training?",
+    "relevant_papers": [
+      "2501.10186v1"
+    ],
+    "category": "cs.AI",
+    "missing_papers": [
+      "2501.10186v1"
+    ]
+  },
+  {
+    "query": "Challenges and best practices for integrating large language models into medical curriculum to improve clinical reasoning and professional skills acquisition.",
+    "relevant_papers": [
+      "2501.10186v1"
+    ],
+    "category": "cs.AI",
+    "missing_papers": [
+      "2501.10186v1"
+    ]
+  },
+  {
+    "query": "How to perform online updates and incremental learning in RAG models using dynamic memory and knowledge distillation for real-time information adaptation?",
+    "relevant_papers": [
+      "2501.07063v1"
+    ],
+    "category": "cs.IR",
+    "missing_papers": [
+      "2501.07063v1"
+    ]
+  },
+  {
+    "query": "Retrieval augmented generation systems using hierarchical indexing and multi-layer gating mechanisms for continuous knowledge integration and improved inference accuracy.",
+    "relevant_papers": [
+      "2501.07063v1"
+    ],
+    "category": "cs.IR",
+    "missing_papers": [
+      "2501.07063v1"
+    ]
+  },
+  {
+    "query": "How effective is GPT-4 in passing radiation oncology board exams and performing structure re-labeling tasks according to AAPM TG-263 standards?",
+    "relevant_papers": [
+      "2501.02346v1"
+    ],
+    "category": "physics.med-ph",
+    "missing_papers": [
+      "2501.02346v1"
+    ]
+  },
+  {
+    "query": "Evaluating the performance of large language models on clinical radiation oncology benchmarks and their potential for use in medical decision support systems.",
+    "relevant_papers": [
+      "2501.02346v1"
+    ],
+    "category": "physics.med-ph",
+    "missing_papers": [
+      "2501.02346v1"
+    ]
+  },
+  {
+    "query": "How to apply differential privacy to activation editing and steering techniques for aligning large language models with sensitive demonstration datasets",
+    "relevant_papers": [
+      "2501.18532v2"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.18532v2"
+    ]
+  },
+  {
+    "query": "Privacy preserving methods for steering LLM behavior using activation modification and evaluating security against membership inference attacks on representation editing",
+    "relevant_papers": [
+      "2501.18532v2"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.18532v2"
+    ]
+  },
+  {
+    "query": "How does single-nodal performance explain the unified learning mechanism and multi-head attention specialization in vision transformers and convolutional neural networks?",
+    "relevant_papers": [
+      "2501.12900v3"
+    ],
+    "category": "cs.LG",
+    "missing_papers": [
+      "2501.12900v3"
+    ]
+  },
+  {
+    "query": "Quantitative analysis of single-nodal performance for efficient ANDC pruning and understanding the spontaneous symmetry breaking in multi-head attention heads.",
+    "relevant_papers": [
+      "2501.12900v3"
+    ],
+    "category": "cs.LG",
+    "missing_papers": [
+      "2501.12900v3"
+    ]
+  },
+  {
+    "query": "How can adding Gaussian noise to large language model weights be used as a structural watermarking method for detecting AI-generated text?",
+    "relevant_papers": [
+      "2501.13941v1"
+    ],
+    "category": "cs.CR",
+    "missing_papers": [
+      "2501.13941v1"
+    ]
+  },
+  {
+    "query": "Structural watermarking of language models through weight perturbation and Gaussian independence testing for efficient detection of AI-generated content.",
+    "relevant_papers": [
+      "2501.13941v1"
+    ],
+    "category": "cs.CR",
+    "missing_papers": [
+      "2501.13941v1"
+    ]
+  },
+  {
+    "query": "benchmarks for evaluating the ability of large language models to perform complex numerical financial analysis and investment banking tasks",
+    "relevant_papers": [
+      "2501.18062v1"
+    ],
+    "category": "cs.LG",
+    "missing_papers": [
+      "2501.18062v1"
+    ]
+  },
+  {
+    "query": "datasets for assessing large language model performance on realistic financial analysis tasks involving multi-step reasoning and accounting standards",
+    "relevant_papers": [
+      "2501.18062v1"
+    ],
+    "category": "cs.LG",
+    "missing_papers": [
+      "2501.18062v1"
+    ]
+  },
+  {
+    "query": "How can parameter-efficient adapter-tuning in multimodal large language models improve the analysis of 3D brain scans and clinical neurological disorder diagnosis?",
+    "relevant_papers": [
+      "2501.16282v1"
+    ],
+    "category": "eess.IV",
+    "missing_papers": [
+      "2501.16282v1"
+    ]
+  },
+  {
+    "query": "Techniques for aligning 3D medical imaging and text data using CLIP and bottleneck layers to enhance diagnostic accuracy in neurological healthcare.",
+    "relevant_papers": [
+      "2501.16282v1"
+    ],
+    "category": "eess.IV",
+    "missing_papers": [
+      "2501.16282v1"
+    ]
+  },
+  {
+    "query": "comprehensive survey on the construction and application of biomedical knowledge graphs for precision medicine, drug discovery, and clinical reasoning",
+    "relevant_papers": [
+      "2501.11632v2"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.11632v2"
+    ]
+  },
+  {
+    "query": "recent advancements in knowledge graph technology for organizing complex molecular, pharmacological, and medical data for scientific research and healthcare",
+    "relevant_papers": [
+      "2501.11632v2"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.11632v2"
+    ]
+  },
+  {
+    "query": "How can synthetic clinical interview datasets and large language models be used to improve the screening of coarse and fine-grained emotional disorders like depression?",
+    "relevant_papers": [
+      "2501.08769v2"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.08769v2"
+    ]
+  },
+  {
+    "query": "Effectiveness of using specialized LLMs and synthetic dialogue pipelines for automated depression and anxiety screening compared to general models like GPT-4.",
+    "relevant_papers": [
+      "2501.08769v2"
+    ],
+    "category": "cs.CL",
+    "missing_papers": [
+      "2501.08769v2"
+    ]
+  }
+]

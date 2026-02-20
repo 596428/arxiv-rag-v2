@@ -2,6 +2,8 @@
 arXiv RAG v1 - RAG Module
 
 Hybrid retrieval and search functionality.
+- Supabase-based retrievers (legacy pgvector)
+- Qdrant-based retrievers (optimized with native sparse indexing)
 """
 
 from .retriever import (
@@ -10,9 +12,24 @@ from .retriever import (
     DenseRetriever,
     SparseRetriever,
     HybridRetriever,
+    HybridFullRetriever,
+    ColBERTRetriever,
+    OpenAIRetriever,
     hybrid_search,
     dense_search,
     sparse_search,
+    colbert_search,
+    openai_search,
+    hybrid_full_search,
+)
+
+from .qdrant_retriever import (
+    QdrantDenseRetriever,
+    QdrantSparseRetriever,
+    QdrantHybridRetriever,
+    qdrant_hybrid_search,
+    qdrant_dense_search,
+    qdrant_sparse_search,
 )
 
 from .reranker import (
@@ -24,15 +41,28 @@ from .reranker import (
 from .api import app as api_app
 
 __all__ = [
-    # Retriever
+    # Supabase Retriever (legacy)
     "SearchResult",
     "SearchResponse",
     "DenseRetriever",
     "SparseRetriever",
     "HybridRetriever",
+    "HybridFullRetriever",
+    "ColBERTRetriever",
+    "OpenAIRetriever",
     "hybrid_search",
     "dense_search",
     "sparse_search",
+    "colbert_search",
+    "openai_search",
+    "hybrid_full_search",
+    # Qdrant Retriever (optimized)
+    "QdrantDenseRetriever",
+    "QdrantSparseRetriever",
+    "QdrantHybridRetriever",
+    "qdrant_hybrid_search",
+    "qdrant_dense_search",
+    "qdrant_sparse_search",
     # Reranker
     "BGEReranker",
     "LightweightReranker",

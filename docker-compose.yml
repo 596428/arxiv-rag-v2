@@ -1,0 +1,65 @@
+# arXiv RAG v1 - Docker Compose
+# Qdrant Vector DB + FastAPI Backend
+#
+# Usage:
+#   docker-compose up -d          # Start services
+#   docker-compose logs -f        # View logs
+#   docker-compose down           # Stop services
+
+version: '3.8'
+
+services:
+  # Qdrant Vector Database
+  qdrant:
+    image: qdrant/qdrant:v1.12.1
+    container_name: arxiv-rag-qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333"   # REST API
+      - "6334:6334"   # gRPC API
+    volumes:
+      - qdrant_storage:/qdrant/storage
+      - ./qdrant_config.yaml:/qdrant/config/production.yaml:ro
+    environment:
+      - QDRANT__LOG_LEVEL=INFO
+      - QDRANT__SERVICE__HTTP_PORT=6333
+      - QDRANT__SERVICE__GRPC_PORT=6334
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:6333/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # FastAPI Backend
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: arxiv-rag-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    depends_on:
+      qdrant:
+        condition: service_healthy
+    environment:
+      - QDRANT_HOST=qdrant
+      - QDRANT_PORT=6333
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    volumes:
+      - ./src:/app/src:ro
+      - ./data:/app/data:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+volumes:
+  qdrant_storage:
+    driver: local

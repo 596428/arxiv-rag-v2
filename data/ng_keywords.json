@@ -1,0 +1,113 @@
+{
+  "version": "2026-02-20",
+  "description": "Negative keywords for filtering non-LLM papers. Source: NGwords_gpt.txt",
+  "categories": {
+    "biomedical": [
+      "bio", "biomedical", "biomedicine", "clinical", "medical", "medicine",
+      "healthcare", "hospital", "patient", "diagnosis", "therapy", "treatment",
+      "disease", "pathology", "radiology", "ultrasound", "x-ray", "ct scan",
+      "mri", "medical imaging", "histopathology", "microscopy", "genomics",
+      "genome", "proteomics", "protein", "rna", "dna", "gene expression",
+      "drug", "drug discovery", "drug design", "pharmacology", "chemistry",
+      "molecule", "molecular", "biochemistry", "protein folding", "protein docking"
+    ],
+    "chemistry_materials": [
+      "material science", "materials science", "metallurgy", "crystal",
+      "crystallography", "polymer", "nanomaterial", "nanoparticle",
+      "composite material", "battery", "lithium ion", "solid state",
+      "semiconductor", "photonic", "quantum chemistry", "quantum physics",
+      "particle physics", "condensed matter", "thermodynamics", "fluid mechanics",
+      "computational fluid dynamics", "cfd", "finite element", "finite element method",
+      "fem", "simulation", "numerical simulation", "physics-based modeling",
+      "mechanical engineering", "structural analysis"
+    ],
+    "earth_science": [
+      "climate", "climate change", "meteorology", "weather", "forecasting",
+      "atmospheric", "geoscience", "geology", "seismology", "earthquake",
+      "hydrology", "oceanography", "remote sensing", "satellite imagery",
+      "hyperspectral", "lidar", "geospatial", "gis", "topography", "terrain",
+      "agriculture", "crop", "soil", "environmental monitoring", "ecology"
+    ],
+    "robotics_control": [
+      "robotics", "robot control", "motion planning", "path planning", "slam",
+      "localization", "mapping", "control system", "pid controller", "kalman filter",
+      "signal processing", "time series forecasting", "sensor fusion", "radar",
+      "sonar", "audio signal processing", "speech enhancement", "speech separation",
+      "beamforming"
+    ],
+    "finance_social": [
+      "finance", "financial", "stock market", "trading", "portfolio",
+      "risk management", "cryptocurrency", "blockchain", "economics", "economic",
+      "macroeconomic", "microeconomic", "game theory", "social network analysis",
+      "sociology", "demography", "survey analysis", "behavioral analysis",
+      "opinion mining"
+    ],
+    "domain_cv": [
+      "face recognition", "facial expression", "biometric", "fingerprint",
+      "iris recognition", "surveillance", "crowd counting", "traffic monitoring",
+      "license plate", "object tracking", "pedestrian detection",
+      "industrial inspection", "defect detection", "quality inspection"
+    ],
+    "education_psychology": [
+      "education", "educational", "learning analytics", "student performance",
+      "intelligent tutoring", "psychology", "cognitive science", "cognitive modeling",
+      "behavior modeling", "emotion recognition", "affective computing"
+    ],
+    "hardware_systems": [
+      "fpga", "asic", "vlsi", "circuit design", "hardware acceleration",
+      "embedded system", "microcontroller", "operating system kernel",
+      "network protocol", "routing algorithm", "wireless communication",
+      "5g", "6g", "antenna design"
+    ]
+  },
+  "flat_keywords": [
+    "bio", "biomedical", "biomedicine", "clinical", "medical", "medicine",
+    "healthcare", "hospital", "patient", "diagnosis", "therapy", "treatment",
+    "disease", "pathology", "radiology", "ultrasound", "x-ray", "ct scan",
+    "mri", "medical imaging", "histopathology", "microscopy", "genomics",
+    "genome", "proteomics", "protein", "rna", "dna", "gene expression",
+    "drug", "drug discovery", "drug design", "pharmacology", "chemistry",
+    "molecule", "molecular", "biochemistry", "protein folding", "protein docking",
+    "material science", "materials science", "metallurgy", "crystal",
+    "crystallography", "polymer", "nanomaterial", "nanoparticle",
+    "composite material", "battery", "lithium ion", "solid state",
+    "semiconductor", "photonic", "quantum chemistry", "quantum physics",
+    "particle physics", "condensed matter", "thermodynamics", "fluid mechanics",
+    "computational fluid dynamics", "cfd", "finite element", "finite element method",
+    "fem", "simulation", "numerical simulation", "physics-based modeling",
+    "mechanical engineering", "structural analysis",
+    "climate", "climate change", "meteorology", "weather", "forecasting",
+    "atmospheric", "geoscience", "geology", "seismology", "earthquake",
+    "hydrology", "oceanography", "remote sensing", "satellite imagery",
+    "hyperspectral", "lidar", "geospatial", "gis", "topography", "terrain",
+    "agriculture", "crop", "soil", "environmental monitoring", "ecology",
+    "robotics", "robot control", "motion planning", "path planning", "slam",
+    "localization", "mapping", "control system", "pid controller", "kalman filter",
+    "signal processing", "time series forecasting", "sensor fusion", "radar",
+    "sonar", "audio signal processing", "speech enhancement", "speech separation",
+    "beamforming",
+    "finance", "financial", "stock market", "trading", "portfolio",
+    "risk management", "cryptocurrency", "blockchain", "economics", "economic",
+    "macroeconomic", "microeconomic", "game theory", "social network analysis",
+    "sociology", "demography", "survey analysis", "behavioral analysis",
+    "opinion mining",
+    "face recognition", "facial expression", "biometric", "fingerprint",
+    "iris recognition", "surveillance", "crowd counting", "traffic monitoring",
+    "license plate", "object tracking", "pedestrian detection",
+    "industrial inspection", "defect detection", "quality inspection",
+    "education", "educational", "learning analytics", "student performance",
+    "intelligent tutoring", "psychology", "cognitive science", "cognitive modeling",
+    "behavior modeling", "emotion recognition", "affective computing",
+    "fpga", "asic", "vlsi", "circuit design", "hardware acceleration",
+    "embedded system", "microcontroller", "operating system kernel",
+    "network protocol", "routing algorithm", "wireless communication",
+    "5g", "6g", "antenna design"
+  ],
+  "changelog": [
+    {
+      "date": "2026-02-20",
+      "action": "initial",
+      "description": "Initialized from NGwords_gpt.txt (11 categories, 193 keywords)"
+    }
+  ]
+}

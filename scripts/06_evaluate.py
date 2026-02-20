@@ -25,7 +25,16 @@ from typing import Optional
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.rag.retriever import HybridRetriever, OpenAIRetriever, SearchResponse
+from src.rag.retriever import (
+    HybridRetriever,
+    HybridFullRetriever,
+    OpenAIRetriever,
+    ColBERTRetriever,
+    SearchResponse,
+)
+from src.rag.qdrant_retriever import (
+    QdrantHybridRetriever,
+)
 
 
 @dataclass
@@ -35,6 +44,7 @@ class EvalQuery:
     relevant_papers: list[str] = field(default_factory=list)  # arxiv_ids
     relevant_chunks: list[str] = field(default_factory=list)  # chunk_ids
     category: str = ""  # Query category (e.g., "methodology", "results")
+    original_relevant_count: int = 0  # Original count before filtering
 
 
 @dataclass
@@ -81,22 +91,76 @@ def evaluate_query(
     # Perform search
     start_time = time.time()
 
-    if mode == "hybrid":
+    # Handle reranker suffix (e.g., "hybrid+rerank")
+    base_mode = mode.replace("+rerank", "")
+    use_reranker = use_reranker or "+rerank" in mode
+
+    if base_mode == "hybrid":
         response = retriever.search(eval_query.query, top_k=top_k)
-    elif mode == "dense":
+    elif base_mode == "dense":
         response = retriever.search_dense_only(eval_query.query, top_k=top_k)
-    elif mode == "sparse":
+    elif base_mode == "sparse":
         response = retriever.search_sparse_only(eval_query.query, top_k=top_k)
-    elif mode == "openai":
+    elif base_mode == "openai":
         # Use OpenAI retriever for comparison
         openai_retriever = OpenAIRetriever()
         response = openai_retriever.search(eval_query.query, top_k=top_k)
+    elif base_mode == "colbert":
+        # Use ColBERT retriever
+        colbert_retriever = ColBERTRetriever()
+        import time as time_mod
+        search_start = time_mod.time()
+        results = colbert_retriever.search(eval_query.query, top_k=top_k)
+        response = SearchResponse(
+            query=eval_query.query,
+            results=results,
+            total_found=len(results),
+            colbert_count=len(results),
+            search_time_ms=(time_mod.time() - search_start) * 1000,
+        )
+    elif base_mode == "hybrid_full":
+        # Use full hybrid retriever (dense + sparse + colbert)
+        full_retriever = HybridFullRetriever()
+        response = full_retriever.search(eval_query.query, top_k=top_k)
+    elif base_mode == "qdrant_hybrid":
+        # Use Qdrant hybrid retriever (optimized)
+        qdrant_retriever = QdrantHybridRetriever()
+        response = qdrant_retriever.search(eval_query.query, top_k=top_k)
+    elif base_mode == "qdrant_dense":
+        # Use Qdrant dense-only retriever
+        qdrant_retriever = QdrantHybridRetriever()
+        response = qdrant_retriever.search_dense_only(eval_query.query, top_k=top_k)
+    elif base_mode == "qdrant_sparse":
+        # Use Qdrant sparse-only retriever
+        qdrant_retriever = QdrantHybridRetriever()
+        response = qdrant_retriever.search_sparse_only(eval_query.query, top_k=top_k)
+    elif base_mode == "qdrant_rerank":
+        # Use Qdrant hybrid with reranker
+        qdrant_retriever = QdrantHybridRetriever()
+        response = qdrant_retriever.search(
+            eval_query.query, top_k=top_k,
+            use_reranker=True, rerank_top_k=top_k
+        )
     else:
         raise ValueError(f"Unknown mode: {mode}")
 
     # Apply reranking if enabled
     if use_reranker and response.results:
         from src.rag.reranker import BGEReranker, LightweightReranker
+
+        # Free GPU memory before loading reranker (OOM prevention)
+        try:
+            if base_mode in ("hybrid", "dense", "sparse", "colbert", "hybrid_full"):
+                retriever.unload_models()
+            elif base_mode == "colbert":
+                colbert_retriever.unload_models()
+            elif base_mode == "hybrid_full":
+                full_retriever.unload_models()
+
+            import torch
+            torch.cuda.empty_cache()
+        except Exception:
+            pass  # Ignore if no GPU or already unloaded
 
         if lightweight_reranker:
             reranker = LightweightReranker()
@@ -279,7 +343,7 @@ def main():
         "--modes",
         nargs="+",
         default=["hybrid", "dense", "sparse"],
-        help="Search modes to evaluate (default: hybrid dense sparse)",
+        help="Search modes to evaluate. Available: hybrid, dense, sparse, openai, colbert, hybrid_full, qdrant_hybrid, qdrant_dense, qdrant_sparse, qdrant_rerank. Add '+rerank' suffix for reranking (e.g., hybrid+rerank)",
     )
     parser.add_argument(
         "--top-k",

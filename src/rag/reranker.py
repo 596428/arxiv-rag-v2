@@ -335,6 +335,12 @@ class LightweightReranker:
         """Rerank using lightweight model."""
         return self.reranker.rerank(query, results, top_k)
 
+    def unload(self) -> None:
+        """Unload model from memory."""
+        if self._reranker is not None:
+            self._reranker.unload()
+            self._reranker = None
+
 
 # Convenience function
 def rerank_results(

@@ -1,0 +1,10 @@
+{"t":0,"agent":"system","event":"keyword_detected","keyword":"pipeline"}
+{"t":0,"agent":"system","event":"skill_invoked","skill_name":"oh-my-claudecode:pipeline"}
+{"t":0,"agent":"ad4a1bd","agent_type":"architect","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"a6a2083","agent_type":"architect","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"a4e162a","agent_type":"architect","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"ae9e1d1","agent_type":"architect","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"a6a2083","agent_type":"architect","event":"agent_stop","success":true,"duration_ms":64233}
+{"t":0,"agent":"ad4a1bd","agent_type":"architect","event":"agent_stop","success":true,"duration_ms":144968}
+{"t":0,"agent":"ae9e1d1","agent_type":"architect","event":"agent_stop","success":true,"duration_ms":197402}
+{"t":0,"agent":"a4e162a","agent_type":"architect","event":"agent_stop","success":true,"duration_ms":208976}

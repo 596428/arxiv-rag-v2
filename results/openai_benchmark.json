@@ -1,0 +1,11 @@
+{
+  "openai": {
+    "avg_mrr": 0.21875,
+    "avg_ndcg@5": 0.1389170562789839,
+    "avg_ndcg@10": 0.2689408034586913,
+    "avg_precision@5": 0.07500000000000001,
+    "avg_precision@10": 0.1,
+    "avg_search_time_ms": 886.2082064151764,
+    "num_queries": 8
+  }
+}

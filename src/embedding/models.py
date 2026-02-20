@@ -6,7 +6,7 @@ Chunk and embedding data structures for RAG system.
 
 from datetime import datetime
 from enum import Enum
-from typing import Optional
+from typing import List, Optional
 
 from pydantic import BaseModel, Field
 
@@ -125,6 +125,43 @@ class SparseVector(BaseModel):
         return len(self.indices)
 
 
+class ColBERTVector(BaseModel):
+    """
+    Token-level embeddings for ColBERT MaxSim retrieval.
+
+    ColBERT uses late interaction: query and document tokens are
+    encoded separately, then MaxSim computes similarity per query token.
+
+    Score = sum(max(cos_sim(q_token, d_tokens)) for q_token in query)
+    """
+    token_embeddings: List[List[float]] = Field(
+        ..., description="Token-level embeddings [num_tokens, 1024]"
+    )
+    token_count: int = Field(..., description="Number of tokens")
+
+    def to_jsonb(self) -> dict:
+        """Convert to JSONB-compatible format for Supabase."""
+        return {
+            "token_embeddings": self.token_embeddings,
+            "token_count": self.token_count,
+        }
+
+    @classmethod
+    def from_jsonb(cls, data: dict) -> "ColBERTVector":
+        """Load from JSONB format."""
+        return cls(
+            token_embeddings=data["token_embeddings"],
+            token_count=data["token_count"],
+        )
+
+    @property
+    def embedding_dim(self) -> int:
+        """Get embedding dimension per token."""
+        if self.token_embeddings and len(self.token_embeddings) > 0:
+            return len(self.token_embeddings[0])
+        return 0
+
+
 class EmbeddedChunk(BaseModel):
     """
     A chunk with computed embeddings.
@@ -138,7 +175,10 @@ class EmbeddedChunk(BaseModel):
     embedding_sparse: Optional[SparseVector] = Field(None, description="Sparse vector (top-128)")
 
     # OpenAI embedding (comparison)
-    embedding_openai: Optional[list[float]] = Field(None, description="OpenAI vector (3072 dims)")
+    embedding_openai: Optional[list[float]] = Field(None, description="OpenAI vector (1024 dims, MRL)")
+
+    # ColBERT embedding (token-level for MaxSim)
+    embedding_colbert: Optional[ColBERTVector] = Field(None, description="ColBERT token embeddings")
 
     # Embedding metadata
     model_bge: str = Field(default="BAAI/bge-m3", description="BGE model used")
@@ -146,15 +186,56 @@ class EmbeddedChunk(BaseModel):
     embedded_at: datetime = Field(default_factory=datetime.now, description="Embedding timestamp")
 
     def to_db_dict(self) -> dict:
-        """Convert to database-ready dictionary for Supabase."""
+        """Convert to database-ready dictionary for Supabase (v1 with embeddings)."""
         base = self.chunk.to_db_dict()
 
         # Add embeddings
         base["embedding_dense"] = self.embedding_dense
         base["embedding_sparse"] = self.embedding_sparse.to_jsonb() if self.embedding_sparse else None
         base["embedding_openai"] = self.embedding_openai
+        base["embedding_colbert"] = self.embedding_colbert.to_jsonb() if self.embedding_colbert else None
 
         return base
+
+    def to_supabase_dict(self) -> dict:
+        """Convert to Supabase metadata dict (v2 architecture - no vectors)."""
+        return self.chunk.to_db_dict()
+
+    def to_qdrant_dict(self) -> dict:
+        """
+        Convert to Qdrant-ready dictionary (v2 architecture).
+
+        Returns dict with:
+            - chunk_id, paper_id, content, section_title, metadata (payload)
+            - dense_bge, dense_openai (dense vectors)
+            - sparse_indices, sparse_values (sparse vector)
+            - colbert_tokens (ColBERT multi-vector)
+        """
+        result = {
+            "chunk_id": self.chunk.chunk_id,
+            "paper_id": self.chunk.paper_id,
+            "content": self.chunk.content,
+            "section_title": self.chunk.section_title,
+            "chunk_type": self.chunk.chunk_type.value if self.chunk.chunk_type else "text",
+            "metadata": self.chunk.metadata,
+        }
+
+        # Add dense vectors
+        if self.embedding_dense:
+            result["dense_bge"] = self.embedding_dense
+        if self.embedding_openai:
+            result["dense_openai"] = self.embedding_openai
+
+        # Add sparse vector
+        if self.embedding_sparse:
+            result["sparse_indices"] = self.embedding_sparse.indices
+            result["sparse_values"] = self.embedding_sparse.values
+
+        # Add ColBERT tokens
+        if self.embedding_colbert:
+            result["colbert_tokens"] = self.embedding_colbert.token_embeddings
+
+        return result
 
     @property
     def has_bge_embeddings(self) -> bool:
@@ -165,6 +246,11 @@ class EmbeddedChunk(BaseModel):
     def has_openai_embeddings(self) -> bool:
         """Check if OpenAI embeddings are present."""
         return self.embedding_openai is not None
+
+    @property
+    def has_colbert_embeddings(self) -> bool:
+        """Check if ColBERT embeddings are present."""
+        return self.embedding_colbert is not None
 
 
 class ChunkingConfig(BaseModel):
@@ -197,7 +283,7 @@ class EmbeddingConfig(BaseModel):
     use_openai: bool = Field(default=False, description="Generate OpenAI embeddings")
     openai_model: str = Field(default="text-embedding-3-large", description="OpenAI model")
     openai_batch_size: int = Field(default=100, description="OpenAI batch size")
-    openai_dimensions: int = Field(default=3072, description="OpenAI embedding dimensions")
+    openai_dimensions: int = Field(default=1024, description="OpenAI embedding dimensions (MRL reduced)")
 
     # Processing
     device: str = Field(default="cuda", description="Device for local models")

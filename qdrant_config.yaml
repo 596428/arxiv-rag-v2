@@ -1,0 +1,36 @@
+# Qdrant Configuration for arXiv RAG v1
+# Production settings optimized for hybrid search
+
+log_level: INFO
+
+storage:
+  # Enable on-disk storage for large datasets
+  storage_path: /qdrant/storage
+
+  # Optimized for 1024-dim vectors
+  optimizers:
+    default_segment_number: 4
+    max_segment_size_kb: 200000
+    memmap_threshold_kb: 50000
+    indexing_threshold_kb: 20000
+    flush_interval_sec: 5
+    max_optimization_threads: 2
+
+  # Performance settings
+  performance:
+    max_search_threads: 0  # Auto-detect
+    max_optimization_threads: 2
+
+service:
+  # API settings
+  http_port: 6333
+  grpc_port: 6334
+
+  # Enable CORS for GitHub Pages
+  enable_cors: true
+
+  # Max request size for batch operations
+  max_request_size_mb: 32
+
+# Telemetry (disabled for privacy)
+telemetry_disabled: true

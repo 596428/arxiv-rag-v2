@@ -7,9 +7,12 @@ RRF (Reciprocal Rank Fusion) hybrid search combining dense and sparse retrieval.
 from dataclasses import dataclass, field
 from typing import Optional
 
+import asyncio
+import json
+
 from ..embedding.bge_embedder import BGEEmbedder
 from ..embedding.openai_embedder import OpenAIEmbedder
-from ..embedding.models import EmbeddingConfig, SparseVector
+from ..embedding.models import ColBERTVector, EmbeddingConfig, SparseVector
 from ..storage.supabase_client import get_supabase_client, SupabaseClient
 from ..utils.logging import get_logger
 
@@ -26,6 +29,7 @@ class SearchResult:
     score: float = 0.0
     dense_score: Optional[float] = None
     sparse_score: Optional[float] = None
+    colbert_score: Optional[float] = None
     metadata: dict = field(default_factory=dict)
 
 
@@ -37,6 +41,7 @@ class SearchResponse:
     total_found: int = 0
     dense_count: int = 0
     sparse_count: int = 0
+    colbert_count: int = 0
     search_time_ms: float = 0.0
 
 
@@ -83,7 +88,7 @@ class DenseRetriever:
         """
         # Get query embedding
         if query_embedding is None:
-            dense, _ = self.embedder.embed_single(query)
+            dense, _, _ = self.embedder.embed_single(query)
             query_embedding = dense
 
         try:
@@ -173,7 +178,7 @@ class SparseRetriever:
         """
         # Get query sparse vector
         if query_sparse is None:
-            _, sparse = self.embedder.embed_single(query)
+            _, sparse, _ = self.embedder.embed_single(query)
             query_sparse = sparse
 
         if query_sparse is None:
@@ -288,7 +293,7 @@ class HybridRetriever:
         start = time.time()
 
         # Get query embeddings once
-        dense_vec, sparse_vec = self.embedder.embed_single(query)
+        dense_vec, sparse_vec, _ = self.embedder.embed_single(query)
 
         # Run both searches
         dense_results = self.dense_retriever.search(
@@ -432,6 +437,299 @@ class HybridRetriever:
             search_time_ms=elapsed_ms,
         )
 
+    def unload_models(self) -> None:
+        """Unload embedder models to free GPU memory."""
+        if self._embedder is not None:
+            self._embedder.unload()
+            self._embedder = None
+
+
+class ColBERTRetriever:
+    """
+    ColBERT token-level MaxSim retrieval.
+
+    Uses BGE-M3 ColBERT vectors for late-interaction scoring:
+    Score = sum(max(cos_sim(q_token, d_tokens)) for q_token in query)
+    """
+
+    def __init__(
+        self,
+        client: SupabaseClient = None,
+        embedder: BGEEmbedder = None,
+    ):
+        self.client = client or get_supabase_client()
+        self._embedder = embedder
+
+    @property
+    def embedder(self) -> BGEEmbedder:
+        """Lazy load BGE embedder."""
+        if self._embedder is None:
+            self._embedder = BGEEmbedder(EmbeddingConfig(use_openai=False))
+        return self._embedder
+
+    def search(
+        self,
+        query: str,
+        top_k: int = 20,
+        query_tokens: list[list[float]] = None,
+    ) -> list[SearchResult]:
+        """
+        Search using ColBERT MaxSim scoring.
+
+        Args:
+            query: Search query text
+            top_k: Number of results to return
+            query_tokens: Pre-computed query token embeddings (optional)
+
+        Returns:
+            List of search results ordered by MaxSim score
+        """
+        # Get query ColBERT embeddings
+        if query_tokens is None:
+            query_tokens = self.embedder.encode_colbert(query)
+
+        if not query_tokens:
+            logger.warning("Could not generate ColBERT query tokens")
+            return []
+
+        try:
+            # Call Supabase RPC for MaxSim scoring
+            result = self.client.client.rpc(
+                "match_chunks_colbert",
+                {
+                    "query_tokens": json.dumps(query_tokens),
+                    "match_count": top_k,
+                }
+            ).execute()
+
+            if not result.data:
+                logger.debug("ColBERT search returned no results")
+                return []
+
+            results = []
+            for row in result.data:
+                sr = SearchResult(
+                    chunk_id=row["chunk_id"],
+                    paper_id=row["paper_id"],
+                    content=row["content"],
+                    section_title=row.get("section_title"),
+                    score=float(row.get("similarity", 0)),
+                    colbert_score=float(row.get("similarity", 0)),
+                    metadata=row.get("metadata", {}),
+                )
+                results.append(sr)
+
+            logger.debug(f"ColBERT search found {len(results)} results")
+            return results
+
+        except Exception as e:
+            logger.error(f"ColBERT search failed: {e}")
+            return []
+
+    def unload_models(self) -> None:
+        """Unload embedder models to free GPU memory."""
+        if self._embedder is not None:
+            self._embedder.unload()
+            self._embedder = None
+
+
+class HybridFullRetriever:
+    """
+    Full hybrid retrieval using 3-way RRF fusion.
+
+    Combines dense (semantic), sparse (lexical), and ColBERT (late-interaction)
+    using Reciprocal Rank Fusion with configurable weights.
+    """
+
+    def __init__(
+        self,
+        client: SupabaseClient = None,
+        embedder: BGEEmbedder = None,
+        rrf_k: int = 60,
+        dense_weight: float = 0.4,
+        sparse_weight: float = 0.3,
+        colbert_weight: float = 0.3,
+    ):
+        """
+        Initialize full hybrid retriever.
+
+        Args:
+            client: Supabase client
+            embedder: BGE embedder (shared across all retrievers)
+            rrf_k: RRF constant (default 60)
+            dense_weight: Weight for dense results
+            sparse_weight: Weight for sparse results
+            colbert_weight: Weight for ColBERT results
+        """
+        self.client = client or get_supabase_client()
+        self._embedder = embedder
+        self.rrf_k = rrf_k
+        self.weights = {
+            'dense': dense_weight,
+            'sparse': sparse_weight,
+            'colbert': colbert_weight,
+        }
+
+        # Initialize sub-retrievers with shared embedder
+        self.dense_retriever = DenseRetriever(self.client, self._embedder)
+        self.sparse_retriever = SparseRetriever(self.client, self._embedder)
+        self.colbert_retriever = ColBERTRetriever(self.client, self._embedder)
+
+    @property
+    def embedder(self) -> BGEEmbedder:
+        """Lazy load BGE embedder."""
+        if self._embedder is None:
+            self._embedder = BGEEmbedder(EmbeddingConfig(use_openai=False))
+            # Share with sub-retrievers
+            self.dense_retriever._embedder = self._embedder
+            self.sparse_retriever._embedder = self._embedder
+            self.colbert_retriever._embedder = self._embedder
+        return self._embedder
+
+    def search(
+        self,
+        query: str,
+        top_k: int = 10,
+        dense_top_k: int = 20,
+        sparse_top_k: int = 20,
+        colbert_top_k: int = 20,
+    ) -> SearchResponse:
+        """
+        Full hybrid search combining dense, sparse, and ColBERT retrieval.
+
+        Args:
+            query: Search query text
+            top_k: Number of final results to return
+            dense_top_k: Number of dense results to fetch
+            sparse_top_k: Number of sparse results to fetch
+            colbert_top_k: Number of ColBERT results to fetch
+
+        Returns:
+            SearchResponse with fused results
+        """
+        import time
+        start = time.time()
+
+        # Get all query embeddings at once
+        dense_vec, sparse_vec, colbert_cv = self.embedder.embed_single(
+            query, return_colbert=True
+        )
+        colbert_tokens = colbert_cv.token_embeddings if colbert_cv else []
+
+        # Run all three searches
+        dense_results = self.dense_retriever.search(
+            query, top_k=dense_top_k, query_embedding=dense_vec
+        )
+        sparse_results = self.sparse_retriever.search(
+            query, top_k=sparse_top_k, query_sparse=sparse_vec
+        )
+        colbert_results = self.colbert_retriever.search(
+            query, top_k=colbert_top_k, query_tokens=colbert_tokens
+        )
+
+        # Apply 3-way RRF fusion
+        fused_results = self._rrf_fusion_3way(
+            dense_results, sparse_results, colbert_results, top_k
+        )
+
+        elapsed_ms = (time.time() - start) * 1000
+
+        return SearchResponse(
+            query=query,
+            results=fused_results,
+            total_found=len(fused_results),
+            dense_count=len(dense_results),
+            sparse_count=len(sparse_results),
+            colbert_count=len(colbert_results),
+            search_time_ms=elapsed_ms,
+        )
+
+    def _rrf_fusion_3way(
+        self,
+        dense_results: list[SearchResult],
+        sparse_results: list[SearchResult],
+        colbert_results: list[SearchResult],
+        top_k: int,
+    ) -> list[SearchResult]:
+        """
+        Apply 3-way Reciprocal Rank Fusion.
+
+        RRF Score = sum(weight / (k + rank)) for each retriever
+
+        Args:
+            dense_results: Results from dense search
+            sparse_results: Results from sparse search
+            colbert_results: Results from ColBERT search
+            top_k: Number of results to return
+
+        Returns:
+            Fused and re-ranked results
+        """
+        # Build score map: chunk_id -> (rrf_score, result)
+        scores: dict[str, tuple[float, SearchResult]] = {}
+
+        # Process dense results
+        for rank, result in enumerate(dense_results):
+            chunk_id = result.chunk_id
+            rrf_score = self.weights['dense'] / (self.rrf_k + rank + 1)
+
+            if chunk_id in scores:
+                existing_score, existing_result = scores[chunk_id]
+                existing_result.dense_score = result.dense_score
+                scores[chunk_id] = (existing_score + rrf_score, existing_result)
+            else:
+                result.score = rrf_score
+                scores[chunk_id] = (rrf_score, result)
+
+        # Process sparse results
+        for rank, result in enumerate(sparse_results):
+            chunk_id = result.chunk_id
+            rrf_score = self.weights['sparse'] / (self.rrf_k + rank + 1)
+
+            if chunk_id in scores:
+                existing_score, existing_result = scores[chunk_id]
+                existing_result.sparse_score = result.sparse_score
+                existing_result.score = existing_score + rrf_score
+                scores[chunk_id] = (existing_score + rrf_score, existing_result)
+            else:
+                result.score = rrf_score
+                scores[chunk_id] = (rrf_score, result)
+
+        # Process ColBERT results
+        for rank, result in enumerate(colbert_results):
+            chunk_id = result.chunk_id
+            rrf_score = self.weights['colbert'] / (self.rrf_k + rank + 1)
+
+            if chunk_id in scores:
+                existing_score, existing_result = scores[chunk_id]
+                existing_result.colbert_score = result.colbert_score
+                existing_result.score = existing_score + rrf_score
+                scores[chunk_id] = (existing_score + rrf_score, existing_result)
+            else:
+                result.score = rrf_score
+                scores[chunk_id] = (rrf_score, result)
+
+        # Sort by combined RRF score
+        sorted_results = sorted(
+            scores.values(),
+            key=lambda x: x[0],
+            reverse=True
+        )
+
+        # Return top-k with updated scores
+        final_results = []
+        for score, result in sorted_results[:top_k]:
+            result.score = score
+            final_results.append(result)
+
+        return final_results
+
+    def unload_models(self) -> None:
+        """Unload embedder models to free GPU memory."""
+        if self._embedder is not None:
+            self._embedder.unload()
+            self._embedder = None
+
 
 # Convenience functions
 def hybrid_search(
@@ -470,7 +768,7 @@ class OpenAIRetriever:
     """
     OpenAI embedding-based retrieval for comparison with BGE-M3.
 
-    Uses text-embedding-3-large (3072 dims) stored in Supabase.
+    Uses text-embedding-3-large with MRL reduction (1024 dims) stored in Supabase.
     """
 
     def __init__(
@@ -568,4 +866,42 @@ class OpenAIRetriever:
 def openai_search(query: str, top_k: int = 10) -> SearchResponse:
     """Perform OpenAI embedding search."""
     retriever = OpenAIRetriever()
+    return retriever.search(query, top_k=top_k)
+
+
+def colbert_search(query: str, top_k: int = 10) -> SearchResponse:
+    """Perform ColBERT MaxSim search."""
+    import time
+    start = time.time()
+
+    retriever = ColBERTRetriever()
+    results = retriever.search(query, top_k=top_k)
+    elapsed_ms = (time.time() - start) * 1000
+
+    return SearchResponse(
+        query=query,
+        results=results,
+        total_found=len(results),
+        colbert_count=len(results),
+        search_time_ms=elapsed_ms,
+    )
+
+
+def hybrid_full_search(
+    query: str,
+    top_k: int = 10,
+    rrf_k: int = 60,
+) -> SearchResponse:
+    """
+    Perform full hybrid search (dense + sparse + ColBERT).
+
+    Args:
+        query: Search query
+        top_k: Number of results
+        rrf_k: RRF constant
+
+    Returns:
+        Search response with 3-way fused results
+    """
+    retriever = HybridFullRetriever(rrf_k=rrf_k)
     return retriever.search(query, top_k=top_k)

@@ -8,7 +8,7 @@ from typing import Generator
 
 import tiktoken
 
-from ..parsing.models import ParsedDocument, Section, Paragraph
+from ..parsing.models import ParsedDocument, Section, Paragraph, Equation
 from ..utils.logging import get_logger
 from .models import Chunk, ChunkType, ChunkingConfig, ChunkingStats
 
@@ -76,10 +76,17 @@ class HybridChunker:
                 chunks.append(chunk)
                 chunk_index += 1
 
-        # 3. Add overlap markers
+        # 3. Equation chunks (if enabled)
+        if self.config.include_equations and doc.equations:
+            for chunk in self._create_equation_chunks(doc, chunk_index):
+                chunks.append(chunk)
+                chunk_index += 1
+                self.stats.equation_chunks += 1
+
+        # 4. Add overlap markers
         self._mark_overlaps(chunks)
 
-        # 4. Update stats
+        # 5. Update stats
         self.stats.total_papers += 1
         self.stats.total_chunks += len(chunks)
         self.stats.total_tokens += sum(c.token_count for c in chunks)
@@ -117,6 +124,72 @@ class HybridChunker:
             char_count=len(content),
             metadata={"is_abstract": True, "paper_title": doc.title},
         )
+
+    def _create_equation_chunks(
+        self, doc: ParsedDocument, start_index: int
+    ) -> Generator[Chunk, None, None]:
+        """
+        Create chunks from equation text descriptions.
+
+        Only equations with text_description (Gemini-generated) are chunked.
+        Includes LaTeX and context in metadata for reference.
+
+        Args:
+            doc: Parsed document with equations
+            start_index: Starting chunk index
+
+        Yields:
+            Chunks for each equation with description
+        """
+        chunk_index = start_index
+
+        for eq in doc.equations:
+            # Skip equations without text description
+            if not eq.text_description or not eq.text_description.strip():
+                continue
+
+            # Build rich content: description + context
+            content_parts = []
+
+            # Add context before if available
+            if eq.context_before:
+                content_parts.append(f"Context: {eq.context_before.strip()}")
+
+            # Main description
+            content_parts.append(eq.text_description.strip())
+
+            # Add context after if available
+            if eq.context_after:
+                content_parts.append(f"Following context: {eq.context_after.strip()}")
+
+            content = "\n\n".join(content_parts)
+            token_count = self.count_tokens(content)
+
+            # For equations, use a much lower minimum threshold (10 tokens)
+            # since equation descriptions are naturally shorter but valuable for retrieval
+            min_equation_tokens = 10
+            if token_count < min_equation_tokens:
+                continue
+
+            yield Chunk(
+                chunk_id=f"{doc.arxiv_id}_chunk_{chunk_index}",
+                paper_id=doc.arxiv_id,
+                content=content,
+                section_id=eq.section_id,
+                section_title="Equation",
+                paragraph_ids=[],
+                chunk_type=ChunkType.EQUATION,
+                chunk_index=chunk_index,
+                token_count=token_count,
+                char_count=len(content),
+                metadata={
+                    "equation_id": eq.equation_id,
+                    "latex": eq.latex,
+                    "label": eq.label,
+                    "is_inline": eq.is_inline,
+                },
+            )
+            chunk_index += 1
 
     def _chunk_section(
         self, arxiv_id: str, section: Section, start_index: int

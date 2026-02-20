@@ -1,0 +1,484 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1771545649788,
+  "projectRoot": "/home/ajh428/projects/arxiv-rag-v1",
+  "techStack": {
+    "languages": [
+      {
+        "name": "Python",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "pyproject.toml",
+          "requirements.txt"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "fastapi",
+        "version": null,
+        "category": "backend"
+      },
+      {
+        "name": "pytest",
+        "version": null,
+        "category": "testing"
+      }
+    ],
+    "packageManager": "pip",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": "pytest",
+    "lintCommand": "ruff check",
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "docs",
+      "scripts",
+      "src",
+      "tests"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "claudedocs": {
+      "path": "claudedocs",
+      "purpose": null,
+      "fileCount": 9,
+      "lastAccessed": 1771545649783,
+      "keyFiles": [
+        "BLUEPRINT.md",
+        "CLAUDE.md",
+        "PLAN.md",
+        "session-01-report.md",
+        "session-02-report.md"
+      ]
+    },
+    "data": {
+      "path": "data",
+      "purpose": "Data files",
+      "fileCount": 2,
+      "lastAccessed": 1771545649784,
+      "keyFiles": [
+        "CLAUDE.md"
+      ]
+    },
+    "docs": {
+      "path": "docs",
+      "purpose": "Documentation",
+      "fileCount": 1,
+      "lastAccessed": 1771545649784,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "notebooks": {
+      "path": "notebooks",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1771545649785,
+      "keyFiles": []
+    },
+    "results": {
+      "path": "results",
+      "purpose": null,
+      "fileCount": 12,
+      "lastAccessed": 1771545649785,
+      "keyFiles": [
+        "benchmark_20260219_151112.json",
+        "benchmark_log.txt",
+        "benchmark_log_20260219_151112.txt",
+        "colbert_embed_log.txt",
+        "comparison_benchmark.json"
+      ]
+    },
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 16,
+      "lastAccessed": 1771545649785,
+      "keyFiles": [
+        "00_init_supabase.sql",
+        "01_collect.py",
+        "02_download.py",
+        "02_parse.py",
+        "03_embed.py"
+      ]
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 1,
+      "lastAccessed": 1771545649785,
+      "keyFiles": [
+        "__init__.py"
+      ]
+    },
+    "supabase": {
+      "path": "supabase",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1771545649785,
+      "keyFiles": [
+        "config.toml"
+      ]
+    },
+    "tests": {
+      "path": "tests",
+      "purpose": "Test files",
+      "fileCount": 1,
+      "lastAccessed": 1771545649785,
+      "keyFiles": [
+        "__init__.py"
+      ]
+    },
+    "docs/data": {
+      "path": "docs/data",
+      "purpose": "Data files",
+      "fileCount": 1,
+      "lastAccessed": 1771545649786,
+      "keyFiles": [
+        "evaluation_results.json"
+      ]
+    },
+    "src/utils": {
+      "path": "src/utils",
+      "purpose": "Utility functions",
+      "fileCount": 5,
+      "lastAccessed": 1771545649786,
+      "keyFiles": [
+        "CLAUDE.md",
+        "__init__.py",
+        "config.py"
+      ]
+    },
+    "supabase/migrations": {
+      "path": "supabase/migrations",
+      "purpose": "Database migrations",
+      "fileCount": 11,
+      "lastAccessed": 1771545649786,
+      "keyFiles": [
+        "20260212000000_init_schema.sql",
+        "20260213000000_search_functions.sql",
+        "20260218000002_openai_search_function.sql"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "",
+      "accessCount": 9,
+      "lastAccessed": 1771561019666,
+      "type": "directory"
+    },
+    {
+      "path": "src/rag/retriever.py",
+      "accessCount": 8,
+      "lastAccessed": 1771563376718,
+      "type": "file"
+    },
+    {
+      "path": "src/storage/supabase_client.py",
+      "accessCount": 7,
+      "lastAccessed": 1771563437866,
+      "type": "file"
+    },
+    {
+      "path": "ISSUES.md",
+      "accessCount": 4,
+      "lastAccessed": 1771547948277,
+      "type": "file"
+    },
+    {
+      "path": "scripts/06_evaluate.py",
+      "accessCount": 4,
+      "lastAccessed": 1771552195221,
+      "type": "file"
+    },
+    {
+      "path": "src/collection/arxiv_client.py",
+      "accessCount": 4,
+      "lastAccessed": 1771560633285,
+      "type": "file"
+    },
+    {
+      "path": "src/rag/reranker.py",
+      "accessCount": 4,
+      "lastAccessed": 1771562661551,
+      "type": "file"
+    },
+    {
+      "path": "src/embedding/bge_embedder.py",
+      "accessCount": 3,
+      "lastAccessed": 1771560633174,
+      "type": "file"
+    },
+    {
+      "path": "src/storage/qdrant_client.py",
+      "accessCount": 3,
+      "lastAccessed": 1771563376459,
+      "type": "file"
+    },
+    {
+      "path": "src/storage/__init__.py",
+      "accessCount": 3,
+      "lastAccessed": 1771563498799,
+      "type": "file"
+    },
+    {
+      "path": "data/eval/valid_queries.stats.json",
+      "accessCount": 2,
+      "lastAccessed": 1771547912060,
+      "type": "file"
+    },
+    {
+      "path": "README.md",
+      "accessCount": 2,
+      "lastAccessed": 1771547926851,
+      "type": "file"
+    },
+    {
+      "path": "results/benchmark_20260219_151112.json",
+      "accessCount": 2,
+      "lastAccessed": 1771547953486,
+      "type": "file"
+    },
+    {
+      "path": "results/comparison_benchmark.json",
+      "accessCount": 2,
+      "lastAccessed": 1771547953492,
+      "type": "file"
+    },
+    {
+      "path": "NGwords_gpt.txt",
+      "accessCount": 2,
+      "lastAccessed": 1771551435823,
+      "type": "file"
+    },
+    {
+      "path": "src/rag/__init__.py",
+      "accessCount": 2,
+      "lastAccessed": 1771552156421,
+      "type": "file"
+    },
+    {
+      "path": "supabase/migrations/20260213000000_search_functions.sql",
+      "accessCount": 2,
+      "lastAccessed": 1771554156174,
+      "type": "file"
+    },
+    {
+      "path": "src/api/routes/search.py",
+      "accessCount": 2,
+      "lastAccessed": 1771554162909,
+      "type": "file"
+    },
+    {
+      "path": "src/collection/models.py",
+      "accessCount": 2,
+      "lastAccessed": 1771560628692,
+      "type": "file"
+    },
+    {
+      "path": "src/api/main.py",
+      "accessCount": 2,
+      "lastAccessed": 1771560688407,
+      "type": "file"
+    },
+    {
+      "path": "src/rag/qdrant_retriever.py",
+      "accessCount": 2,
+      "lastAccessed": 1771563381984,
+      "type": "file"
+    },
+    {
+      "path": "data/ng_keywords.json",
+      "accessCount": 2,
+      "lastAccessed": 1771563382023,
+      "type": "file"
+    },
+    {
+      "path": "src/collection/ng_keywords.py",
+      "accessCount": 2,
+      "lastAccessed": 1771563465034,
+      "type": "file"
+    },
+    {
+      "path": "scripts/init_ng_keywords.py",
+      "accessCount": 2,
+      "lastAccessed": 1771563465065,
+      "type": "file"
+    },
+    {
+      "path": "scripts/compute_scores.py",
+      "accessCount": 2,
+      "lastAccessed": 1771563471555,
+      "type": "file"
+    },
+    {
+      "path": "scripts/classify_papers.py",
+      "accessCount": 2,
+      "lastAccessed": 1771563471582,
+      "type": "file"
+    },
+    {
+      "path": "scripts/stratified_sample.py",
+      "accessCount": 2,
+      "lastAccessed": 1771563471601,
+      "type": "file"
+    },
+    {
+      "path": "scripts/semantic_filter.py",
+      "accessCount": 2,
+      "lastAccessed": 1771563471603,
+      "type": "file"
+    },
+    {
+      "path": "docs/index.html",
+      "accessCount": 1,
+      "lastAccessed": 1771547649164,
+      "type": "file"
+    },
+    {
+      "path": "docs/data/evaluation_results.json",
+      "accessCount": 1,
+      "lastAccessed": 1771547654715,
+      "type": "file"
+    },
+    {
+      "path": "src/collection",
+      "accessCount": 1,
+      "lastAccessed": 1771547912468,
+      "type": "directory"
+    },
+    {
+      "path": "src/collection/semantic_scholar.py",
+      "accessCount": 1,
+      "lastAccessed": 1771547918632,
+      "type": "file"
+    },
+    {
+      "path": "results",
+      "accessCount": 1,
+      "lastAccessed": 1771547919270,
+      "type": "directory"
+    },
+    {
+      "path": "claudedocs/PLAN.md",
+      "accessCount": 1,
+      "lastAccessed": 1771547926844,
+      "type": "file"
+    },
+    {
+      "path": "arxiv_collect_strategy_gpt.txt",
+      "accessCount": 1,
+      "lastAccessed": 1771549572382,
+      "type": "file"
+    },
+    {
+      "path": "docs/js/chatbot.js",
+      "accessCount": 1,
+      "lastAccessed": 1771551452830,
+      "type": "file"
+    },
+    {
+      "path": "docker-compose.yml",
+      "accessCount": 1,
+      "lastAccessed": 1771551499925,
+      "type": "file"
+    },
+    {
+      "path": "qdrant_config.yaml",
+      "accessCount": 1,
+      "lastAccessed": 1771551500063,
+      "type": "file"
+    },
+    {
+      "path": "Dockerfile.api",
+      "accessCount": 1,
+      "lastAccessed": 1771551500205,
+      "type": "file"
+    },
+    {
+      "path": "requirements-api.txt",
+      "accessCount": 1,
+      "lastAccessed": 1771551500340,
+      "type": "file"
+    },
+    {
+      "path": "src/api/__init__.py",
+      "accessCount": 1,
+      "lastAccessed": 1771551712338,
+      "type": "file"
+    },
+    {
+      "path": "src/api/routes/__init__.py",
+      "accessCount": 1,
+      "lastAccessed": 1771551712696,
+      "type": "file"
+    },
+    {
+      "path": "src/api/routes/papers.py",
+      "accessCount": 1,
+      "lastAccessed": 1771551713065,
+      "type": "file"
+    },
+    {
+      "path": "src/api/routes/chat.py",
+      "accessCount": 1,
+      "lastAccessed": 1771551713260,
+      "type": "file"
+    },
+    {
+      "path": "scripts/migrate_to_qdrant.py",
+      "accessCount": 1,
+      "lastAccessed": 1771551846303,
+      "type": "file"
+    },
+    {
+      "path": "scripts/collect_extended.py",
+      "accessCount": 1,
+      "lastAccessed": 1771551846721,
+      "type": "file"
+    },
+    {
+      "path": "scripts/tune_weights.py",
+      "accessCount": 1,
+      "lastAccessed": 1771552088963,
+      "type": "file"
+    },
+    {
+      "path": "src/parsing",
+      "accessCount": 1,
+      "lastAccessed": 1771553648675,
+      "type": "directory"
+    },
+    {
+      "path": "src/parsing/figure_processor.py",
+      "accessCount": 1,
+      "lastAccessed": 1771553653023,
+      "type": "file"
+    },
+    {
+      "path": "src/parsing/equation_processor.py",
+      "accessCount": 1,
+      "lastAccessed": 1771553653050,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
