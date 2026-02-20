@@ -54,7 +54,8 @@ class QdrantConfig:
             port=int(os.getenv("QDRANT_PORT", "6333")),
             grpc_port=int(os.getenv("QDRANT_GRPC_PORT", "6334")),
             api_key=os.getenv("QDRANT_API_KEY"),
-            prefer_grpc=os.getenv("QDRANT_PREFER_GRPC", "true").lower() == "true",
+            # Use REST by default to avoid gRPC version compatibility issues
+            prefer_grpc=os.getenv("QDRANT_PREFER_GRPC", "false").lower() == "true",
             timeout=float(os.getenv("QDRANT_TIMEOUT", "60")),
         )
 
@@ -389,9 +390,11 @@ class QdrantVectorClient:
                     ]
                 )
 
-            results = self.client.search(
+            # Use query_points API (qdrant-client v1.7+)
+            results = self.client.query_points(
                 collection_name=COLLECTION_NAME,
-                query_vector=(vector_name, query_vector),
+                query=query_vector,
+                using=vector_name,
                 limit=top_k,
                 query_filter=query_filter,
                 with_payload=True,
@@ -406,7 +409,7 @@ class QdrantVectorClient:
                     "similarity": r.score,
                     "metadata": r.payload.get("metadata", {}),
                 }
-                for r in results
+                for r in results.points
             ]
 
         except Exception as e:
@@ -431,15 +434,14 @@ class QdrantVectorClient:
             List of results with chunk_id, paper_id, content, score
         """
         try:
-            results = self.client.search(
+            # Use query_points API (qdrant-client v1.7+)
+            results = self.client.query_points(
                 collection_name=COLLECTION_NAME,
-                query_vector=models.NamedSparseVector(
-                    name="sparse_bge",
-                    vector=SparseVector(
-                        indices=query_indices,
-                        values=query_values,
-                    ),
+                query=SparseVector(
+                    indices=query_indices,
+                    values=query_values,
                 ),
+                using="sparse_bge",
                 limit=top_k,
                 with_payload=True,
             )
@@ -453,7 +455,7 @@ class QdrantVectorClient:
                     "score": r.score,
                     "metadata": r.payload.get("metadata", {}),
                 }
-                for r in results
+                for r in results.points
             ]
 
         except Exception as e:

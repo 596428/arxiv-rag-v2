@@ -64,9 +64,9 @@ class QdrantDenseRetriever:
 
         try:
             results = self.client.search_dense(
-                query_embedding=query_embedding,
-                top_k=top_k,
+                query_vector=query_embedding,
                 vector_name="dense_bge",
+                top_k=top_k,
             )
 
             search_results = []
@@ -318,9 +318,9 @@ class QdrantHybridRetriever:
         try:
             # Use Qdrant native hybrid search
             results = self.client.search_hybrid(
-                query_embedding=dense_vec,
-                query_indices=sparse_vec.indices,
-                query_values=sparse_vec.values,
+                dense_vector=dense_vec,
+                sparse_indices=sparse_vec.indices,
+                sparse_values=sparse_vec.values,
                 top_k=top_k,
                 dense_weight=self.weights['dense'],
                 sparse_weight=self.weights['sparse'],
