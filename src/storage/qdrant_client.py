@@ -534,9 +534,9 @@ class QdrantVectorClient:
             return {
                 "name": COLLECTION_NAME,
                 "points_count": info.points_count,
-                "vectors_count": info.vectors_count,
-                "indexed_vectors_count": info.indexed_vectors_count,
-                "status": info.status.name,
+                "vectors_count": getattr(info, "vectors_count", info.points_count),
+                "indexed_vectors_count": getattr(info, "indexed_vectors_count", 0),
+                "status": info.status.name if hasattr(info.status, "name") else str(info.status),
             }
         except Exception as e:
             logger.error(f"Failed to get collection info: {e}")
