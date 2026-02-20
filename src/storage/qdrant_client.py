@@ -563,6 +563,31 @@ class QdrantVectorClient:
             logger.error(f"Failed to delete chunks for {paper_id}: {e}")
             return 0
 
+    def ensure_collection(self, recreate: bool = False) -> bool:
+        """
+        Ensure the collection exists (v2 compatibility alias).
+
+        Args:
+            recreate: If True, delete and recreate the collection
+
+        Returns:
+            True if collection is ready
+        """
+        return self.create_collection(recreate=recreate)
+
+    def upsert_chunks(self, chunks: list[dict], batch_size: int = 100) -> int:
+        """
+        Upsert chunks (v2 compatibility alias for batch_upsert_chunks).
+
+        Args:
+            chunks: List of chunk dicts
+            batch_size: Number of points per batch
+
+        Returns:
+            Number of chunks successfully upserted
+        """
+        return self.batch_upsert_chunks(chunks, batch_size)
+
     def close(self):
         """Close the client connection."""
         if self._client:
