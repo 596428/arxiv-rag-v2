@@ -1,4 +1,0 @@
-{"t":0,"agent":"af4a688","agent_type":"Explore","event":"agent_start","parent_mode":"none"}
-{"t":0,"agent":"a83a30f","agent_type":"Explore","event":"agent_start","parent_mode":"none"}
-{"t":0,"agent":"af4a688","agent_type":"Explore","event":"agent_stop","success":true,"duration_ms":66877}
-{"t":0,"agent":"a83a30f","agent_type":"Explore","event":"agent_stop","success":true,"duration_ms":68277}

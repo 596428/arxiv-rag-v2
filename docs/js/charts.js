@@ -250,6 +250,10 @@ let evaluationData = null;
 let currentFilter = 'all'; // 'all', 'base', 'rerank'
 let chartInstances = {}; // Store chart instances for destruction
 
+// Heatmap state
+let heatmapRerankerEnabled = false;
+let deltaRerankerEnabled = false;
+
 // ==========================================
 // DATA LOADING
 // ==========================================
@@ -291,65 +295,165 @@ function setFilter(filter) {
 }
 
 // ==========================================
-// METRICS COMPARISON CHART (with filter)
+// STACKED BAR CHART (5 Metrics × 5 Models)
 // ==========================================
 
-function renderMetricsChart() {
-    const canvas = document.getElementById('metricsChart');
-    if (!canvas) return;
+// Model colors for the stacked bar chart
+const MODEL_BASE_COLORS = {
+    'qdrant_dense': 'rgba(16, 185, 129, 0.85)',      // Emerald
+    'qdrant_sparse': 'rgba(245, 158, 11, 0.85)',     // Amber
+    'qdrant_hybrid': 'rgba(59, 130, 246, 0.85)',     // Blue
+    'qdrant_3large': 'rgba(139, 92, 246, 0.85)',     // Violet
+    'qdrant_hybrid_3large': 'rgba(20, 184, 166, 0.85)', // Teal
+};
+
+const MODEL_GAIN_COLORS = {
+    'qdrant_dense': 'rgba(134, 239, 172, 0.9)',      // Light emerald
+    'qdrant_sparse': 'rgba(253, 224, 71, 0.9)',      // Light amber
+    'qdrant_hybrid': 'rgba(147, 197, 253, 0.9)',     // Light blue
+    'qdrant_3large': 'rgba(196, 181, 253, 0.9)',     // Light violet
+    'qdrant_hybrid_3large': 'rgba(153, 246, 228, 0.9)', // Light teal
+};
+
+const MODEL_LOSS_COLORS = {
+    'qdrant_dense': 'rgba(252, 165, 165, 0.9)',      // Light red
+    'qdrant_sparse': 'rgba(252, 165, 165, 0.9)',
+    'qdrant_hybrid': 'rgba(252, 165, 165, 0.9)',
+    'qdrant_3large': 'rgba(252, 165, 165, 0.9)',
+    'qdrant_hybrid_3large': 'rgba(252, 165, 165, 0.9)',
+};
+
+function renderStackedBarChart() {
+    const canvas = document.getElementById('stackedBarChart');
+    if (!canvas || !evaluationData) return;
 
     // Destroy existing chart
-    if (chartInstances.metrics) {
-        chartInstances.metrics.destroy();
+    if (chartInstances.stackedBar) {
+        chartInstances.stackedBar.destroy();
     }
 
     const ctx = canvas.getContext('2d');
-    const models = getSortedModels(evaluationData, currentFilter);
 
-    const metrics = ['avg_mrr', 'avg_ndcg@10', 'avg_precision@10'];
-    const metricLabels = ['MRR', 'NDCG@10', 'P@10'];
+    // 5 metrics to display
+    const metrics = [
+        { key: 'avg_mrr', label: 'MRR' },
+        { key: 'avg_ndcg@10', label: 'NDCG@10' },
+        { key: 'avg_ndcg@5', label: 'NDCG@5' },
+        { key: 'avg_precision@10', label: 'P@10' },
+        { key: 'avg_precision@5', label: 'P@5' },
+    ];
 
-    const datasets = models.map(model => ({
-        label: MODEL_LABELS_SHORT[model] || model,
-        data: metrics.map(m => evaluationData[model][m] || 0),
-        backgroundColor: MODEL_COLORS[model] || 'rgba(156, 163, 175, 0.8)',
-        borderColor: (MODEL_COLORS[model] || 'rgba(156, 163, 175, 0.8)').replace('0.85', '1'),
-        borderWidth: 1,
-    }));
+    // Create labels: "MRR", "NDCG@10", etc.
+    const labels = metrics.map(m => m.label);
 
-    chartInstances.metrics = new Chart(ctx, {
+    // Create datasets: one for each model (base + gain/loss stacked)
+    const datasets = [];
+
+    BASE_MODELS.forEach((baseModel, modelIdx) => {
+        const rerankedModel = getRerankedModel(baseModel);
+        const baseData = evaluationData[baseModel];
+        const rerankedData = evaluationData[rerankedModel];
+
+        if (!baseData || !rerankedData) return;
+
+        const shortLabel = MODEL_LABELS_SHORT[baseModel];
+
+        // Base values for all metrics
+        const baseValues = metrics.map(m => baseData[m.key] || 0);
+
+        // Calculate gains/losses for all metrics
+        const gainValues = [];
+        const lossValues = [];
+
+        metrics.forEach(m => {
+            const baseVal = baseData[m.key] || 0;
+            const rerankedVal = rerankedData[m.key] || 0;
+            const delta = rerankedVal - baseVal;
+
+            if (delta >= 0) {
+                gainValues.push(delta);
+                lossValues.push(0);
+            } else {
+                gainValues.push(0);
+                lossValues.push(Math.abs(delta));
+            }
+        });
+
+        // Add base dataset
+        datasets.push({
+            label: `${shortLabel} (Base)`,
+            data: baseValues,
+            backgroundColor: MODEL_BASE_COLORS[baseModel],
+            borderColor: MODEL_BASE_COLORS[baseModel].replace('0.85', '1'),
+            borderWidth: 1,
+            stack: `stack${modelIdx}`,
+            barPercentage: 0.85,
+            categoryPercentage: 0.9,
+        });
+
+        // Add gain dataset (stacked on top)
+        datasets.push({
+            label: `${shortLabel} (+RR Gain)`,
+            data: gainValues,
+            backgroundColor: MODEL_GAIN_COLORS[baseModel],
+            borderColor: MODEL_GAIN_COLORS[baseModel].replace('0.9', '1'),
+            borderWidth: 1,
+            stack: `stack${modelIdx}`,
+            barPercentage: 0.85,
+            categoryPercentage: 0.9,
+        });
+
+        // Add loss dataset (stacked downward - negative values)
+        datasets.push({
+            label: `${shortLabel} (+RR Loss)`,
+            data: lossValues.map(v => -v),
+            backgroundColor: MODEL_LOSS_COLORS[baseModel],
+            borderColor: 'rgba(239, 68, 68, 1)',
+            borderWidth: 1,
+            stack: `stack${modelIdx}`,
+            barPercentage: 0.85,
+            categoryPercentage: 0.9,
+        });
+    });
+
+    chartInstances.stackedBar = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: metricLabels,
+            labels: labels,
             datasets: datasets,
         },
         options: {
             responsive: true,
             plugins: {
                 legend: {
-                    position: 'bottom',
-                    labels: {
-                        color: '#e2e8f0',
-                        usePointStyle: true,
-                        padding: 15,
-                    },
+                    display: false, // Legend is shown above chart as custom HTML
                 },
                 tooltip: {
                     callbacks: {
-                        title: (items) => items[0].dataset.label,
-                        afterTitle: (items) => {
-                            const modelKey = Object.keys(MODEL_LABELS_SHORT).find(
-                                k => MODEL_LABELS_SHORT[k] === items[0].dataset.label
-                            );
-                            return MODEL_TOOLTIPS[modelKey] || '';
+                        title: (items) => {
+                            return items[0].label; // Metric name
                         },
-                    }
-                }
+                        label: (context) => {
+                            const value = Math.abs(context.raw);
+                            const label = context.dataset.label;
+                            if (value === 0) return null;
+                            if (label.includes('Base')) {
+                                return `${label.replace(' (Base)', '')}: ${value.toFixed(4)}`;
+                            } else if (label.includes('Gain')) {
+                                return `  +Rerank: +${value.toFixed(4)}`;
+                            } else if (label.includes('Loss')) {
+                                return `  +Rerank: -${value.toFixed(4)}`;
+                            }
+                            return `${label}: ${value.toFixed(4)}`;
+                        },
+                        filter: (item) => item.raw !== 0,
+                    },
+                },
             },
             scales: {
                 y: {
-                    beginAtZero: true,
-                    max: 1,
+                    stacked: true,
+                    beginAtZero: false,
                     grid: { color: 'rgba(148, 163, 184, 0.2)' },
                     ticks: { color: '#94a3b8' },
                     title: {
@@ -359,8 +463,9 @@ function renderMetricsChart() {
                     },
                 },
                 x: {
+                    stacked: true,
                     grid: { color: 'rgba(148, 163, 184, 0.2)' },
-                    ticks: { color: '#94a3b8' },
+                    ticks: { color: '#94a3b8', font: { weight: 'bold' } },
                 },
             },
         },
@@ -841,20 +946,18 @@ function renderFindings() {
 // HEATMAP VISUALIZATION
 // ==========================================
 
-let heatmapMode = 'absolute'; // 'absolute' or 'delta'
-
-// Simulated query type/difficulty breakdown (placeholder - will be populated from benchmark data)
-// In production, this would come from detailed evaluation results
+// Query type and difficulty categories (matches benchmark data structure)
 const QUERY_TYPES = ['keyword', 'nat_short', 'nat_long', 'conceptual'];
 const DIFFICULTIES = ['easy', 'medium', 'hard'];
 
-function setHeatmapMode(mode) {
-    heatmapMode = mode;
+function toggleHeatmapReranker() {
+    heatmapRerankerEnabled = !heatmapRerankerEnabled;
 
-    // Update button states
-    document.querySelectorAll('[data-heatmap]').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.heatmap === mode);
-    });
+    // Update button state
+    const btn = document.getElementById('heatmap-reranker-toggle');
+    if (btn) {
+        btn.classList.toggle('active', heatmapRerankerEnabled);
+    }
 
     updateHeatmap();
 }
@@ -863,16 +966,38 @@ function populateHeatmapModelSelect() {
     const select = document.getElementById('heatmap-model-select');
     if (!select || !evaluationData) return;
 
-    const models = getSortedModels(evaluationData);
-    select.innerHTML = models.map(m =>
+    // Only show 5 base models
+    select.innerHTML = BASE_MODELS.map(m =>
         `<option value="${m}">${MODEL_LABELS_SHORT[m] || m}</option>`
     ).join('');
 
-    // Default to best model
-    const best = findBestModel(evaluationData, 'avg_ndcg@10');
-    if (best.model) {
-        select.value = best.model;
+    // Default to hybrid_3large (best base model typically)
+    select.value = 'qdrant_hybrid_3large';
+}
+
+function populateDeltaBaselineSelect() {
+    const select = document.getElementById('delta-baseline-select');
+    if (!select || !evaluationData) return;
+
+    // Show 5 base models
+    select.innerHTML = BASE_MODELS.map(m =>
+        `<option value="${m}">${MODEL_LABELS_SHORT[m] || m}</option>`
+    ).join('');
+
+    // Default to dense as baseline
+    select.value = 'qdrant_dense';
+}
+
+function toggleDeltaReranker() {
+    deltaRerankerEnabled = !deltaRerankerEnabled;
+
+    // Update button state
+    const btn = document.getElementById('delta-reranker-toggle');
+    if (btn) {
+        btn.classList.toggle('active', deltaRerankerEnabled);
     }
+
+    updateDeltaHeatmap();
 }
 
 function updateHeatmap() {
@@ -882,20 +1007,23 @@ function updateHeatmap() {
 
     if (!container || !evaluationData) return;
 
-    const selectedModel = select?.value || Object.keys(evaluationData)[0];
+    const selectedBaseModel = select?.value || 'qdrant_hybrid_3large';
+    // Use reranked version if toggle is enabled
+    const selectedModel = heatmapRerankerEnabled ? getRerankedModel(selectedBaseModel) : selectedBaseModel;
     const modelData = evaluationData[selectedModel];
-    const isReranked = isRerankedModel(selectedModel);
-    const baseModel = isReranked ? getBaseModel(selectedModel) : selectedModel;
-    const baseData = evaluationData[baseModel];
 
-    // Generate heatmap cells
-    // Note: Without per-query-type breakdown, we simulate using overall metrics with variance
-    const baseNDCG = modelData['avg_ndcg@10'] || 0;
+    if (!modelData) return;
 
-    // Difficulty multipliers (estimated from typical patterns)
-    const difficultyMultipliers = { easy: 1.15, medium: 1.0, hard: 0.75 };
-    // Query type multipliers (estimated)
-    const queryTypeMultipliers = { keyword: 1.12, nat_short: 1.0, nat_long: 0.95, conceptual: 0.82 };
+    // Check if real by_style and by_difficulty data is available
+    const hasRealData = modelData.by_style && modelData.by_difficulty;
+
+    // Map query types to their keys in by_style
+    const styleKeyMap = {
+        'keyword': 'keyword',
+        'nat_short': 'natural_short',
+        'nat_long': 'natural_long',
+        'conceptual': 'conceptual'
+    };
 
     let html = '';
 
@@ -913,57 +1041,54 @@ function updateHeatmap() {
 
         // Cells
         QUERY_TYPES.forEach(qt => {
-            let value, displayValue, bgColor;
+            let value;
 
-            if (heatmapMode === 'absolute') {
-                value = baseNDCG * difficultyMultipliers[diff] * queryTypeMultipliers[qt];
-                value = Math.min(1, Math.max(0, value)); // Clamp to [0, 1]
-                displayValue = value.toFixed(3);
+            if (hasRealData) {
+                // Use real data if available
+                const styleKey = styleKeyMap[qt];
+                const styleData = modelData.by_style[styleKey];
+                const diffData = modelData.by_difficulty[diff];
 
-                // Color scale: red (low) -> yellow -> green (high)
-                const intensity = value;
-                if (intensity > 0.8) {
-                    bgColor = `rgba(16, 185, 129, ${0.3 + intensity * 0.5})`; // Green
-                } else if (intensity > 0.6) {
-                    bgColor = `rgba(234, 179, 8, ${0.3 + intensity * 0.4})`; // Yellow
+                if (styleData && diffData) {
+                    // Combine style and difficulty - use geometric mean as approximation
+                    // Or use style MRR weighted by difficulty factor
+                    const styleMRR = styleData.avg_mrr || 0;
+                    const diffMRR = diffData.avg_mrr || 0;
+                    const avgMRR = modelData.avg_mrr || 0.5;
+
+                    // Calculate combined score: style_mrr * (diff_mrr / avg_mrr)
+                    value = styleMRR * (diffMRR / avgMRR);
+                    value = Math.min(1, Math.max(0, value));
                 } else {
-                    bgColor = `rgba(239, 68, 68, ${0.3 + (1 - intensity) * 0.4})`; // Red
+                    value = modelData.avg_mrr || 0;
                 }
             } else {
-                // Delta mode: show reranker improvement
-                if (baseData && isReranked) {
-                    const baseVal = baseData['avg_ndcg@10'] * difficultyMultipliers[diff] * queryTypeMultipliers[qt];
-                    const rerankedVal = baseNDCG * difficultyMultipliers[diff] * queryTypeMultipliers[qt];
-                    // Reranker helps more on hard/conceptual queries
-                    const rerankerBoost = (diff === 'hard' ? 1.3 : diff === 'medium' ? 1.1 : 0.9) *
-                                         (qt === 'conceptual' ? 1.4 : qt === 'nat_long' ? 1.1 : 0.9);
-                    value = calculateDelta(baseVal, rerankedVal * rerankerBoost * 0.95);
-                } else {
-                    // Show expected reranker gain
-                    const rerankedModel = getRerankedModel(selectedModel);
-                    if (evaluationData[rerankedModel]) {
-                        const rerankedData = evaluationData[rerankedModel];
-                        const baseVal = baseNDCG * difficultyMultipliers[diff] * queryTypeMultipliers[qt];
-                        const rerankedBaseNDCG = rerankedData['avg_ndcg@10'];
-                        const rerankedVal = rerankedBaseNDCG * difficultyMultipliers[diff] * queryTypeMultipliers[qt];
-                        const rerankerBoost = (diff === 'hard' ? 1.2 : diff === 'medium' ? 1.05 : 0.95) *
-                                             (qt === 'conceptual' ? 1.25 : qt === 'nat_long' ? 1.05 : 0.95);
-                        value = calculateDelta(baseVal, rerankedVal * rerankerBoost);
-                    } else {
-                        value = 0;
-                    }
-                }
+                // Fallback to simulated data
+                const baseNDCG = modelData['avg_ndcg@10'] || 0;
+                const difficultyMultipliers = { easy: 1.15, medium: 1.0, hard: 0.75 };
+                const queryTypeMultipliers = { keyword: 1.12, nat_short: 1.0, nat_long: 0.95, conceptual: 0.82 };
+                value = baseNDCG * difficultyMultipliers[diff] * queryTypeMultipliers[qt];
+                value = Math.min(1, Math.max(0, value));
+            }
 
-                displayValue = formatDelta(value);
+            const displayValue = value.toFixed(3);
 
-                // Color scale for delta: green (positive) -> red (negative)
-                if (value > 0) {
-                    const intensity = Math.min(value / 30, 1); // Normalize to ~30% max
-                    bgColor = `rgba(16, 185, 129, ${0.2 + intensity * 0.6})`;
-                } else {
-                    const intensity = Math.min(Math.abs(value) / 30, 1);
-                    bgColor = `rgba(239, 68, 68, ${0.2 + intensity * 0.6})`;
-                }
+            // Color scale with more gradations: red (low) -> orange -> yellow -> lime -> green (high)
+            let bgColor;
+            if (value >= 0.85) {
+                bgColor = 'rgba(16, 185, 129, 0.75)';  // Strong green
+            } else if (value >= 0.75) {
+                bgColor = 'rgba(16, 185, 129, 0.55)';  // Medium green
+            } else if (value >= 0.65) {
+                bgColor = 'rgba(132, 204, 22, 0.5)';   // Lime
+            } else if (value >= 0.55) {
+                bgColor = 'rgba(234, 179, 8, 0.5)';    // Yellow
+            } else if (value >= 0.45) {
+                bgColor = 'rgba(249, 115, 22, 0.5)';   // Orange
+            } else if (value >= 0.30) {
+                bgColor = 'rgba(239, 68, 68, 0.5)';    // Red
+            } else {
+                bgColor = 'rgba(239, 68, 68, 0.7)';    // Strong red
             }
 
             html += `
@@ -976,22 +1101,178 @@ function updateHeatmap() {
 
     container.innerHTML = html;
 
-    // Update insight
+    // Update insight with real data stats if available
     if (insightEl) {
-        if (heatmapMode === 'absolute') {
-            insightEl.innerHTML = `
-                <strong>Pattern:</strong> Performance decreases from keyword → conceptual queries, and from easy → hard difficulty.
-                ${MODEL_LABELS_SHORT[selectedModel]} shows strongest performance on <span class="text-green-400">keyword × easy</span>
-                and weakest on <span class="text-red-400">conceptual × hard</span>.
-            `;
+        const modelLabel = MODEL_LABELS_SHORT[selectedModel] || selectedModel;
+
+        let insightText = `<strong>Pattern:</strong> `;
+
+        if (hasRealData) {
+            // Find best and worst combinations from real data
+            const keywordEasy = modelData.by_style?.keyword?.avg_mrr || 0;
+            const conceptualHard = modelData.by_style?.conceptual?.avg_mrr || 0;
+            insightText += `${modelLabel} achieves <span class="text-green-400">MRR ${keywordEasy.toFixed(3)}</span> on keyword queries `;
+            insightText += `vs <span class="text-red-400">MRR ${conceptualHard.toFixed(3)}</span> on conceptual queries. `;
+            insightText += `<span class="text-slate-400">(Using real benchmark data)</span>`;
         } else {
-            insightEl.innerHTML = `
-                <strong>Reranker Impact:</strong> Cross-encoder reranking provides the largest gains on
-                <span class="text-green-400">conceptual × hard</span> queries where initial retrieval struggles most.
-                Minimal impact on <span class="text-amber-400">keyword × easy</span> where lexical matching is already strong.
-            `;
+            insightText += `Performance decreases from keyword → conceptual queries, and from easy → hard difficulty. `;
+            insightText += `${modelLabel} shows strongest performance on <span class="text-green-400">keyword × easy</span> `;
+            insightText += `and weakest on <span class="text-red-400">conceptual × hard</span>.`;
         }
+
+        if (heatmapRerankerEnabled) {
+            insightText += `<br><span class="text-purple-400">Reranker enabled</span> - showing reranked model performance.`;
+        }
+
+        insightEl.innerHTML = insightText;
     }
+}
+
+// ==========================================
+// DELTA HEATMAP (Model Comparison by Query Type)
+// ==========================================
+
+function updateDeltaHeatmap() {
+    const container = document.getElementById('delta-heatmap-container');
+    const baselineSelect = document.getElementById('delta-baseline-select');
+
+    if (!container || !evaluationData) return;
+
+    const baselineModel = baselineSelect?.value || 'qdrant_dense';
+
+    // Fixed model order (always show all 5 models)
+    const modelsToCompare = BASE_MODELS; // Keep all models in fixed order
+
+    // Get baseline data
+    const getModelForComparison = (model) => {
+        return deltaRerankerEnabled ? getRerankedModel(model) : model;
+    };
+
+    const baselineData = evaluationData[getModelForComparison(baselineModel)];
+    const hasRealData = baselineData?.by_style;
+
+    // Style key mapping
+    const styleKeyMap = {
+        'keyword': 'keyword',
+        'natural_short': 'natural_short',
+        'natural_long': 'natural_long',
+        'conceptual': 'conceptual'
+    };
+
+    const queryTypes = ['keyword', 'natural_short', 'natural_long', 'conceptual'];
+    const queryLabels = ['Keyword', 'Short', 'Long', 'Conceptual'];
+
+    let html = `
+        <table class="w-full text-sm">
+            <thead>
+                <tr class="border-b border-slate-600">
+                    <th class="text-left py-2 px-3 text-slate-400 font-medium">Model</th>
+                    ${queryLabels.map(l => `<th class="text-center py-2 px-3 text-slate-400 font-medium">${l}</th>`).join('')}
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+    modelsToCompare.forEach(model => {
+        const actualModel = getModelForComparison(model);
+        const modelData = evaluationData[actualModel];
+
+        if (!modelData) return;
+
+        html += `<tr class="border-b border-slate-700/50">`;
+        html += `<td class="py-2 px-3 text-slate-200 font-medium">${MODEL_LABELS_SHORT[model]}${deltaRerankerEnabled ? '+RR' : ''}</td>`;
+
+        queryTypes.forEach(qt => {
+            // For baseline model, always show 0.0%
+            if (model === baselineModel) {
+                const bgColor = 'rgba(148, 163, 184, 0.1)';
+                const textColor = 'text-slate-400';
+                html += `
+                    <td class="py-2 px-3 text-center" style="background-color: ${bgColor}">
+                        <span class="${textColor}">0.0%</span>
+                    </td>
+                `;
+                return;
+            }
+
+            // Calculate delta for this query type using real data if available
+            let baselineVal, modelVal;
+
+            if (hasRealData && modelData.by_style) {
+                baselineVal = baselineData.by_style[qt]?.avg_mrr || baselineData.avg_mrr || 0;
+                modelVal = modelData.by_style[qt]?.avg_mrr || modelData.avg_mrr || 0;
+            } else {
+                // Fallback to simulated multipliers
+                const queryTypeMultipliers = { keyword: 1.12, natural_short: 1.0, natural_long: 0.95, conceptual: 0.82 };
+                baselineVal = (baselineData?.avg_mrr || 0) * queryTypeMultipliers[qt];
+                modelVal = (modelData.avg_mrr || 0) * queryTypeMultipliers[qt];
+            }
+
+            const delta = modelVal - baselineVal;
+            const deltaPercent = baselineVal > 0 ? (delta / baselineVal * 100) : 0;
+
+            // Color based on delta with finer gradients
+            let bgColor, textColor;
+            const absDelta = Math.abs(deltaPercent);
+
+            if (delta > 0) {
+                // Positive delta: green scale with 5 levels
+                if (absDelta >= 15) {
+                    bgColor = 'rgba(16, 185, 129, 0.7)';  // Very strong green
+                    textColor = 'text-emerald-300 font-bold';
+                } else if (absDelta >= 10) {
+                    bgColor = 'rgba(16, 185, 129, 0.55)'; // Strong green
+                    textColor = 'text-green-400 font-semibold';
+                } else if (absDelta >= 5) {
+                    bgColor = 'rgba(16, 185, 129, 0.4)';  // Medium green
+                    textColor = 'text-green-400';
+                } else if (absDelta >= 2) {
+                    bgColor = 'rgba(16, 185, 129, 0.25)'; // Light green
+                    textColor = 'text-green-500';
+                } else {
+                    bgColor = 'rgba(16, 185, 129, 0.12)'; // Very light green
+                    textColor = 'text-green-600';
+                }
+            } else if (delta < 0) {
+                // Negative delta: red scale with 5 levels
+                if (absDelta >= 15) {
+                    bgColor = 'rgba(239, 68, 68, 0.7)';   // Very strong red
+                    textColor = 'text-red-300 font-bold';
+                } else if (absDelta >= 10) {
+                    bgColor = 'rgba(239, 68, 68, 0.55)';  // Strong red
+                    textColor = 'text-red-400 font-semibold';
+                } else if (absDelta >= 5) {
+                    bgColor = 'rgba(239, 68, 68, 0.4)';   // Medium red
+                    textColor = 'text-red-400';
+                } else if (absDelta >= 2) {
+                    bgColor = 'rgba(239, 68, 68, 0.25)';  // Light red
+                    textColor = 'text-red-500';
+                } else {
+                    bgColor = 'rgba(239, 68, 68, 0.12)';  // Very light red
+                    textColor = 'text-red-600';
+                }
+            } else {
+                bgColor = 'rgba(148, 163, 184, 0.1)';
+                textColor = 'text-slate-400';
+            }
+
+            const sign = delta >= 0 ? '+' : '';
+            html += `
+                <td class="py-2 px-3 text-center" style="background-color: ${bgColor}">
+                    <span class="${textColor}">${sign}${deltaPercent.toFixed(1)}%</span>
+                </td>
+            `;
+        });
+
+        html += `</tr>`;
+    });
+
+    html += `
+            </tbody>
+        </table>
+    `;
+
+    container.innerHTML = html;
 }
 
 // ==========================================
@@ -1179,112 +1460,6 @@ function renderComparisonRadarChart(modelA, modelB) {
 }
 
 // ==========================================
-// QUERY TYPE & DIFFICULTY CHARTS (Placeholders)
-// ==========================================
-
-function renderQueryTypeChart() {
-    const canvas = document.getElementById('queryTypeChart');
-    if (!canvas || !evaluationData) return;
-
-    if (chartInstances.queryType) {
-        chartInstances.queryType.destroy();
-    }
-
-    const ctx = canvas.getContext('2d');
-
-    // Simulated breakdown based on overall metrics
-    const models = getSortedModels(evaluationData, 'base').slice(0, 5);
-    const queryTypeLabels = ['Keyword', 'Natural Short', 'Natural Long', 'Conceptual'];
-    const multipliers = [1.12, 1.0, 0.95, 0.82];
-
-    const datasets = models.map(model => ({
-        label: MODEL_LABELS_SHORT[model],
-        data: multipliers.map(m => (evaluationData[model]['avg_ndcg@10'] || 0) * m),
-        backgroundColor: MODEL_COLORS[model] || 'rgba(156, 163, 175, 0.8)',
-    }));
-
-    chartInstances.queryType = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: queryTypeLabels,
-            datasets: datasets,
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: { color: '#e2e8f0', boxWidth: 12, padding: 8 },
-                },
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    max: 1,
-                    grid: { color: 'rgba(148, 163, 184, 0.2)' },
-                    ticks: { color: '#94a3b8' },
-                },
-                x: {
-                    grid: { display: false },
-                    ticks: { color: '#94a3b8' },
-                },
-            },
-        },
-    });
-}
-
-function renderDifficultyChart() {
-    const canvas = document.getElementById('difficultyChart');
-    if (!canvas || !evaluationData) return;
-
-    if (chartInstances.difficulty) {
-        chartInstances.difficulty.destroy();
-    }
-
-    const ctx = canvas.getContext('2d');
-
-    // Simulated breakdown
-    const models = getSortedModels(evaluationData, 'base').slice(0, 5);
-    const difficultyLabels = ['Easy', 'Medium', 'Hard'];
-    const multipliers = [1.15, 1.0, 0.75];
-
-    const datasets = models.map(model => ({
-        label: MODEL_LABELS_SHORT[model],
-        data: multipliers.map(m => (evaluationData[model]['avg_ndcg@10'] || 0) * m),
-        backgroundColor: MODEL_COLORS[model] || 'rgba(156, 163, 175, 0.8)',
-    }));
-
-    chartInstances.difficulty = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: difficultyLabels,
-            datasets: datasets,
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: { color: '#e2e8f0', boxWidth: 12, padding: 8 },
-                },
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    max: 1,
-                    grid: { color: 'rgba(148, 163, 184, 0.2)' },
-                    ticks: { color: '#94a3b8' },
-                },
-                x: {
-                    grid: { display: false },
-                    ticks: { color: '#94a3b8' },
-                },
-            },
-        },
-    });
-}
-
-// ==========================================
 // PRODUCTION RECOMMENDATIONS
 // ==========================================
 
@@ -1354,10 +1529,25 @@ function renderRecommendations() {
         rerankerAvgEl.textContent = formatDelta(avgGain);
     }
 
-    // Max conceptual gain (simulated)
+    // Max conceptual gain (from real data if available)
     const maxConceptualEl = document.getElementById('reranker-best-combo');
     if (maxConceptualEl) {
-        maxConceptualEl.textContent = formatDelta(avgGain * 1.5); // Estimated higher gain for conceptual
+        // Calculate actual max gain for conceptual queries across all model pairs
+        let maxConceptualGain = 0;
+        BASE_MODELS.forEach(baseModel => {
+            const rerankedModel = getRerankedModel(baseModel);
+            const baseData = evaluationData[baseModel];
+            const rerankedData = evaluationData[rerankedModel];
+            if (baseData?.by_style?.conceptual && rerankedData?.by_style?.conceptual) {
+                const baseConceptual = baseData.by_style.conceptual.avg_mrr || 0;
+                const rerankedConceptual = rerankedData.by_style.conceptual.avg_mrr || 0;
+                const gain = baseConceptual > 0 ? calculateDelta(baseConceptual, rerankedConceptual) : 0;
+                if (gain > maxConceptualGain) maxConceptualGain = gain;
+            }
+        });
+        // Fallback to estimated if no real data
+        if (maxConceptualGain === 0) maxConceptualGain = avgGain * 1.5;
+        maxConceptualEl.textContent = formatDelta(maxConceptualGain);
     }
 
     // Avg latency overhead
@@ -1415,20 +1605,20 @@ function renderDashboard() {
 
     updateSummaryCards();
     populateHeatmapModelSelect();
+    populateDeltaBaselineSelect();
     populateComparisonSelects();
 
-    renderMetricsChart();
+    renderStackedBarChart();
     renderBaseRadarChart();
     renderRerankedRadarChart();
     renderRerankerImpactChart();
     renderLatencyChart();
     renderResultsTable();
-    renderQueryTypeChart();
-    renderDifficultyChart();
     renderFindings();
     renderRecommendations();
 
     updateHeatmap();
+    updateDeltaHeatmap();
     updateComparison();
 
     // Update date
@@ -1444,7 +1634,10 @@ document.addEventListener('DOMContentLoaded', loadData);
 
 // Expose functions globally for HTML onclick handlers
 window.setFilter = setFilter;
-window.setHeatmapMode = setHeatmapMode;
 window.updateHeatmap = updateHeatmap;
+window.toggleHeatmapReranker = toggleHeatmapReranker;
+window.updateDeltaHeatmap = updateDeltaHeatmap;
+window.toggleDeltaReranker = toggleDeltaReranker;
 window.updateComparison = updateComparison;
 window.setQuickCompare = setQuickCompare;
+window.renderStackedBarChart = renderStackedBarChart;

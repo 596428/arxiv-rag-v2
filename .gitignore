@@ -84,3 +84,14 @@ Thumbs.db
 *.pdf
 *.tar.gz
 DB_config.txt
+old/
+CLAUDE.md
+claude.md
+**/CLAUDE.md
+*_gpt.txt
+plan_backup*.txt
+
+# Claude/OMC state
+.omc/
+claudedocs/
+results/

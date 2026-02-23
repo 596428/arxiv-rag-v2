@@ -1,8 +1,0 @@
-{"t":0,"agent":"system","event":"keyword_detected","keyword":"research"}
-{"t":0,"agent":"system","event":"skill_invoked","skill_name":"oh-my-claudecode:research"}
-{"t":0,"agent":"a4432c4","agent_type":"scientist","event":"agent_start","parent_mode":"none"}
-{"t":0,"agent":"a34445b","agent_type":"scientist","event":"agent_start","parent_mode":"none"}
-{"t":0,"agent":"acd3d2e","agent_type":"scientist","event":"agent_start","parent_mode":"none"}
-{"t":0,"agent":"a34445b","agent_type":"scientist","event":"agent_stop","success":true,"duration_ms":213785}
-{"t":0,"agent":"acd3d2e","agent_type":"scientist","event":"agent_stop","success":true,"duration_ms":283903}
-{"t":0,"agent":"a4432c4","agent_type":"scientist","event":"agent_stop","success":true,"duration_ms":362797}
