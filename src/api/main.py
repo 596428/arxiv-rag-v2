@@ -64,8 +64,10 @@ ALLOWED_ORIGINS = [
     "https://api.acacia.chat",   # API domain
     "http://localhost:3000",     # Local dev
     "http://localhost:8080",     # Local dev
+    "http://localhost:9090",     # Local dev
     "http://127.0.0.1:3000",
     "http://127.0.0.1:8080",
+    "http://127.0.0.1:9090",
 ]
 
 # In development, allow all origins

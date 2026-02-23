@@ -34,7 +34,7 @@ class ChatRequest(BaseModel):
     """Chat request payload."""
     query: str = Field(..., min_length=1, max_length=4000, description="User question")
     search_mode: str = Field(default="hybrid", description="Search mode for retrieval")
-    embedding_model: str = Field(default="bge", description="Embedding model (bge/openai)")
+    embedding_model: str = Field(default="openai", description="Embedding model (bge/openai)")
     top_k: int = Field(default=5, ge=1, le=20, description="Number of sources to retrieve")
     history: list[ChatMessage] = Field(default=[], description="Conversation history")
     stream: bool = Field(default=False, description="Stream response")
@@ -224,7 +224,7 @@ async def chat(request: ChatRequest):
         if request.embedding_model == "openai":
             embedder = get_openai_embedder()
             dense_vec = embedder.embed_single(request.query)
-            vector_name = "dense_openai"
+            vector_name = "dense_3large"
             sparse_indices, sparse_values = None, None
         else:
             embedder = get_bge_embedder()
@@ -233,30 +233,38 @@ async def chat(request: ChatRequest):
             sparse_indices = sparse_vec.indices if sparse_vec else None
             sparse_values = sparse_vec.values if sparse_vec else None
 
-        # Perform search
+        # Perform search (fetch more to allow deduplication by paper)
+        search_top_k = request.top_k * 3  # Fetch 3x to ensure enough unique papers
         if request.search_mode == "hybrid" and sparse_indices:
             raw_results = qdrant.search_hybrid(
                 dense_vector=dense_vec,
                 sparse_indices=sparse_indices,
                 sparse_values=sparse_values,
-                top_k=request.top_k,
+                top_k=search_top_k,
             )
         else:
             raw_results = qdrant.search_dense(
                 query_vector=dense_vec,
                 vector_name=vector_name,
-                top_k=request.top_k,
+                top_k=search_top_k,
             )
 
         metrics["retrieval_time_ms"] = round((time.time() - retrieval_start) * 1000, 1)
         metrics["chunks_found"] = len(raw_results)
 
-        # Step 2: Enrich with paper titles
+        # Step 2: Enrich with paper titles (deduplicate by paper_id)
         sources = []
+        deduped_results = []  # For context building with correct indices
         paper_cache = {}
+        seen_papers = set()
 
         for result in raw_results:
             paper_id = result["paper_id"]
+
+            # Skip duplicate papers (keep only first/best chunk per paper)
+            if paper_id in seen_papers:
+                continue
+            seen_papers.add(paper_id)
 
             # Get paper title (cached)
             if paper_id not in paper_cache:
@@ -270,9 +278,14 @@ async def chat(request: ChatRequest):
                 section_title=result.get("section_title"),
                 similarity=round(result.get("similarity", result.get("score", 0)), 3),
             ))
+            deduped_results.append(result)  # Keep for context
 
-        # Step 3: Build context and prompt
-        context = build_context(raw_results)
+            # Stop after collecting enough unique papers
+            if len(sources) >= request.top_k:
+                break
+
+        # Step 3: Build context and prompt (use deduped results for correct [1], [2] indices)
+        context = build_context(deduped_results)
         prompt = build_prompt(request.query, context, request.history)
 
         # Step 4: Generate response
@@ -316,7 +329,7 @@ async def chat_stream(request: ChatRequest):
         if request.embedding_model == "openai":
             embedder = get_openai_embedder()
             dense_vec = embedder.embed_single(request.query)
-            vector_name = "dense_openai"
+            vector_name = "dense_3large"
             sparse_indices, sparse_values = None, None
         else:
             embedder = get_bge_embedder()

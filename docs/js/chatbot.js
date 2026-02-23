@@ -78,7 +78,7 @@ class InlineChatbot {
         body: JSON.stringify({
           query,
           search_mode: 'hybrid',
-          embedding_model: 'bge',
+          embedding_model: 'openai',
           history: this.history.slice(-6).map(msg => ({
             role: msg.role,
             content: msg.content
