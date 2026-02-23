@@ -13,9 +13,10 @@ Endpoints:
 
 import os
 import time
+from collections import defaultdict
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
@@ -77,8 +78,89 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
-    expose_headers=["X-Request-ID", "X-Response-Time"],
+    expose_headers=["X-Request-ID", "X-Response-Time", "X-RateLimit-Remaining"],
 )
+
+
+# ==========================================
+# RATE LIMITING (In-memory, IP-based)
+# ==========================================
+
+# Configuration
+RATE_LIMIT_REQUESTS = int(os.getenv("RATE_LIMIT_REQUESTS", "30"))  # requests per window
+RATE_LIMIT_WINDOW = int(os.getenv("RATE_LIMIT_WINDOW", "60"))  # window in seconds
+
+# In-memory store: {ip: [(timestamp, count)]}
+rate_limit_store: dict[str, list[float]] = defaultdict(list)
+
+
+def get_client_ip(request: Request) -> str:
+    """Extract client IP from request, considering proxies."""
+    # Check X-Forwarded-For header (Cloudflare, proxies)
+    forwarded = request.headers.get("X-Forwarded-For")
+    if forwarded:
+        return forwarded.split(",")[0].strip()
+    # Check CF-Connecting-IP (Cloudflare specific)
+    cf_ip = request.headers.get("CF-Connecting-IP")
+    if cf_ip:
+        return cf_ip
+    # Fallback to direct client
+    return request.client.host if request.client else "unknown"
+
+
+def is_rate_limited(ip: str) -> tuple[bool, int]:
+    """Check if IP is rate limited. Returns (is_limited, remaining_requests)."""
+    now = time.time()
+    window_start = now - RATE_LIMIT_WINDOW
+
+    # Clean old entries
+    rate_limit_store[ip] = [ts for ts in rate_limit_store[ip] if ts > window_start]
+
+    # Check limit
+    current_count = len(rate_limit_store[ip])
+    remaining = max(0, RATE_LIMIT_REQUESTS - current_count)
+
+    if current_count >= RATE_LIMIT_REQUESTS:
+        return True, 0
+
+    # Record this request
+    rate_limit_store[ip].append(now)
+    return False, remaining - 1
+
+
+# Rate limiting middleware
+@app.middleware("http")
+async def rate_limit_middleware(request: Request, call_next):
+    """Rate limit requests by IP address."""
+    # Skip rate limiting for health checks and docs
+    if request.url.path in ["/", "/docs", "/redoc", "/openapi.json", "/api/v1/health"]:
+        return await call_next(request)
+
+    # Skip in development mode
+    if os.getenv("ENV") == "development":
+        return await call_next(request)
+
+    client_ip = get_client_ip(request)
+    is_limited, remaining = is_rate_limited(client_ip)
+
+    if is_limited:
+        logger.warning(f"Rate limit exceeded for IP: {client_ip}")
+        return JSONResponse(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            content={
+                "error": "Rate limit exceeded",
+                "detail": f"Maximum {RATE_LIMIT_REQUESTS} requests per {RATE_LIMIT_WINDOW} seconds",
+                "retry_after": RATE_LIMIT_WINDOW,
+            },
+            headers={
+                "Retry-After": str(RATE_LIMIT_WINDOW),
+                "X-RateLimit-Remaining": "0",
+            },
+        )
+
+    response = await call_next(request)
+    response.headers["X-RateLimit-Remaining"] = str(remaining)
+    return response
 
 
 # Request timing middleware

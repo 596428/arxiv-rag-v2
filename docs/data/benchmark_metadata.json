@@ -1,0 +1,199 @@
+{
+  "version": "2.0",
+  "created_at": "2026-02-23",
+  "project": "arXiv RAG v2",
+
+  "data_collection": {
+    "source": "arXiv",
+    "date_range": {
+      "start": "2025-01",
+      "end": "2026-02"
+    },
+    "duration_months": 14,
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG",
+      "cs.CV",
+      "stat.ML",
+      "cs.IR",
+      "cs.NE"
+    ],
+    "pipeline_stages": [
+      {
+        "stage": 1,
+        "name": "arXiv API Collection",
+        "script": "scripts/collect_extended.py",
+        "description": "Collect papers from arXiv API with keyword filtering"
+      },
+      {
+        "stage": 2,
+        "name": "NG Keyword Filtering",
+        "script": "scripts/init_ng_keywords.py",
+        "data_file": "data/ng_keywords.json",
+        "description": "Filter out off-topic papers using 1,756 negative keywords"
+      },
+      {
+        "stage": 3,
+        "name": "Gemini Classification",
+        "script": "scripts/classify_papers.py",
+        "model": "gemini-3-flash-preview",
+        "description": "LLM-based SUITABLE/NOT_SUITABLE classification"
+      },
+      {
+        "stage": 4,
+        "name": "Semantic Filtering",
+        "script": "scripts/semantic_filter.py",
+        "threshold": 0.55,
+        "description": "Cosine similarity filter with anchor queries"
+      },
+      {
+        "stage": 5,
+        "name": "Multi-Score Ranking",
+        "script": "scripts/compute_scores.py",
+        "description": "Composite scoring: citation + recency + semantic"
+      },
+      {
+        "stage": 6,
+        "name": "Stratified Sampling",
+        "script": "scripts/select_top_papers.py",
+        "description": "Final selection with category balance"
+      }
+    ],
+    "ng_keywords": {
+      "total_count": 1756,
+      "categories": [
+        "biomedical",
+        "chemistry",
+        "earth_science",
+        "robotics",
+        "physics",
+        "economics",
+        "social_science",
+        "engineering",
+        "other"
+      ]
+    },
+    "final_papers": 2500
+  },
+
+  "benchmark_queries": {
+    "generator_model": "gemini-3-flash-preview",
+    "script": "scripts/08_generate_synthetic_benchmark.py",
+    "total_queries": 9544,
+    "queries_per_paper": 4,
+    "query_styles": [
+      {
+        "name": "keyword",
+        "description": "4-7 technical terms including model names and techniques",
+        "word_count_range": [4, 7]
+      },
+      {
+        "name": "natural_short",
+        "description": "Simple question in natural language",
+        "word_count_range": [6, 12]
+      },
+      {
+        "name": "natural_long",
+        "description": "Detailed research question",
+        "word_count_range": [15, 25]
+      },
+      {
+        "name": "conceptual",
+        "description": "Paraphrased query without acronyms or proper nouns",
+        "word_count_range": [10, 20]
+      }
+    ],
+    "difficulty_levels": [
+      {
+        "name": "easy",
+        "criteria": "style=keyword OR word_overlap>50%"
+      },
+      {
+        "name": "medium",
+        "criteria": "default (not easy or hard)"
+      },
+      {
+        "name": "hard",
+        "criteria": "style=conceptual OR word_overlap<20%"
+      }
+    ],
+    "hard_negative_mining": {
+      "method": "BGE-M3 dense similarity search",
+      "description": "Include semantically similar but different papers as hard negatives"
+    }
+  },
+
+  "models_evaluated": {
+    "total_count": 10,
+    "base_models": [
+      {
+        "id": "qdrant_dense",
+        "name": "Dense (BGE-M3)",
+        "embedding_model": "BAAI/bge-m3",
+        "vector_dim": 1024,
+        "type": "dense"
+      },
+      {
+        "id": "qdrant_sparse",
+        "name": "Sparse (BGE-M3)",
+        "embedding_model": "BAAI/bge-m3",
+        "type": "sparse"
+      },
+      {
+        "id": "qdrant_hybrid",
+        "name": "Hybrid (BGE-M3)",
+        "embedding_model": "BAAI/bge-m3",
+        "fusion": "RRF",
+        "type": "hybrid"
+      },
+      {
+        "id": "qdrant_3large",
+        "name": "OpenAI 3-large",
+        "embedding_model": "text-embedding-3-large",
+        "vector_dim": 3072,
+        "type": "dense"
+      },
+      {
+        "id": "qdrant_hybrid_3large",
+        "name": "Hybrid-3L (OpenAI+BGE)",
+        "embedding_models": ["text-embedding-3-large", "BAAI/bge-m3"],
+        "fusion": "RRF",
+        "type": "hybrid"
+      }
+    ],
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "type": "cross-encoder",
+      "retrieval_k": 20,
+      "final_k": 10
+    }
+  },
+
+  "metrics": {
+    "primary": ["MRR", "NDCG@10"],
+    "secondary": ["NDCG@5", "P@5", "P@10"],
+    "latency": "avg_search_time_ms"
+  },
+
+  "infrastructure": {
+    "vector_store": {
+      "name": "Qdrant",
+      "deployment": "local",
+      "port": 6333
+    },
+    "metadata_store": {
+      "name": "Supabase",
+      "deployment": "cloud"
+    },
+    "api": {
+      "framework": "FastAPI",
+      "deployment": "Cloudflare Tunnel",
+      "domain": "api.acacia.chat"
+    },
+    "frontend": {
+      "deployment": "GitHub Pages",
+      "domain": "ajh428.github.io"
+    }
+  }
+}

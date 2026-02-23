@@ -25,7 +25,7 @@ services:
       - QDRANT__SERVICE__HTTP_PORT=6333
       - QDRANT__SERVICE__GRPC_PORT=6334
     healthcheck:
-      test: ["CMD", "wget", "-q", "--spider", "http://localhost:6333/health"]
+      test: ["CMD-SHELL", "timeout 5 bash -c '</dev/tcp/localhost/6333' || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -33,9 +33,7 @@ services:
 
   # FastAPI Backend
   api:
-    build:
-      context: .
-      dockerfile: Dockerfile.api
+    image: arxiv-rag-api:latest
     container_name: arxiv-rag-api
     restart: unless-stopped
     ports:

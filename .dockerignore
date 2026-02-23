@@ -1,0 +1,64 @@
+# Large data directories (not needed for API runtime)
+data/latex/
+data/pdfs/
+data/figures/
+data/collection/
+
+# Keep only essential data
+# data/eval/ - benchmark metadata (small)
+# data/parsed/ - if needed, mount as volume instead
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# Documentation and tests (not needed in production)
+docs/
+tests/
+*.md
+LICENSE
+
+# Jupyter notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# Scripts (not needed for API runtime)
+scripts/
+
+# Local development files
+.env
+.env.local
+*.log
+
+# Docker files (avoid recursive copy)
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# OMC state files
+.omc/
+
+# Misc
+*.tar
+*.gz
+*.zip

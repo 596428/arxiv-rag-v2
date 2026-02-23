@@ -1,8 +1,20 @@
 // arXiv RAG Inline Chatbot Client (Dark Mode)
 console.log('[Chatbot] Script loaded');
 
-const CHAT_API_URL = 'https://wfkectgpoifwbgyjslcl.supabase.co/functions/v1/chat';
-// Use SUPABASE_ANON_KEY from papers.js (already declared globally)
+// API URL configuration - use FastAPI backend via Cloudflare Tunnel
+const CHAT_API_URL = 'https://api.acacia.chat/api/v1/chat';
+
+// Fallback for local development
+const CHAT_API_URL_LOCAL = 'http://localhost:8000/api/v1/chat';
+
+// Determine which URL to use based on environment
+function getChatApiUrl() {
+    // Use local URL if running on localhost
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        return CHAT_API_URL_LOCAL;
+    }
+    return CHAT_API_URL;
+}
 
 class InlineChatbot {
   constructor() {
@@ -58,17 +70,21 @@ class InlineChatbot {
     this.status.textContent = 'Searching papers...';
 
     try {
-      const response = await fetch(CHAT_API_URL, {
+      const response = await fetch(getChatApiUrl(), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
         },
         body: JSON.stringify({
           query,
-          embedding_model: 'openai',
-          history: this.history.slice(-6),
+          search_mode: 'hybrid',
+          embedding_model: 'bge',
+          history: this.history.slice(-6).map(msg => ({
+            role: msg.role,
+            content: msg.content
+          })),
           top_k: 5,
+          stream: false,
         }),
       });
 
